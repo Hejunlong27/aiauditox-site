@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>联系我们 · 审小牛 AIAuditOx</title>
+<meta name="description" content="联系审小牛 AuditOx：技能需求提交、程序卡纠错、下载链接失效反馈、工具建议。">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="page-head">
+      <div class="page-head__eyebrow">Contact</div>
+      <h1 class="page-head__title">联系我们</h1>
+      <p class="page-head__desc">
+        技能需求、程序卡纠错、链接失效、工具建议——都欢迎。
+        反馈越具体，处理越快。
+      </p>
+    </div>
+
+    <div class="grid grid--2" id="contact-cards" style="margin-bottom:34px">
+      <div class="skeleton" style="height:140px;border-radius:10px"></div>
+      <div class="skeleton" style="height:140px;border-radius:10px"></div>
+      <div class="skeleton" style="height:140px;border-radius:10px"></div>
+      <div class="skeleton" style="height:140px;border-radius:10px"></div>
+    </div>
+
+    <div class="detail-layout" style="margin-top:0">
+
+      <!-- 表单 -->
+      <div>
+        <h2 class="section__title" style="font-size:20px;margin-bottom:6px">反馈与需求</h2>
+        <p class="section__desc" style="margin-bottom:18px">
+          本站是纯静态站点，没有后端。提交后会打开你的邮件客户端，内容自动填好；也可以先复制再自行发送。
+        </p>
+
+        <form class="card" id="contact-form" novalidate><div class="card__body">
+
+          <div class="field" id="f-name">
+            <label class="field__label" for="name">称呼</label>
+            <input class="input" id="name" name="name" type="text" placeholder="怎么称呼你（可留空）" autocomplete="name">
+          </div>
+
+          <div class="field" id="f-reply">
+            <label class="field__label" for="reply">联系方式<span class="req">*</span></label>
+            <input class="input" id="reply" name="reply" type="text" placeholder="邮箱或微信号，用于回复你" autocomplete="email">
+            <div class="field__error">请填写联系方式，否则无法回复</div>
+          </div>
+
+          <div class="field" id="f-type">
+            <label class="field__label" for="type">反馈类型<span class="req">*</span></label>
+            <select class="select" id="type" name="type" style="width:100%">
+              <option value="">请选择</option>
+              <option value="技能需求">技能需求 —— 想把某道审计程序 skill 化</option>
+              <option value="程序纠错">程序纠错 —— 程序卡步骤或认定标注有误</option>
+              <option value="链接失效">链接失效 —— 夸克网盘链接打不开或提取码错误</option>
+              <option value="工具建议">工具建议 —— 某个确定性工具的行为不符合预期</option>
+              <option value="制式问题">制式问题 —— 底稿结构或索引号规则疑问</option>
+              <option value="合作">合作洽谈</option>
+              <option value="其他">其他</option>
+            </select>
+            <div class="field__error">请选择反馈类型</div>
+          </div>
+
+          <div class="field" id="f-skill">
+            <label class="field__label" for="skill">相关技能组</label>
+            <select class="select" id="skill" name="skill" style="width:100%">
+              <option value="">不涉及 / 全部</option>
+            </select>
+            <div class="field__hint">如果问题出在某个具体科目，选上它能帮我更快定位。</div>
+          </div>
+
+          <div class="field" id="f-message">
+            <label class="field__label" for="message">详细说明<span class="req">*</span></label>
+            <textarea class="input" id="message" name="message" placeholder="请写清：你遇到的情况、期望的结果、涉及的程序卡编号（如 P04）。至少 10 个字。"></textarea>
+            <div class="field__error">详细说明至少 10 个字</div>
+          </div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+            <button class="btn btn--primary" type="submit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              提交反馈
+            </button>
+            <button class="btn btn--ghost" type="button" id="copy-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              复制内容
+            </button>
+            <button class="btn btn--quiet" type="button" id="clear-btn">清空</button>
+          </div>
+
+        </div></form>
+      </div>
+
+      <!-- 侧栏 -->
+      <aside class="sidebar">
+
+        <div class="card"><div class="card__body">
+          <h2 class="sidebar__title">回复时效</h2>
+          <p style="font-size:13.8px;color:var(--ink-2);line-height:1.8" id="resp-time">工作日 24 小时内回复</p>
+          <p style="font-size:13px;color:var(--ink-3);margin-top:8px;line-height:1.7">
+            链接失效类反馈我会优先处理，一般当天更新。
+          </p>
+        </div></div>
+
+        <div class="card"><div class="card__body">
+          <h2 class="sidebar__title">高效反馈模板</h2>
+          <div class="code-block" style="white-space:pre-wrap;font-size:12px;line-height:1.75">技能组：Z-1-2 银行存款
+程序卡：P04
+问题：调节表重算后两侧余额不等，
+      但底稿显示通过
+期望：应标记为异常并给出差异额
+版本：v1.0.0</div>
+          <button class="btn btn--quiet btn--block" type="button" style="margin-top:10px"
+            data-copy-text="技能组：&#10;程序卡：&#10;问题：&#10;期望：&#10;版本：">复制模板</button>
+        </div></div>
+
+      </aside>
+    </div>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="section__head">
+        <div>
+          <h2 class="section__title">常见问题</h2>
+          <p class="section__desc">先看这里，多数问题有现成答案。</p>
+        </div>
+      </div>
+      <div class="card"><div class="card__body">
+        <div id="faq-list">
+          <div class="faq-item">
+            <div class="faq-item__q">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              技能包怎么安装？
+            </div>
+            <div class="faq-item__a">解压后把技能组文件夹放进技能目录，重启会话即可识别。具体路径见各技能包详情页。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-item__q">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              为什么程序卡标注「待人工确认」？
+            </div>
+            <div class="faq-item__a">「确定性优先」铁律的要求：工具算得准，判断必须由人做。凡涉及差异原因、错报认定的结论，未经复核不得进入正式底稿。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-item__q">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              没有对应科目的技能包怎么办？
+            </div>
+            <div class="faq-item__a">走三段式兜底底稿（审定表 / 明细表 / 凭证抽查表）。也欢迎提交技能需求，我会按程序库逐步补齐。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-item__q">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              夸克网盘链接打不开？
+            </div>
+            <div class="faq-item__a">网盘分享有失效风险。请在本页反馈并注明技能组编号，或加入网盘群获取最新版本。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-item__q">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              技能包可以直接商用吗？
+            </div>
+            <div class="faq-item__a">不可以。免费分享，仅限个人学习与工作使用，禁止商用转售或二次打包售卖。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-item__q">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              网站上的数据和技能库会同步吗？
+            </div>
+            <div class="faq-item__a">会。本站数据由脚本从技能库自动解析生成，新增科目后重跑一次脚本即可，不需要改前端代码。</div>
+          </div>
+        </div>
+      </div></div>
+    </section>
+
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/vendor/marked.min.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/contact.js"></script>
+</body>
+</html>

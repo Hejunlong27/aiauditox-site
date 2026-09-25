@@ -1,0 +1,26 @@
+{
+  "name": "审小牛",
+  "nameEn": "AIAuditOx",
+  "tagline": "一切审计程序，皆可 skill 化",
+  "subtitle": "把审计方法论沉淀成可复用、可组合、可扩展的 AI 技能",
+  "description": "审小牛 AuditOx 把审计程序库逐条拆解为标准化的技能包：一个科目一个技能组，一道程序一张程序卡，凡能本地算完的一律交给确定性工具。技能库、确定性工具、底稿制式三件套，让「丢文件 → 说程序 → 出底稿」成为标准动作。",
+  "version": "2.0.0",
+  "updatedAt": "2026-09-23",
+  "author": "审小牛",
+  "principle": "确定性优先：凡能本地算完的（勾稽、重算、抽样、索引号、哈希）一律调确定性工具，禁止用模型估算；LLM 只做分析、解释、判断。差异类结论必须标注「待人工确认」。",
+  "contact": {
+    "email": "auditox@qq.com",
+    "wechat": "AIAuditOx",
+    "quarkGroup": "https://pan.quark.cn/s/auditox-group",
+    "responseTime": "工作日 24 小时内回复"
+  },
+  "roadmap": [
+    { "phase": "P0", "name": "资产盘点", "status": "done", "desc": "技能库 13 包就位，SKILL.md 为原生格式" },
+    { "phase": "P1", "name": "工具原型", "status": "done", "desc": "动态插件验证核心工具，黄金用例 10/10 通过" },
+    { "phase": "P2", "name": "工具固化", "status": "done", "desc": "固化 @auditox/dsh-tools，13 内核 + 17 工具注册" },
+    { "phase": "P3", "name": "建 preset", "status": "done", "desc": "auditox preset：persona + 三规则 + 13 技能挂载" },
+    { "phase": "P4", "name": "端到端试点", "status": "doing", "desc": "四段式底稿 + 修订记录 + manifest 已跑通，待按三规则复跑" },
+    { "phase": "P5", "name": "批量与打磨", "status": "todo", "desc": "批量导入导出按索引号归档，确定性覆盖比统计" },
+    { "phase": "P6", "name": "封装分发", "status": "todo", "desc": "Electron 壳打包双击即用的 exe" }
+  ]
+}

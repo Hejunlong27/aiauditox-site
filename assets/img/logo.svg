@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="审小牛 AIAuditOx">
+  <defs>
+    <linearGradient id="oxGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1B6497"/>
+      <stop offset="1" stop-color="#0A3049"/>
+    </linearGradient>
+  </defs>
+  <rect width="40" height="40" rx="11" fill="url(#oxGrad)"/>
+  <path d="M8.6 14.2C8.6 10 11.3 7 14.6 7" fill="none" stroke="#F0E0BF" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M31.4 14.2C31.4 10 28.7 7 25.4 7" fill="none" stroke="#F0E0BF" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M13.2 12.6h13.6c1.8 0 3.2 1.4 3.2 3.2v7c0 5.1-4.5 9.2-10 9.2s-10-4.1-10-9.2v-7c0-1.8 1.4-3.2 3.2-3.2z" fill="#FFFFFF" opacity="0.97"/>
+  <path d="M15.8 21.6l3.3 3.3 6.6-6.9" fill="none" stroke="#A8792A" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

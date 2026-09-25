@@ -1,0 +1,108 @@
+{
+  "_comment": "技能包下载链接（手工维护）。跑 tools/build_registry.py 时会合并进 registry.json 的 skills[].download。url 为空表示该技能包暂未开放下载，网站会显示「暂未开放」。",
+
+  "auditox-wp-standard": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "1.1 MB",
+    "format": ".zip（SKILL.md + dsl.json + 通用三段式底稿模板.xlsx + 黄金用例）",
+    "note": "全局制式规范包，其余技能包均依赖它，建议先装。"
+  },
+  "z-1-1-cash-on-hand": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "1.6 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 库存现金工作簿模板.xlsx）",
+    "note": "解压到技能目录后重启会话即可使用。"
+  },
+  "z-1-2-bank-deposits": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "3.2 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板 + 回归测试脚本）",
+    "note": "样板技能包，含完整回归测试与沙箱用例。"
+  },
+  "z-1-3-other-monetary-funds": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "1.8 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
+    "note": ""
+  },
+  "z-2-1-notes-receivable": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "2.0 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
+    "note": ""
+  },
+  "z-2-accounts-receivable": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "2.6 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板）",
+    "note": ""
+  },
+  "z-3-prepayments": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "1.9 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
+    "note": ""
+  },
+  "z-4-other-receivables": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "1.9 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
+    "note": ""
+  },
+  "f-1-borrowings": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "2.4 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板）",
+    "note": ""
+  },
+  "f-3-notes-payable": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "1.8 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P06 程序卡 + 工作簿模板）",
+    "note": ""
+  },
+  "f-4-accounts-payable": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "2.2 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
+    "note": ""
+  },
+  "f-6-payroll-payable": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "2.3 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡）",
+    "note": "该技能包以程序卡为主，底稿沿用通用三段式模板。"
+  },
+  "s-1-revenue": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "3.0 MB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P12 程序卡 + 工作簿模板）",
+    "note": "覆盖 S6001 + S6051 程序库共 71 项程序，最大的一个技能包。"
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>程序图谱 · 审小牛 AIAuditOx</title>
+<meta name="description" content="全库审计程序卡检索：按组、认定、执行方式、确定性工具跨科目筛选，看清每道程序服务于哪个认定、调用哪个工具、产出哪张底稿。">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="page-head">
+      <div class="page-head__eyebrow">Procedure Atlas</div>
+      <h1 class="page-head__title">程序图谱</h1>
+      <p class="page-head__desc">
+        全部程序卡摊开来看：每道程序服务哪个认定、由谁执行、调用哪个工具、产出哪张底稿。
+      </p>
+    </div>
+
+    <!-- 维度概览 -->
+    <div class="grid grid--4" id="atlas-stats" style="margin-bottom:22px">
+      <div class="skeleton" style="height:96px;border-radius:10px"></div>
+      <div class="skeleton" style="height:96px;border-radius:10px"></div>
+      <div class="skeleton" style="height:96px;border-radius:10px"></div>
+      <div class="skeleton" style="height:96px;border-radius:10px"></div>
+    </div>
+
+    <!-- 工具条 -->
+    <div class="toolbar" style="margin-bottom:14px">
+      <label class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input class="input" id="search-input" type="search" placeholder="搜索程序名称、索引号、技能组…" autocomplete="off">
+      </label>
+      <select class="select" id="sort-select" aria-label="排序方式">
+        <option value="code">按索引号</option>
+        <option value="name">按名称</option>
+        <option value="mode">按执行方式</option>
+      </select>
+      <button class="btn btn--ghost" type="button" id="reset-btn">重置</button>
+    </div>
+
+    <!-- 筛选 -->
+    <div class="card" style="margin-bottom:18px"><div class="card__body" style="padding:16px 18px">
+      <div class="filter-row" id="cycle-filters" style="margin-bottom:12px"><span class="filter-label">组</span></div>
+      <div class="filter-row" id="skill-filters" style="margin-bottom:12px"><span class="filter-label">技能组</span></div>
+      <div class="filter-row" id="assertion-filters" style="margin-bottom:12px"><span class="filter-label">认定</span></div>
+      <div class="filter-row" id="mode-filters" style="margin-bottom:12px"><span class="filter-label">执行方式</span></div>
+      <div class="filter-row" id="tool-filters"><span class="filter-label">工具</span></div>
+    </div></div>
+
+    <div class="result-count" id="result-count">加载中…</div>
+
+    <div class="data-table__wrap">
+      <table class="data-table">
+        <!-- 用 colgroup 明确列宽：第 2 列不设宽，自动吃掉剩余空间，
+             其余列固定，避免长文本（如执行方式全文）把列撑变形 -->
+        <colgroup>
+          <col style="width:64px">
+          <col>
+          <col style="width:140px">
+          <col style="width:132px">
+          <col style="width:124px">
+          <col style="width:158px">
+          <col style="width:108px">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>程序卡</th>
+            <th>程序名称</th>
+            <th>所属技能组</th>
+            <th>对应认定</th>
+            <th>执行方式</th>
+            <th>调用工具</th>
+            <th>产出底稿</th>
+          </tr>
+        </thead>
+        <tbody id="atlas-body">
+          <tr><td colspan="7" style="padding:30px;text-align:center;color:var(--ink-3)">加载中…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/vendor/marked.min.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/atlas.js"></script>
+</body>
+</html>

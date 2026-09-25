@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>确定性工具库 · 审小牛 AIAuditOx</title>
+<meta name="description" content="审计确定性工具库：勾稽重算、双向核对、调节表重算、阈值打标、抽样、索引号、底稿填充等，全部为纯函数内核，同一输入必然同一输出。">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="page-head">
+      <div class="page-head__eyebrow">Deterministic Tools</div>
+      <h1 class="page-head__title">确定性工具库</h1>
+      <p class="page-head__desc">
+        能本地算完的，绝不交给模型估算。纯函数内核，同一输入必然同一输出。
+      </p>
+    </div>
+
+    <div class="alert alert--info" style="margin-bottom:26px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <div>
+        <div class="alert__title">工具契约是稳定接口</div>
+        <p>工具名、参数、输出结构只增不改。程序卡通过 <code>dsl.json</code> 的 <code>tools</code> 字段按名引用，命名须逐字一致。</p>
+      </div>
+    </div>
+
+    <div id="tool-sections">
+      <div class="skeleton" style="height:200px;border-radius:10px;margin-bottom:20px"></div>
+      <div class="skeleton" style="height:200px;border-radius:10px"></div>
+    </div>
+
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/vendor/marked.min.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/tools.js"></script>
+</body>
+</html>

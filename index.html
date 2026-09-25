@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>审小牛 AIAuditOx · 一切审计程序，皆可 skill 化</title>
+<meta name="description" content="审小牛 AuditOx 把审计程序库拆解为标准化的技能包：一个科目一个技能组，一道程序一张程序卡，能本地算完的一律交给确定性工具。">
+<meta name="keywords" content="审计,审计程序,AI Skill,审计底稿,程序卡,审计技能库,审小牛">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main class="page">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="hero__grid"></div>
+    <div class="container hero__inner">
+      <div>
+        <div class="page-head__eyebrow">Audit Procedure · As Skill</div>
+        <h1 class="hero__title">
+          一切审计程序，<br>皆可<em>skill 化</em>
+        </h1>
+        <p class="hero__desc">
+          一个科目一个技能组，一道程序一张程序卡。<br>
+          把审计程序库拆解成可复用、可组合、可扩展的 AI 技能。
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="skills.html">
+            浏览技能库
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="atlas.html">看程序图谱</a>
+        </div>
+      </div>
+
+      <aside class="hero__panel" aria-label="技能库概览">
+        <div class="hero__panel-head">
+          <span class="dot dot--brand"></span><span class="dot dot--accent"></span><span class="dot"></span>
+          <span style="margin-left:6px">技能库概览</span>
+          <span class="spacer"></span>
+          <span style="font-size:11.5px;color:var(--ink-3)" id="panel-gen">—</span>
+        </div>
+        <div class="hero__panel-body" id="hero-overview">
+          <div class="skeleton" style="height:56px;margin-bottom:10px"></div>
+          <div class="skeleton" style="height:56px;margin-bottom:10px"></div>
+          <div class="skeleton" style="height:56px"></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ 统计条 ============ -->
+  <section class="container" style="margin-top:-28px;position:relative;z-index:2">
+    <div class="stat-strip" id="stat-strip">
+      <div class="stat"><div class="stat__num">—</div><div class="stat__label">技能组</div></div>
+      <div class="stat"><div class="stat__num">—</div><div class="stat__label">程序卡</div></div>
+      <div class="stat"><div class="stat__num">—</div><div class="stat__label">确定性工具</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 三件套 ============ -->
+  <section class="section container">
+    <div class="section__head">
+      <div>
+        <h2 class="section__title">三件套</h2>
+        <p class="section__desc">审计领域不可替代的三样资产。</p>
+      </div>
+    </div>
+    <div class="grid grid--3">
+      <a class="card card--hover" href="skills.html" style="color:inherit">
+        <div class="card__body">
+          <div class="skill-card__icon" style="margin-bottom:14px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 style="font-size:16.5px">技能库</h3>
+          <p style="font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.75">
+            按「组 → 报表项目 → 科目技能组 → 程序卡」四级组织，每张程序卡可独立执行。
+          </p>
+          <div style="margin-top:16px;font-size:13px;color:var(--brand);font-weight:600" id="tri-skills">—</div>
+        </div>
+      </a>
+      <a class="card card--hover" href="tools.html" style="color:inherit">
+        <div class="card__body">
+          <div class="skill-card__icon" style="margin-bottom:14px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 7l-4 8h8L7 7zM17 7l-4 8h8l-4-8z"/><path d="M5 7h14"/></svg>
+          </div>
+          <h3 style="font-size:16.5px">确定性工具</h3>
+          <p style="font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.75">
+            勾稽重算、双向核对、调节表重算、阈值打标、抽样、索引号。纯函数内核，同一输入必然同一输出。
+          </p>
+          <div style="margin-top:16px;font-size:13px;color:var(--brand);font-weight:600" id="tri-tools">—</div>
+        </div>
+      </a>
+      <a class="card card--hover" href="skill.html?id=auditox-wp-standard" style="color:inherit">
+        <div class="card__body">
+          <div class="skill-card__icon" style="margin-bottom:14px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>
+          </div>
+          <h3 style="font-size:16.5px">底稿制式</h3>
+          <p style="font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.75">
+            四段式结构 + 表头七要素 + 索引号体系 + 修订记录。全部技能强制引用同一份规范。
+          </p>
+          <div style="margin-top:16px;font-size:13px;color:var(--brand);font-weight:600">四段式 · 全局强制</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ 技能库预览 ============ -->
+  <section class="section container">
+    <div class="section__head">
+      <div>
+        <h2 class="section__title">技能库按组组织</h2>
+        <p class="section__desc">索引号即技能编号，与审计底稿索引体系同源。</p>
+      </div>
+      <a class="btn btn--quiet" href="skills.html">全部技能组 →</a>
+    </div>
+    <div id="cycle-overview">
+      <div class="skeleton" style="height:120px;margin-bottom:14px;border-radius:10px"></div>
+      <div class="skeleton" style="height:120px;border-radius:10px"></div>
+    </div>
+  </section>
+
+  <!-- ============ 认定覆盖 ============ -->
+  <section class="section container">
+    <div class="section__head">
+      <div>
+        <h2 class="section__title">认定覆盖</h2>
+        <p class="section__desc">每张程序卡都标注它服务的认定。</p>
+      </div>
+      <a class="btn btn--quiet" href="atlas.html">程序图谱 →</a>
+    </div>
+    <div class="grid grid--2" style="gap:28px">
+      <div class="card"><div class="card__body">
+        <h3 style="font-size:14px;margin-bottom:6px">认定分布（按程序卡计）</h3>
+        <div id="assertion-bars"><div class="skeleton" style="height:140px"></div></div>
+      </div></div>
+      <div class="card"><div class="card__body">
+        <h3 style="font-size:14px;margin-bottom:6px">执行方式分布</h3>
+        <div id="mode-bars"><div class="skeleton" style="height:140px"></div></div>
+        <p style="font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.7">
+          全自动＝工具可完整覆盖；自动+人工＝工具算、人判断；人工主导＝现场实施或发函。
+        </p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ============ 免责声明 ============ -->
+  <section class="section container" id="disclaimer">
+    <div class="card" style="border-left:3px solid var(--warn);padding:24px 28px">
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;color:var(--warn);flex-shrink:0;margin-top:2px"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div style="flex:1;min-width:0">
+          <h2 style="font-size:17px">免责声明</h2>
+          <ul class="warn-list">
+            <li>技能包与文档<strong>仅供学习与工作参考</strong>，不构成审计意见或专业建议。</li>
+            <li>工具负责计算，<strong>专业判断由使用者独立作出</strong>；标注「待人工确认」的结论未经复核不得用于正式底稿。</li>
+            <li>免费分享，<strong>禁止商用转售</strong>。</li>
+            <li><strong>不托管任何文件</strong>，下载跳转第三方网盘。</li>
+            <li>请勿将<strong>客户敏感数据</strong>用于公开的 AI 服务。</li>
+            <li>作者不对使用本站内容产生的损失承担责任。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/vendor/marked.min.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>
