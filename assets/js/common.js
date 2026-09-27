@@ -503,7 +503,9 @@
 
   /** 技能组卡片 */
   function skillCard(s) {
-    const g = Store.reportGroup(s.reportGroup);
+    /* 卡片元信息显示「组名」（资产 / 负债 / 权益 / 损益 / 通用），
+       不是报表项目名 —— 报表项目在筛选栏和详情页里体现 */
+    const c = Store.cycle(s.cycle);
     const tools = new Set();
     s.procedures.forEach(p => (p.tools || []).forEach(t => tools.add(t)));
     const modes = {};
@@ -517,7 +519,7 @@
             `<div style="min-width:0;flex:1">` +
               `<a class="skill-tile__title" href="skill.html?id=${encodeURIComponent(s.id)}">${escapeHtml(s.title)}</a>` +
               `<div style="font-size:12.5px;color:var(--ink-3);margin-top:3px">` +
-                `${escapeHtml(g ? g.name : '通用')}` +
+                `${escapeHtml(c ? c.name : '—')}` +
               `</div>` +
             `</div>` +
           `</div>` +
