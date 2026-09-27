@@ -55,7 +55,6 @@
         `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">` +
           cycleBadge(s.cycle, true) +
           idx(s.code, 'idx--lg idx--brand') +
-          `<span class="badge badge--muted">风险等级 ${escapeHtml(s.riskLevel || '—')}</span>` +
           `<span class="badge badge--muted">v${escapeHtml(s.version)}</span>` +
           (s.ownerRole ? `<span class="badge badge--muted">${escapeHtml(s.ownerRole)}</span>` : '') +
         `</div>` +
@@ -121,7 +120,6 @@
               `<span class="kv__k">所属组</span><span class="kv__v">${escapeHtml(cyc ? cyc.full : s.cycle)}</span>` +
               `<span class="kv__k">报表项目</span><span class="kv__v">${escapeHtml(g ? g.name : '—')}</span>` +
               `<span class="kv__k">程序卡</span><span class="kv__v">${s.procedures.length} 张</span>` +
-              `<span class="kv__k">风险等级</span><span class="kv__v">${escapeHtml(s.riskLevel || '—')}</span>` +
               `<span class="kv__k">版本</span><span class="kv__v">v${escapeHtml(s.version)}</span>` +
               `<span class="kv__k">技能 id</span><span class="kv__v" style="font-family:var(--font-mono);font-size:12.5px">${escapeHtml(s.id)}</span>` +
             `</div>` +

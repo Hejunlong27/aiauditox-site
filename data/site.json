@@ -9,10 +9,17 @@
   "author": "审小牛",
   "principle": "确定性优先：凡能本地算完的（勾稽、重算、抽样、索引号、哈希）一律调确定性工具，禁止用模型估算；LLM 只做分析、解释、判断。差异类结论必须标注「待人工确认」。",
   "contact": {
-    "email": "auditox@qq.com",
-    "wechat": "AIAuditOx",
-    "quarkGroup": "https://pan.quark.cn/s/auditox-group",
-    "responseTime": "工作日 24 小时内回复"
+    "email": "317950728@qq.com",
+    "wechatQr": "assets/img/wechat-qr.png",
+    "replyNote": "底层审计牛马一枚，平时需要上班，看到之后会尽快处理！",
+    "form": {
+      "_note": "accessKey 是 Web3Forms 的公开钥匙，官方明确说明可以写在前端、可以提交到公开仓库，不需要保密。它只相当于收件邮箱的别名。留空则表单回落到 mailto 兜底。",
+      "provider": "web3forms",
+      "endpoint": "https://api.web3forms.com/submit",
+      "accessKey": "e82445b6-494b-4a99-9928-d78de8405eef",
+      "subjectPrefix": "【审小牛反馈】",
+      "fromName": "审小牛 AIAuditOx"
+    }
   },
   "roadmap": [
     { "phase": "P0", "name": "资产盘点", "status": "done", "desc": "技能库 13 包就位，SKILL.md 为原生格式" },

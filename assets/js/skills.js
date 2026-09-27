@@ -117,7 +117,8 @@
   function render() {
     const host = document.getElementById('skill-list');
     const countHost = document.getElementById('result-count');
-    const list = Store.querySkills(state);
+    /* state 里的键是 group（与 URL 参数一致），数据层的字段名是 reportGroup，这里显式对接 */
+    const list = Store.querySkills(Object.assign({}, state, { reportGroup: state.group }));
 
     if (!list.length) {
       countHost.innerHTML = '没有匹配的结果';

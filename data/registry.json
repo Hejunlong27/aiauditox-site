@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-09-23 00:33:29",
+    "generatedAt": "2026-09-27 12:13:00",
     "source": "D:\\deepseek\\AI AduitOx\\skills",
     "counts": {
       "skills": 13,
@@ -52,10 +52,16 @@
     "author": "审小牛",
     "principle": "确定性优先：凡能本地算完的（勾稽、重算、抽样、索引号、哈希）一律调确定性工具，禁止用模型估算；LLM 只做分析、解释、判断。差异类结论必须标注「待人工确认」。",
     "contact": {
-      "email": "auditox@qq.com",
-      "wechat": "AIAuditOx",
-      "quarkGroup": "https://pan.quark.cn/s/auditox-group",
-      "responseTime": "工作日 24 小时内回复"
+      "email": "317950728@qq.com",
+      "wechatQr": "assets/img/wechat-qr.png",
+      "replyNote": "底层审计牛马一枚，平时需要上班，看到之后会尽快处理！",
+      "form": {
+        "provider": "web3forms",
+        "endpoint": "https://api.web3forms.com/submit",
+        "accessKey": "e82445b6-494b-4a99-9928-d78de8405eef",
+        "subjectPrefix": "【审小牛反馈】",
+        "fromName": "审小牛 AIAuditOx"
+      }
     },
     "roadmap": [
       {
@@ -140,8 +146,12 @@
       "name": "货币资金"
     },
     {
+      "code": "Z-2-1",
+      "name": "应收票据"
+    },
+    {
       "code": "Z-2",
-      "name": "应收款项"
+      "name": "应收账款"
     },
     {
       "code": "Z-3",
@@ -153,7 +163,7 @@
     },
     {
       "code": "F-1",
-      "name": "借款"
+      "name": "短期借款"
     },
     {
       "code": "F-3",
@@ -745,7 +755,7 @@
       "title": "审计工作底稿标准",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/40bb0c136513",
         "code": "",
         "size": "1.1 MB",
         "format": ".zip（SKILL.md + dsl.json + 通用三段式底稿模板.xlsx + 黄金用例）",
@@ -1404,7 +1414,7 @@
       "title": "借款类·短期借款",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/6f23fc1120e9",
         "code": "",
         "size": "2.4 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板）",
@@ -1912,7 +1922,7 @@
       "title": "采购类·应付票据",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/09ac1ca25e0a",
         "code": "",
         "size": "1.8 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P06 程序卡 + 工作簿模板）",
@@ -2654,7 +2664,7 @@
       "title": "采购类·应付账款",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/55071e2adb14",
         "code": "",
         "size": "2.2 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
@@ -3171,7 +3181,7 @@
       "title": "应付职工薪酬",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/bfce4b9de988",
         "code": "",
         "size": "2.3 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡）",
@@ -4172,7 +4182,7 @@
       "title": "营业收入",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/b886c824b02a",
         "code": "",
         "size": "3.0 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P12 程序卡 + 工作簿模板）",
@@ -4647,7 +4657,7 @@
       "title": "货币资金·库存现金",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/ed3ea690a73e",
         "code": "",
         "size": "1.6 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 库存现金工作簿模板.xlsx）",
@@ -5799,7 +5809,7 @@
       "title": "货币资金·银行存款",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/16e140b8436a",
         "code": "",
         "size": "3.2 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板 + 回归测试脚本）",
@@ -6411,7 +6421,7 @@
       "title": "货币资金·其他货币资金",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/354cd92c0bcb",
         "code": "",
         "size": "1.8 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
@@ -6423,7 +6433,7 @@
       "code": "Z-2-1",
       "name": "z-2-1-notes-receivable",
       "cycle": "Z",
-      "reportGroup": "Z-2",
+      "reportGroup": "Z-2-1",
       "riskLevel": "中",
       "ownerRole": "审计助理",
       "version": "1.0.0",
@@ -6948,7 +6958,7 @@
       "title": "销售类·应收票据",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/58f8a7a36680",
         "code": "",
         "size": "2.0 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
@@ -7812,7 +7822,7 @@
       "title": "销售类·应收账款",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/ccee8b4d84a2",
         "code": "",
         "size": "2.6 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板）",
@@ -8424,7 +8434,7 @@
       "title": "预付类·预付账款",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/3ed246c3809f",
         "code": "",
         "size": "1.9 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
@@ -9052,7 +9062,7 @@
       "title": "其他应收·其他应收款",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/f9aae154b850",
         "code": "",
         "size": "1.9 MB",
         "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",

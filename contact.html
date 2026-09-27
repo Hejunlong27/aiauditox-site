@@ -36,14 +36,20 @@
       <div>
         <h2 class="section__title" style="font-size:20px;margin-bottom:6px">反馈与需求</h2>
         <p class="section__desc" style="margin-bottom:18px">
-          本站是纯静态站点，没有后端。提交后会打开你的邮件客户端，内容自动填好；也可以先复制再自行发送。
+          填好直接提交，内容会同步到我的邮箱；万一网络不通，也可以一键复制、用你自己的邮箱发我。
         </p>
 
         <form class="card" id="contact-form" novalidate><div class="card__body">
 
+          <!-- 蜜罐：正常访客看不见，机器人会填 → 静默丢弃 -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="company">公司名称（请勿填写）</label>
+            <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="field" id="f-name">
             <label class="field__label" for="name">称呼</label>
-            <input class="input" id="name" name="name" type="text" placeholder="怎么称呼你（可留空）" autocomplete="name">
+            <input class="input" id="name" name="name" type="text" placeholder="留下你的艺名！" autocomplete="name">
           </div>
 
           <div class="field" id="f-reply">
@@ -101,7 +107,7 @@
 
         <div class="card"><div class="card__body">
           <h2 class="sidebar__title">回复时效</h2>
-          <p style="font-size:13.8px;color:var(--ink-2);line-height:1.8" id="resp-time">工作日 24 小时内回复</p>
+          <p style="font-size:13.8px;color:var(--ink-2);line-height:1.8" id="resp-note">底层审计牛马一枚，平时需要上班，看到之后会尽快处理！</p>
           <p style="font-size:13px;color:var(--ink-3);margin-top:8px;line-height:1.7">
             链接失效类反馈我会优先处理，一般当天更新。
           </p>
@@ -158,7 +164,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
               夸克网盘链接打不开？
             </div>
-            <div class="faq-item__a">网盘分享有失效风险。请在本页反馈并注明技能组编号，或加入网盘群获取最新版本。</div>
+            <div class="faq-item__a">网盘分享有失效风险。请在本页反馈并注明技能组编号，我会尽快补新链接。</div>
           </div>
           <div class="faq-item">
             <div class="faq-item__q">

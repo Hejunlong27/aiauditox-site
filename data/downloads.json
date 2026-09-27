@@ -1,9 +1,8 @@
 {
   "_comment": "技能包下载链接（手工维护）。跑 tools/build_registry.py 时会合并进 registry.json 的 skills[].download。url 为空表示该技能包暂未开放下载，网站会显示「暂未开放」。",
-
   "auditox-wp-standard": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/40bb0c136513",
     "code": "",
     "size": "1.1 MB",
     "format": ".zip（SKILL.md + dsl.json + 通用三段式底稿模板.xlsx + 黄金用例）",
@@ -11,7 +10,7 @@
   },
   "z-1-1-cash-on-hand": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/ed3ea690a73e",
     "code": "",
     "size": "1.6 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 库存现金工作簿模板.xlsx）",
@@ -19,7 +18,7 @@
   },
   "z-1-2-bank-deposits": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/16e140b8436a",
     "code": "",
     "size": "3.2 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板 + 回归测试脚本）",
@@ -27,7 +26,7 @@
   },
   "z-1-3-other-monetary-funds": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/354cd92c0bcb",
     "code": "",
     "size": "1.8 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
@@ -35,7 +34,7 @@
   },
   "z-2-1-notes-receivable": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/58f8a7a36680",
     "code": "",
     "size": "2.0 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
@@ -43,7 +42,7 @@
   },
   "z-2-accounts-receivable": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/ccee8b4d84a2",
     "code": "",
     "size": "2.6 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板）",
@@ -51,7 +50,7 @@
   },
   "z-3-prepayments": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/3ed246c3809f",
     "code": "",
     "size": "1.9 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
@@ -59,7 +58,7 @@
   },
   "z-4-other-receivables": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/f9aae154b850",
     "code": "",
     "size": "1.9 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
@@ -67,7 +66,7 @@
   },
   "f-1-borrowings": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/6f23fc1120e9",
     "code": "",
     "size": "2.4 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板）",
@@ -75,7 +74,7 @@
   },
   "f-3-notes-payable": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/09ac1ca25e0a",
     "code": "",
     "size": "1.8 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P06 程序卡 + 工作簿模板）",
@@ -83,7 +82,7 @@
   },
   "f-4-accounts-payable": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/55071e2adb14",
     "code": "",
     "size": "2.2 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
@@ -91,7 +90,7 @@
   },
   "f-6-payroll-payable": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/bfce4b9de988",
     "code": "",
     "size": "2.3 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡）",
@@ -99,7 +98,7 @@
   },
   "s-1-revenue": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/b886c824b02a",
     "code": "",
     "size": "3.0 MB",
     "format": ".zip（SKILL.md + dsl.json + P01~P12 程序卡 + 工作簿模板）",

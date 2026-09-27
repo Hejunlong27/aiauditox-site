@@ -171,6 +171,80 @@
     _toastTimer = setTimeout(() => el.classList.remove('is-visible'), 2400);
   }
 
+  /* ===================== 弹窗 =====================
+     通用模态框。opts:
+       icon    图标 SVG（可选）
+       title   标题（纯文本，自动转义）
+       desc    正文（可含 HTML，调用方保证安全）
+       extra   补充块（可含 HTML，可选）
+       actions [{ label, style:'primary'|'ghost', onClick }]
+               onClick 返回 false 时不关闭
+       onClose 关闭回调
+  */
+  function modal(opts) {
+    const o = opts || {};
+    const prevFocus = document.activeElement;
+
+    const back = document.createElement('div');
+    back.className = 'modal-backdrop';
+    back.innerHTML =
+      `<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">` +
+        `<button class="modal__close" type="button" aria-label="关闭">${ICONS.x}</button>` +
+        (o.icon ? `<div class="modal__icon">${o.icon}</div>` : '') +
+        `<h3 class="modal__title" id="modal-title">${escapeHtml(o.title || '')}</h3>` +
+        (o.desc ? `<div class="modal__desc">${o.desc}</div>` : '') +
+        (o.extra ? `<div class="modal__extra">${o.extra}</div>` : '') +
+        `<div class="modal__actions">` +
+          (o.actions || [{ label: '知道了', style: 'primary' }]).map((a, i) =>
+            `<button class="btn ${a.style === 'ghost' ? 'btn--ghost' : 'btn--primary'}" type="button" data-act="${i}">${escapeHtml(a.label)}</button>`
+          ).join('') +
+        `</div>` +
+      `</div>`;
+    document.body.appendChild(back);
+    document.body.classList.add('has-modal');
+
+    const panel = back.querySelector('.modal');
+    let closed = false;
+
+    function close() {
+      if (closed) return;
+      closed = true;
+      document.removeEventListener('keydown', onKey);
+      back.classList.remove('is-open');
+      document.body.classList.remove('has-modal');
+      setTimeout(() => back.remove(), 200);
+      if (prevFocus && prevFocus.focus) { try { prevFocus.focus(); } catch (e) {} }
+      if (typeof o.onClose === 'function') o.onClose();
+    }
+
+    function onKey(e) {
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      /* 焦点锁在弹窗内 */
+      if (e.key !== 'Tab') return;
+      const items = panel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!items.length) return;
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+
+    back.addEventListener('click', (e) => {
+      if (e.target === back || e.target.closest('.modal__close')) { close(); return; }
+      const btn = e.target.closest('[data-act]');
+      if (!btn) return;
+      const a = (o.actions || [])[Number(btn.getAttribute('data-act'))];
+      if (a && typeof a.onClick === 'function' && a.onClick() === false) return;
+      close();
+    });
+
+    document.addEventListener('keydown', onKey);
+    requestAnimationFrame(() => back.classList.add('is-open'));
+    const focusTarget = panel.querySelector('.modal__actions .btn') || panel.querySelector('.modal__close');
+    if (focusTarget) focusTarget.focus({ preventScroll: true });
+
+    return { close, el: back };
+  }
+
   /* ===================== 数据层 ===================== */
   const DATA_URL = 'data/registry.json';
 
@@ -443,7 +517,7 @@
             `<div style="min-width:0;flex:1">` +
               `<a class="skill-tile__title" href="skill.html?id=${encodeURIComponent(s.id)}">${escapeHtml(s.title)}</a>` +
               `<div style="font-size:12.5px;color:var(--ink-3);margin-top:3px">` +
-                `${escapeHtml(g ? g.name : '通用')} · 风险等级 ${escapeHtml(s.riskLevel || '—')}` +
+                `${escapeHtml(g ? g.name : '通用')}` +
               `</div>` +
             `</div>` +
           `</div>` +
@@ -687,7 +761,7 @@
   global.OX = {
     ICONS, Store, NAV_ITEMS,
     escapeHtml, safeUrl, formatNumber, formatDate, relativeDate,
-    qs, debounce, copyText, showToast,
+    qs, debounce, copyText, showToast, modal,
     renderHeader, renderFooter,
     idx, cycleBadge, assertionChips, modeBadge,
     skillCard, procedureRow, toolCard, barRow, downloadCard,

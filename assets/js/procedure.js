@@ -165,7 +165,7 @@
             `<span style="font-size:14px;font-weight:650">${escapeHtml(s.title.replace(/^[^·]*·/, ''))}</span>` +
           `</div>` +
           `<p style="font-size:13px;color:var(--ink-2);line-height:1.7">` +
-            `共 ${s.procedures.length} 张程序卡 · 风险等级 ${escapeHtml(s.riskLevel || '—')}` +
+            `共 ${s.procedures.length} 张程序卡` +
           `</p>` +
         `</a>` +
         `<a class="btn btn--quiet btn--block" href="skill.html?id=${encodeURIComponent(s.id)}" style="margin-top:12px">查看技能组详情 →</a>` +
