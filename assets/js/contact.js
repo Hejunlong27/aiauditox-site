@@ -47,20 +47,28 @@
   /* ---------- 二维码放大 ---------- */
   function bindQrZoom() {
     document.addEventListener('click', (e) => {
-      if (!e.target.closest('[data-qr-zoom]')) return;
-      openQrZoom();
+      const btn = e.target.closest('[data-qr-zoom]');
+      if (!btn) return;
+      openQrZoom(btn.getAttribute('data-qr-zoom'));
     });
   }
 
-  function openQrZoom() {
-    const qr = CONTACT.wechatQr || '';
+  function openQrZoom(kind) {
+    const mp = CONTACT.wechatMp || {};
+    const isMp = kind === 'mp';
+    const qr = isMp ? (mp.qr || '') : (CONTACT.wechatQr || '');
     if (!qr) return;
+    const name = mp.name || '审小牛';
     modal({
-      title: '扫码加我微信',
+      title: isMp ? `关注「${name}」` : '扫码加我微信',
       desc:
         `<div class="qr-zoom">` +
-          `<img src="${escapeHtml(qr)}" alt="微信二维码，扫码添加">` +
-          `<p class="qr-zoom__hint">备注「审小牛」优先通过</p>` +
+          `<img src="${escapeHtml(qr)}" alt="${isMp ? escapeHtml(name) + ' 公众号二维码' : '微信二维码，扫码添加'}">` +
+          `<p class="qr-zoom__hint">` +
+            (isMp
+              ? `微信扫一扫，或长按识别二维码<br>关注公众号，新内容第一时间收到`
+              : '备注「审小牛」优先通过') +
+          `</p>` +
         `</div>`,
       actions: [{ label: '好，知道了', style: 'primary' }]
     });
@@ -73,13 +81,14 @@
 
     const email = CONTACT.email || '';
     const qr = CONTACT.wechatQr || '';
+    const mp = CONTACT.wechatMp || {};
 
     /* 微信卡片：只展示二维码，不再暴露微信号文本。
        排在邮箱后面 —— 两张都是「联系方式」，放一起更顺。
        二维码做成按钮：悬停放大（桌面端），点击开大图（手机端没有 hover）。 */
     const wechatCard = qr
       ? `<div class="card"><div class="card__body qr-card">` +
-          `<button class="qr-card__img" type="button" data-qr-zoom title="点击放大二维码" aria-label="放大微信二维码">` +
+          `<button class="qr-card__img" type="button" data-qr-zoom="me" title="点击放大二维码" aria-label="放大微信二维码">` +
             `<img src="${escapeHtml(qr)}" alt="微信二维码，扫码添加" loading="lazy" width="104" height="104">` +
           `</button>` +
           `<div style="flex:1;min-width:0">` +
@@ -90,19 +99,39 @@
         `</div></div>`
       : '';
 
+    /* 公众号名片：参考微信名片的结构 —— 头像 + 名称 + ID，下面是二维码与关注提示 */
+    const mpCard = (mp.qr)
+      ? `<div class="card"><div class="card__body mp-card">` +
+          `<div class="mp-card__head">` +
+            (mp.avatar
+              ? `<img class="mp-card__avatar" src="${escapeHtml(mp.avatar)}" alt="${escapeHtml(mp.name || '微信公众号')} 头像" loading="lazy" width="44" height="44">`
+              : `<div class="mp-card__avatar mp-card__avatar--blank">${ICONS.wechat}</div>`) +
+            `<div style="min-width:0">` +
+              `<div class="mp-card__name">${escapeHtml(mp.name || '微信公众号')}</div>` +
+              `<div class="mp-card__id">微信公众号${mp.id ? ' · ' + escapeHtml(mp.id) : ''}</div>` +
+            `</div>` +
+          `</div>` +
+          `<div class="mp-card__main">` +
+            `<button class="qr-card__img" type="button" data-qr-zoom="mp" title="点击放大二维码" aria-label="放大微信公众号二维码">` +
+              `<img src="${escapeHtml(mp.qr)}" alt="${escapeHtml(mp.name || '微信公众号')} 二维码" loading="lazy" width="104" height="104">` +
+            `</button>` +
+            `<div style="flex:1;min-width:0">` +
+              `<div class="mp-card__cta">扫码关注</div>` +
+              `<p class="mp-card__desc">${escapeHtml(mp.desc || '新内容发布第一时间收到通知')}</p>` +
+            `</div>` +
+          `</div>` +
+        `</div></div>`
+      : '';
+
     const cards = [
       {
         icon: ICONS.mail, label: '邮箱', value: email || '—',
-        desc: '正式反馈、技能需求与合作洽谈，推荐用这个',
+        desc: '正式反馈、技能需求、合作洽谈',
         href: email ? 'mailto:' + email : '',
         action: '写邮件'
       },
       { html: wechatCard },
-      {
-        icon: ICONS.sparkles, label: '技能需求', value: '把审计程序 skill 化',
-        desc: '告诉我你想沉淀的那道程序，按六要素补全后即可固化',
-        href: '#contact-form', action: '填写需求'
-      }
+      { html: mpCard }
     ];
 
     host.innerHTML = cards.map(c => {

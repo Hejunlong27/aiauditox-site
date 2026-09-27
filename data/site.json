@@ -12,6 +12,14 @@
     "email": "317950728@qq.com",
     "wechatQr": "assets/img/wechat-qr.png",
     "replyNote": "底层审计牛马一枚，平时需要上班，看到之后会尽快处理！",
+    "wechatMp": {
+      "_note": "微信公众号名片。name 是公众号名称，id 是原始ID（gh_ 开头），qr/avatar 换图直接覆盖 assets/img 下的文件即可。",
+      "name": "审小牛",
+      "id": "gh_7c4e1cd133d6",
+      "qr": "assets/img/wechat-mp-qr.png",
+      "avatar": "assets/img/wechat-mp-avatar.jpg",
+      "desc": "技能包更新、新科目上线，第一时间收到通知"
+    },
     "form": {
       "_note": "accessKey 是 Web3Forms 的公开钥匙，官方明确说明可以写在前端、可以提交到公开仓库，不需要保密。它只相当于收件邮箱的别名。留空则表单回落到 mailto 兜底。",
       "provider": "web3forms",
