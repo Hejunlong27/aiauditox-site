@@ -4,7 +4,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/40bb0c136513",
     "code": "",
-    "size": "1.1 MB",
+    "size": "17 KB",
     "format": ".zip（SKILL.md + dsl.json + 通用三段式底稿模板.xlsx + 黄金用例）",
     "note": "全局制式规范包，其余技能包均依赖它，建议先装。"
   },
@@ -12,7 +12,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/ed3ea690a73e",
     "code": "",
-    "size": "1.6 MB",
+    "size": "28 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 库存现金工作簿模板.xlsx）",
     "note": "解压到技能目录后重启会话即可使用。"
   },
@@ -20,7 +20,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/16e140b8436a",
     "code": "",
-    "size": "3.2 MB",
+    "size": "134 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板 + 回归测试脚本）",
     "note": "样板技能包，含完整回归测试与沙箱用例。"
   },
@@ -28,7 +28,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/354cd92c0bcb",
     "code": "",
-    "size": "1.8 MB",
+    "size": "32 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
     "note": ""
   },
@@ -36,7 +36,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/58f8a7a36680",
     "code": "",
-    "size": "2.0 MB",
+    "size": "35 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
     "note": ""
   },
@@ -44,7 +44,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/ccee8b4d84a2",
     "code": "",
-    "size": "2.6 MB",
+    "size": "50 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板）",
     "note": ""
   },
@@ -52,7 +52,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/3ed246c3809f",
     "code": "",
-    "size": "1.9 MB",
+    "size": "37 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
     "note": ""
   },
@@ -60,7 +60,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/f9aae154b850",
     "code": "",
-    "size": "1.9 MB",
+    "size": "39 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
     "note": ""
   },
@@ -68,7 +68,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/6f23fc1120e9",
     "code": "",
-    "size": "2.4 MB",
+    "size": "40 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板）",
     "note": ""
   },
@@ -76,7 +76,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/09ac1ca25e0a",
     "code": "",
-    "size": "1.8 MB",
+    "size": "31 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P06 程序卡 + 工作簿模板）",
     "note": ""
   },
@@ -84,7 +84,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/55071e2adb14",
     "code": "",
-    "size": "2.2 MB",
+    "size": "46 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
     "note": ""
   },
@@ -92,7 +92,7 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/bfce4b9de988",
     "code": "",
-    "size": "2.3 MB",
+    "size": "8 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡）",
     "note": "该技能包以程序卡为主，底稿沿用通用三段式模板。"
   },
@@ -100,8 +100,32 @@
     "provider": "quark",
     "url": "https://pan.quark.cn/s/b886c824b02a",
     "code": "",
-    "size": "3.0 MB",
+    "size": "59 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P12 程序卡 + 工作簿模板）",
     "note": "覆盖 S6001 + S6051 程序库共 71 项程序，最大的一个技能包。"
+  },
+  "z-6-dividends-receivable": {
+    "provider": "quark",
+    "url": "https://pan.quark.cn/s/23e8998bec2f",
+    "code": "",
+    "note": "覆盖 Z1131 全部 9 项程序（归并为 7 张程序卡），含明细表/增减变动/股利收入测算/期后回款/境外汇回限制/披露。",
+    "size": "40 KB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板 + 黄金用例）"
+  },
+  "z-7-interest-receivable": {
+    "provider": "quark",
+    "url": "https://pan.quark.cn/s/12d0e3fcc6c9",
+    "code": "",
+    "note": "覆盖 Z1132 全部 6 项程序（归并为 5 张程序卡），利息测算支持 actual/365、30/360、整月三种口径。",
+    "size": "31 KB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 工作簿模板 + 黄金用例）"
+  },
+  "s-14-credit-impairment": {
+    "provider": "quark",
+    "url": "https://pan.quark.cn/s/42a5377d669d",
+    "code": "",
+    "note": "覆盖 S6702 全部 2 项程序；预期信用损失为强制程序，含账龄分桶与计提测算。",
+    "size": "21 KB",
+    "format": ".zip（SKILL.md + dsl.json + P01~P02 程序卡 + 工作簿模板 + 黄金用例）"
   }
 }

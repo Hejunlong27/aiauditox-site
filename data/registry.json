@@ -1,11 +1,11 @@
 {
   "meta": {
-    "generatedAt": "2026-09-27 13:00:44",
+    "generatedAt": "2026-09-28 23:00:50",
     "source": "D:\\deepseek\\AI AduitOx\\skills",
     "counts": {
       "skills": 16,
       "procedures": 115,
-      "tools": 11,
+      "tools": 14,
       "officeTools": 14,
       "templates": 28,
       "cases": 40,
@@ -172,6 +172,14 @@
       "name": "其他应收款"
     },
     {
+      "code": "Z-6",
+      "name": "应收股利"
+    },
+    {
+      "code": "Z-7",
+      "name": "应收利息"
+    },
+    {
       "code": "F-1",
       "name": "短期借款"
     },
@@ -190,6 +198,10 @@
     {
       "code": "S-1",
       "name": "营业收入"
+    },
+    {
+      "code": "S-14",
+      "name": "信用减值损失"
     }
   ],
   "assertions": [
@@ -460,6 +472,132 @@
       ],
       "output": "{ passed, violations[], classification, markers }",
       "rule": "存在违规项 → abnormal + marker anomaly:rule"
+    },
+    {
+      "id": "ageing_bucket",
+      "name": "账龄分桶",
+      "group": "finance",
+      "summary": "按资产负债表日回溯计算每笔账龄天数并分桶汇总（1年以内 / 1-2年 / 2-3年 / 3年以上，可自定义区间）。",
+      "params": [
+        {
+          "name": "rows",
+          "type": "object[]",
+          "required": true,
+          "desc": "明细行 [{id, date, amount}]"
+        },
+        {
+          "name": "balance_date",
+          "type": "string",
+          "required": true,
+          "desc": "资产负债表日 YYYY-MM-DD"
+        },
+        {
+          "name": "buckets",
+          "type": "object[]",
+          "required": false,
+          "desc": "自定义区间 [{label, min_days, max_days}]"
+        },
+        {
+          "name": "over_days",
+          "type": "number",
+          "required": false,
+          "desc": "超账龄阈值（天）"
+        }
+      ],
+      "output": "{ buckets[], total, over[], detail[], classification, markers }",
+      "rule": "日期或金额非法 → anomaly:validate；存在超账龄项 → anomaly:ageing"
+    },
+    {
+      "id": "provision_calc",
+      "name": "计提测算",
+      "group": "finance",
+      "summary": "按单项或账龄组合（金额 × 计提比例）测算应计提的减值准备，与账面已计提比较。",
+      "params": [
+        {
+          "name": "items",
+          "type": "object[]",
+          "required": false,
+          "desc": "单项计提 [{id, amount, rate}]"
+        },
+        {
+          "name": "ageing",
+          "type": "object[]",
+          "required": false,
+          "desc": "账龄组合计提 [{label, amount, rate}]"
+        },
+        {
+          "name": "rate_unit",
+          "type": "enum",
+          "required": false,
+          "desc": "比例单位 pct（默认，5=5%）/ ratio"
+        },
+        {
+          "name": "booked_provision",
+          "type": "number",
+          "required": false,
+          "desc": "账面已计提金额"
+        },
+        {
+          "name": "tolerance",
+          "type": "number",
+          "required": false,
+          "desc": "差异容差，默认 0"
+        }
+      ],
+      "output": "{ computed_provision, booked_provision, diff, breakdown[], classification, markers }",
+      "rule": "与账面差异超容差 → abnormal + marker anomaly:provision"
+    },
+    {
+      "id": "interest_calc",
+      "name": "利息测算",
+      "group": "finance",
+      "summary": "按本金 × 年利率 × 计息期间测算利息，支持 actual/365、actual/360、30/360 与整月四种口径。",
+      "params": [
+        {
+          "name": "principal",
+          "type": "number",
+          "required": true,
+          "desc": "本金"
+        },
+        {
+          "name": "annual_rate",
+          "type": "number",
+          "required": true,
+          "desc": "年利率（百分数，4.35 即 4.35%）"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": true,
+          "desc": "起息日 YYYY-MM-DD"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": true,
+          "desc": "止息日 YYYY-MM-DD"
+        },
+        {
+          "name": "day_count",
+          "type": "enum",
+          "required": false,
+          "desc": "计息口径，默认 actual/365"
+        },
+        {
+          "name": "booked_interest",
+          "type": "number",
+          "required": false,
+          "desc": "账面利息"
+        },
+        {
+          "name": "tolerance",
+          "type": "number",
+          "required": false,
+          "desc": "差异容差，默认 0"
+        }
+      ],
+      "output": "{ units, interest, booked_interest, diff, classification, markers }",
+      "rule": "与账面差异超容差 → abnormal + marker anomaly:interest"
     },
     {
       "id": "index_numbering",
@@ -767,7 +905,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/40bb0c136513",
         "code": "",
-        "size": "1.1 MB",
+        "size": "17 KB",
         "format": ".zip（SKILL.md + dsl.json + 通用三段式底稿模板.xlsx + 黄金用例）",
         "note": "全局制式规范包，其余技能包均依赖它，建议先装。"
       }
@@ -1426,7 +1564,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/6f23fc1120e9",
         "code": "",
-        "size": "2.4 MB",
+        "size": "40 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板）",
         "note": ""
       }
@@ -1934,7 +2072,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/09ac1ca25e0a",
         "code": "",
-        "size": "1.8 MB",
+        "size": "31 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P06 程序卡 + 工作簿模板）",
         "note": ""
       }
@@ -2676,7 +2814,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/55071e2adb14",
         "code": "",
-        "size": "2.2 MB",
+        "size": "46 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
         "note": ""
       }
@@ -3193,7 +3331,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/bfce4b9de988",
         "code": "",
-        "size": "2.3 MB",
+        "size": "8 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡）",
         "note": "该技能包以程序卡为主，底稿沿用通用三段式模板。"
       }
@@ -4194,7 +4332,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/b886c824b02a",
         "code": "",
-        "size": "3.0 MB",
+        "size": "59 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P12 程序卡 + 工作簿模板）",
         "note": "覆盖 S6001 + S6051 程序库共 71 项程序，最大的一个技能包。"
       }
@@ -4514,7 +4652,14 @@
         "expected": 4
       },
       "title": "信用减值损失",
-      "download": null
+      "download": {
+        "provider": "quark",
+        "url": "https://pan.quark.cn/s/42a5377d669d",
+        "code": "",
+        "note": "覆盖 S6702 全部 2 项程序；预期信用损失为强制程序，含账龄分桶与计提测算。",
+        "size": "21 KB",
+        "format": ".zip（SKILL.md + dsl.json + P01~P02 程序卡 + 工作簿模板 + 黄金用例）"
+      }
     },
     {
       "id": "z-1-1-cash-on-hand",
@@ -4986,7 +5131,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/ed3ea690a73e",
         "code": "",
-        "size": "1.6 MB",
+        "size": "28 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 库存现金工作簿模板.xlsx）",
         "note": "解压到技能目录后重启会话即可使用。"
       }
@@ -6138,7 +6283,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/16e140b8436a",
         "code": "",
-        "size": "3.2 MB",
+        "size": "134 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板 + 回归测试脚本）",
         "note": "样板技能包，含完整回归测试与沙箱用例。"
       }
@@ -6750,7 +6895,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/354cd92c0bcb",
         "code": "",
-        "size": "1.8 MB",
+        "size": "32 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
         "note": ""
       }
@@ -7287,7 +7432,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/58f8a7a36680",
         "code": "",
-        "size": "2.0 MB",
+        "size": "35 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
         "note": ""
       }
@@ -8151,7 +8296,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/ccee8b4d84a2",
         "code": "",
-        "size": "2.6 MB",
+        "size": "50 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板）",
         "note": ""
       }
@@ -8763,7 +8908,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/3ed246c3809f",
         "code": "",
-        "size": "1.9 MB",
+        "size": "37 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
         "note": ""
       }
@@ -9391,7 +9536,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/f9aae154b850",
         "code": "",
-        "size": "1.9 MB",
+        "size": "39 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
         "note": ""
       }
@@ -10124,7 +10269,14 @@
         "expected": 6
       },
       "title": "应收股利",
-      "download": null
+      "download": {
+        "provider": "quark",
+        "url": "https://pan.quark.cn/s/23e8998bec2f",
+        "code": "",
+        "note": "覆盖 Z1131 全部 9 项程序（归并为 7 张程序卡），含明细表/增减变动/股利收入测算/期后回款/境外汇回限制/披露。",
+        "size": "40 KB",
+        "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板 + 黄金用例）"
+      }
     },
     {
       "id": "z-7-interest-receivable",
@@ -10688,7 +10840,14 @@
         "expected": 4
       },
       "title": "应收利息",
-      "download": null
+      "download": {
+        "provider": "quark",
+        "url": "https://pan.quark.cn/s/12d0e3fcc6c9",
+        "code": "",
+        "note": "覆盖 Z1132 全部 6 项程序（归并为 5 张程序卡），利息测算支持 actual/365、30/360、整月三种口径。",
+        "size": "31 KB",
+        "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 工作簿模板 + 黄金用例）"
+      }
     }
   ],
   "procedures": [
