@@ -6,8 +6,11 @@
   'use strict';
 
   /* ===================== 图标库 ===================== */
+  /* ⚠️ 必须带默认 width/height：SVG 只有 viewBox 时，若没有任何 CSS 约束尺寸，
+     会按替换元素的默认尺寸渲染（实测撑到 149×149），把容器撑爆。
+     这里给 16×16 兜底；各处 CSS 规则（如 `.btn svg{width:16px}`）优先级更高，照常覆盖。 */
   const _svg = (d, extra) =>
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ` +
+    `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ` +
     `stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra || ''}>${d}</svg>`;
 
   const ICONS = {

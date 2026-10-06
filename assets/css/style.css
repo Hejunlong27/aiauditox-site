@@ -89,7 +89,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ⚠️ svg 兜底尺寸：只有 viewBox、没有任何尺寸约束的 SVG 会按替换元素默认尺寸渲染
+   （实测撑到 149×149，把卡片撑爆）。这里给 1em 兜底；
+   各处带 class 的规则（如 `.btn svg{width:16px}`）优先级更高，不受影响。 */
 img, svg { max-width: 100%; display: block; }
+svg { width: 1em; height: 1em; }
 a { color: var(--brand); text-decoration: none; transition: color .18s var(--ease); }
 a:hover { color: var(--brand-600); }
 button, input, select, textarea { font: inherit; color: inherit; }

@@ -301,7 +301,8 @@
           : '') +
         (s.cases.inputs
           ? `<div style="font-size:13px;color:var(--ink-2);display:flex;align-items:center;gap:7px">` +
-              `${ICONS.checkCircle}<span>黄金用例 ${s.cases.inputs} 组（输入 + 期望）</span></div>`
+              `<span style="color:var(--ok);flex-shrink:0;display:flex;width:14px">${ICONS.checkCircle}</span>` +
+              `<span>黄金用例 ${s.cases.inputs} 组（输入 + 期望）</span></div>`
           : '') +
       `</div></div>`
     );
