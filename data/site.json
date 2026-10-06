@@ -30,7 +30,7 @@
     }
   },
   "roadmap": [
-    { "phase": "P0", "name": "资产盘点", "status": "done", "desc": "技能库 13 包就位，SKILL.md 为原生格式" },
+    { "phase": "P0", "name": "资产盘点", "status": "done", "desc": "技能库 27 包就位，SKILL.md 为原生格式" },
     { "phase": "P1", "name": "工具原型", "status": "done", "desc": "动态插件验证核心工具，黄金用例 10/10 通过" },
     { "phase": "P2", "name": "工具固化", "status": "done", "desc": "固化 @auditox/dsh-tools，13 内核 + 17 工具注册" },
     { "phase": "P3", "name": "建 preset", "status": "done", "desc": "auditox preset：persona + 三规则 + 13 技能挂载" },

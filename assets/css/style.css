@@ -1116,6 +1116,26 @@ body.has-modal { overflow: hidden; }
 }
 .warn-list strong { color: var(--ink); font-weight: 650; }
 
+/* ---------- 技能包更新记录（技能详情页） ---------- */
+.chg-list { list-style: none; }
+.chg-item {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  padding: 13px 0; border-top: 1px dashed var(--line);
+}
+.chg-item:first-child { border-top: 0; padding-top: 0; }
+.chg-date {
+  display: inline-flex; align-items: center; gap: 6px; flex: 0 0 auto;
+  font-family: var(--font-mono); font-size: 12.5px; font-weight: 650;
+  color: var(--brand); background: var(--brand-50);
+  border: 1px solid var(--brand-100); border-radius: var(--radius-sm);
+  padding: 3px 10px; white-space: nowrap;
+}
+.chg-date svg { width: 13px; height: 13px; }
+.chg-item:first-child .chg-date {
+  color: var(--accent-600); background: var(--accent-50); border-color: var(--accent-100);
+}
+.chg-text { flex: 1 1 320px; font-size: 14px; line-height: 1.8; color: var(--ink-2); }
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 1024px) {
   .hero__inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1190,6 +1210,10 @@ body.has-modal { overflow: hidden; }
   .step-list li { padding-left: 30px; }
   .step-list li[data-lv="1"] { padding-left: 46px; }
   .step-list li[data-lv="2"] { padding-left: 62px; }
+
+  /* 更新记录：窄屏日期独占一行 */
+  .chg-item { gap: 8px; }
+  .chg-text { flex: 1 1 100%; }
 }
 
 @media print {

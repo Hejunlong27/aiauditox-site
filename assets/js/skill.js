@@ -3,7 +3,7 @@
   'use strict';
   const {
     ICONS, Store, escapeHtml, qs, idx, cycleBadge, assertionChips, modeBadge,
-    procedureRow, downloadCard, renderSteps, renderItems,
+    procedureRow, downloadCard, renderSteps, renderItems, formatDate,
     init, renderDataError
   } = window.OX;
 
@@ -32,11 +32,13 @@
     /* 锚点导航 */
     const anchors = [
       ['six', '六要素'], ['procedures', '程序分派表'], ['steps', '调度流程'],
-      ['review', '一级复核清单'], ['boundaries', '边界与禁止'], ['pitfalls', '易错点'], ['verify', '验证要点']
+      ['review', '一级复核清单'], ['boundaries', '边界与禁止'], ['pitfalls', '易错点'],
+      ['verify', '验证要点'], ['changelog', '更新记录']
     ].filter(([k]) => {
       const map = { six: s.objectives, procedures: s.procedures.length, steps: s.steps.length,
                     review: s.reviewChecklist.length, boundaries: s.boundaries.length,
-                    pitfalls: s.pitfalls.length, verify: s.verification.length };
+                    pitfalls: s.pitfalls.length, verify: s.verification.length,
+                    changelog: (s.changelog || []).length };
       return map[k];
     });
 
@@ -100,6 +102,9 @@
           block('verify', '验证要点', 'Verification', ICONS.checkCircle,
             renderItems(s.verification),
             '底稿提交前按此自检，未通过不得进入二级复核。') +
+
+          /* 更新记录 */
+          changelogSection(s) +
 
           /* 免责 */
           `<div class="alert alert--info">${ICONS.info}<div>` +
@@ -186,6 +191,33 @@
           s.procedures.map(p => procedureRow(p)).join('') +
         `</div>` +
       `</section>`
+    );
+  }
+
+  /* ---------- 更新记录（每个技能包各自维护，源自包内 CHANGELOG.md） ---------- */
+  function changelogSection(s) {
+    const rows = s.changelog || [];
+    if (!rows.length) return '';
+    const body =
+      `<ol class="chg-list">` +
+        rows.map(r =>
+          `<li class="chg-item">` +
+            `<span class="chg-date">${ICONS.calendar}${escapeHtml(formatDate(r.date))} 更新</span>` +
+            `<span class="chg-text">${escapeHtml(r.content)}</span>` +
+          `</li>`
+        ).join('') +
+      `</ol>`;
+    return (
+      `<section class="card" id="changelog"><div class="card__body">` +
+        `<h2 style="font-size:18px;display:flex;align-items:center;gap:9px">` +
+          `<span style="color:var(--brand);display:flex">${ICONS.clock}</span>更新记录` +
+          `<span style="font-size:11.5px;font-weight:600;color:var(--ink-3);letter-spacing:.08em">Changelog</span>` +
+        `</h2>` +
+        `<p style="font-size:13.5px;color:var(--ink-3);margin-top:6px">` +
+          `本技能包自带的更新历史（共 ${rows.length} 条），按时间倒序；随包文件 <code>CHANGELOG.md</code>。` +
+        `</p>` +
+        `<div style="margin-top:16px">${body}</div>` +
+      `</div></section>`
     );
   }
 

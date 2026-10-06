@@ -43,6 +43,18 @@
   }
 
   /* ---------- 筛选控件 ---------- */
+  /* ---------- 报表项目组的成员与所属「组」 ---------- */
+  /* 一个报表项目组可能横跨多个「组」：如「应付职工薪酬」同时含
+     F-6 应付职工薪酬（负债）与 S-12 工资费用（损益）—— 同一个工薪循环的两面。
+     因此凡是「判断某报表项目属于哪个组」的地方，都必须走这两个函数，
+     不能用分组编码前缀去猜。 */
+  function groupMembers(code) {
+    return Store.skills().filter(s => s.reportGroup === code);
+  }
+  function groupCycles(code) {
+    return [...new Set(groupMembers(code).map(s => s.cycle))];
+  }
+
   function buildFilters() {
     /* 组 */
     const byCycle = Store.meta().byCycle || {};
@@ -60,9 +72,9 @@
       `<span class="filter-label">报表项目</span>` +
       `<button class="chip" type="button" data-f="group" data-v="">全部</button>` +
       Store.reportGroups().map(g => {
-        const n = Store.skills().filter(s => s.reportGroup === g.code).length;
+        const n = groupMembers(g.code).length;
         if (!n) return '';
-        return `<button class="chip" type="button" data-f="group" data-v="${escapeHtml(g.code)}" data-cyc="${escapeHtml(g.code.split('-')[0])}">` +
+        return `<button class="chip" type="button" data-f="group" data-v="${escapeHtml(g.code)}" data-cyc="${escapeHtml(groupCycles(g.code).join(','))}">` +
           `${escapeHtml(g.name)}<span style="opacity:.6">${n}</span></button>`;
       }).join('');
 
@@ -107,9 +119,12 @@
       const on = state[b.getAttribute('data-f')] === b.getAttribute('data-v');
       b.classList.toggle('is-active', on);
     });
-    /* 报表项目随组联动：选中组时只显示该组下的报表项目 */
+    /* 报表项目随组联动：选中组时只显示该组下的报表项目。
+       data-cyc 是逗号分隔的组列表 —— 跨组的报表项目（如工薪循环的「应付职工薪酬」）
+       只要命中选中组之一就显示。 */
     document.querySelectorAll('#group-filters [data-cyc]').forEach(b => {
-      b.hidden = !!state.cycle && b.getAttribute('data-cyc') !== state.cycle;
+      const cycs = (b.getAttribute('data-cyc') || '').split(',');
+      b.hidden = !!state.cycle && cycs.indexOf(state.cycle) === -1;
     });
   }
 
@@ -172,8 +187,14 @@
       const f = b.getAttribute('data-f');
       const v = b.getAttribute('data-v');
       state[f] = state[f] === v ? '' : v;
-      /* 组变化时清掉不匹配的报表项目筛选 */
-      if (f === 'cycle' && state.group && !state.group.startsWith(state.cycle)) state.group = '';
+      /* 组变化时清掉不匹配的报表项目筛选。
+         注意：要按「该报表项目实际所属的组」判断（可能多个），
+         不能用 state.group.startsWith(state.cycle) —— 跨组的工薪循环会被误清。
+         state.cycle 为空（=全部）时不清。 */
+      if (f === 'cycle' && state.cycle && state.group
+          && groupCycles(state.group).indexOf(state.cycle) === -1) {
+        state.group = '';
+      }
       syncControls();
       writeUrl();
       render();
