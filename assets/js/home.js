@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   const {
-    ICONS, Store, escapeHtml, formatNumber, idx, cycleBadge, barRow,
+    ICONS, Store, escapeHtml, formatNumber, idx, cycleBadge, barRow, moduleCard,
     init, renderDataError
   } = window.OX;
 
@@ -13,6 +13,7 @@
     renderPanel();
     renderTrio();
     renderCycles();
+    renderModules();
     renderBars();
   }, { once: true });
 
@@ -111,6 +112,18 @@
     }).join('');
 
     host.innerHTML = cards;
+  }
+
+  /* 能力模块（首页区块） */
+  function renderModules() {
+    const host = document.getElementById('module-strip');
+    if (!host) return;
+    const mods = Store.modules();
+    if (!mods.length) {
+      host.innerHTML = '<p style="font-size:13.5px;color:var(--ink-3)">能力模块正在建设中。</p>';
+      return;
+    }
+    host.innerHTML = mods.map(moduleCard).join('');
   }
 
   /* 分布条 */

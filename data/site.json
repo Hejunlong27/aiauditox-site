@@ -5,7 +5,7 @@
   "subtitle": "把审计方法论沉淀成可复用、可组合、可扩展的 AI 技能",
   "description": "审小牛 AuditOx 把审计程序库逐条拆解为标准化的技能包：一个科目一个技能组，一道程序一张程序卡，凡能本地算完的一律交给确定性工具。技能库、确定性工具、底稿制式三件套，让「丢文件 → 说程序 → 出底稿」成为标准动作。",
   "version": "2.0.0",
-  "updatedAt": "2026-09-23",
+  "updatedAt": "2026-10-10",
   "author": "审小牛",
   "principle": "确定性优先：凡能本地算完的（勾稽、重算、抽样、索引号、哈希）一律调确定性工具，禁止用模型估算；LLM 只做分析、解释、判断。差异类结论必须标注「待人工确认」。",
   "contact": {
@@ -27,6 +27,20 @@
       "accessKey": "e82445b6-494b-4a99-9928-d78de8405eef",
       "subjectPrefix": "【审小牛反馈】",
       "fromName": "审小牛 AIAuditOx"
+    }
+  },
+  "_install_note": "SkillHub 安装入口配置。org / promptTemplate / offlineText 放全局，各技能包只存 skillhub.slug —— 改提示词模板或换 org 只需改这里。以 _ 开头的键不进 registry.json。",
+  "install": {
+    "skillhub": {
+      "registry": "skillhub",
+      "displayName": "SkillHub",
+      "org": "org-c491l5hl",
+      "orgName": "审小牛技能组",
+      "promptDoc": "https://skillhub.cn/install/skillhub.md",
+      "promptTemplate": "请根据 {doc}，安装 `@{org}/{slug}`。",
+      "enterpriseUrl": "https://skillhub.cn/enterprise/org-c491l5hl",
+      "skillUrlTemplate": "https://skillhub.cn/skills/{org}/{slug}",
+      "offlineText": "未上架skillhub，请使用网盘下载后安装~"
     }
   },
   "roadmap": [

@@ -273,6 +273,8 @@
     assertions() { return (this._data && this._data.assertions) || []; },
     tools() { return (this._data && this._data.tools) || []; },
     skills() { return (this._data && this._data.skills) || []; },
+    /** 能力模块（总控 + 子技能型技能包，与审计科目包并列的另一条 lane） */
+    modules() { return (this._data && this._data.modules) || []; },
     procedures() { return (this._data && this._data.procedures) || []; },
 
     cycle(code) { return this.cycles().find(c => c.code === code) || null; },
@@ -281,6 +283,7 @@
     reportGroup(code) { return this.reportGroups().find(g => g.code === code) || null; },
     tool(id) { return this.tools().find(t => t.id === id) || null; },
     skill(id) { return this.skills().find(s => s.id === id) || null; },
+    module(id) { return this.modules().find(m => m.id === id) || null; },
     procedure(skillId, pid) {
       return this.procedures().find(p => p.skillId === skillId && p.id === pid) || null;
     },
@@ -374,8 +377,10 @@
   const NAV_ITEMS = [
     { href: 'index.html',   label: '总览',     key: 'home' },
     { href: 'skills.html',  label: '技能库',   key: 'skills' },
+    { href: 'modules.html', label: '能力模块', key: 'modules' },
     { href: 'atlas.html',   label: '程序图谱', key: 'atlas' },
     { href: 'tools.html',   label: '工具库',   key: 'tools' },
+    { href: 'guide.html',   label: '使用方法', key: 'guide' },
     { href: 'contact.html', label: '联系',     key: 'contact' }
   ];
 
@@ -453,9 +458,9 @@
           `<div>` +
             `<h3 class="footer-col__title">帮助</h3>` +
             `<ul class="footer-links">` +
+              `<li><a href="guide.html">使用方法</a></li>` +
               `<li><a href="contact.html#faq">常见问题</a></li>` +
               `<li><a href="contact.html">提交反馈</a></li>` +
-              `<li><a href="skills.html">全部技能组</a></li>` +
             `</ul>` +
           `</div>` +
           `<div>` +
@@ -537,6 +542,31 @@
     );
   }
 
+  /** 能力模块卡片（模块列表页 / 首页区块复用） */
+  function moduleCard(m) {
+    const a = m.assets || {};
+    const roles = (m.architecture && m.architecture.roles) || [];
+    return (
+      `<article class="card card--hover">` +
+        `<div class="card__body skill-tile">` +
+          `<div class="skill-tile__top">` +
+            `<span class="skill-tile__code" data-c="MOD">模块</span>` +
+            `<div style="min-width:0;flex:1">` +
+              `<a class="skill-tile__title" href="module.html?id=${encodeURIComponent(m.id)}">${escapeHtml(m.name)}</a>` +
+              `<div style="font-size:12.5px;color:var(--ink-3);margin-top:3px">${escapeHtml(m.category || '能力模块')}</div>` +
+            `</div>` +
+          `</div>` +
+          `<p class="skill-tile__desc">${escapeHtml(m.tagline || m.description || '')}</p>` +
+          `<div class="skill-tile__metrics">` +
+            `<span class="metric"><span class="metric__num">${roles.length}</span><span class="metric__label">子技能</span></span>` +
+            `<span class="metric"><span class="metric__num">${(a.references || []).length}</span><span class="metric__label">参考文档</span></span>` +
+            `<span class="metric"><span class="metric__num">${(a.scripts || []).length}</span><span class="metric__label">确定性脚本</span></span>` +
+          `</div>` +
+        `</div>` +
+      `</article>`
+    );
+  }
+
   /** 程序卡行（技能详情页用） */
   function procedureRow(p) {
     const href = p.detail && p.detail.hasCard
@@ -594,6 +624,76 @@
     );
   }
 
+  /* ===================== SkillHub 安装入口（对话安装提示词） =====================
+     用户复制一段提示词发给自己的 AI 助手，由助手读 skillhub.cn 的规范完成安装。
+     与夸克网盘是并列关系：网盘块在上、SkillHub 块在下，互为兜底。
+     配置全部来自 site.json 的 install.skillhub，各包只在自己的 download 里存 slug。 */
+
+  /** SkillHub 全局配置；整段缺失时返回 {}，调用方全部降级 */
+  function skillhubConfig() {
+    const site = Store.site();
+    return (site && site.install && site.install.skillhub) || {};
+  }
+
+  /** 提示词里的 `@org/slug` 渲染成等宽 code */
+  function promptHtml(text) {
+    return escapeHtml(text).replace(/`([^`]+)`/g, '<code>$1</code>');
+  }
+
+  /** 按模板生成安装提示词；占位符 {doc} / {org} / {slug} */
+  function buildPrompt(cfg, slug) {
+    const tpl = cfg.promptTemplate || '请根据 {doc}，安装 `@{org}/{slug}`。';
+    return String(tpl)
+      .replace(/\{doc\}/g, cfg.promptDoc || '')
+      .replace(/\{org\}/g, cfg.org || '')
+      .replace(/\{slug\}/g, slug);
+  }
+
+  /**
+   * SkillHub 安装入口区块。
+   * · 已上架（download.skillhub.slug 存在）→ 可一键复制的安装提示词
+   * · 未上架 → 一句提示，引导回网盘
+   */
+  function skillhubBlock(d) {
+    const cfg = skillhubConfig();
+    const name = cfg.displayName || 'SkillHub';
+    const slug = (d && d.skillhub && d.skillhub.slug) ? String(d.skillhub.slug) : '';
+
+    if (!slug) {
+      return (
+        `<div class="dl-sh">` +
+          `<div class="dl-sh__offline">` +
+            escapeHtml(cfg.offlineText || '未上架skillhub，请使用网盘下载后安装~') +
+          `</div>` +
+        `</div>`
+      );
+    }
+
+    const prompt = buildPrompt(cfg, slug);
+    const skillUrl = safeUrl(String(cfg.skillUrlTemplate || '')
+      .replace(/\{org\}/g, cfg.org || '').replace(/\{slug\}/g, slug));
+
+    return (
+      `<div class="dl-sh">` +
+        `<div class="dl-sh__head">${ICONS.message}安装到 AI 助手` +
+          `<span class="dl-sh__badge" aria-hidden="true">${escapeHtml(name)}</span>` +
+        `</div>` +
+        `<div class="dl-sh__hint">把下面这段发给你的 AI 助手，它会自动完成安装：</div>` +
+        `<div class="dl-prompt" role="button" tabindex="0"` +
+          ` data-copy-prompt="${escapeHtml(prompt)}"` +
+          ` aria-label="复制 ${escapeHtml(name)} 安装提示词">` +
+          `<span class="dl-prompt__text">${promptHtml(prompt)}</span>` +
+          `<span class="dl-prompt__copy" aria-hidden="true">${ICONS.copy}</span>` +
+        `</div>` +
+        (skillUrl
+          ? `<div class="dl-sh__meta">` +
+              `<a href="${escapeHtml(skillUrl)}" target="_blank" rel="noopener noreferrer nofollow">在 ${escapeHtml(name)} 查看 ↗</a>` +
+            `</div>`
+          : '') +
+      `</div>`
+    );
+  }
+
   /** 技能包下载卡片 */
   function downloadCard(s) {
     const d = s.download || {};
@@ -615,17 +715,24 @@
           `</span></div>`
         : '');
 
+    const hasSh = !!(d.skillhub && d.skillhub.slug);
+    const copyLabel = hasSh ? '复制下载信息' : (d.code ? '复制链接与提取码' : '复制下载链接');
+
     const body = url
       ? meta +
         `<div class="dl-actions">` +
           `<a class="btn btn--accent btn--lg" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer nofollow" data-quark-jump="${escapeHtml(s.id)}">` +
             `${ICONS.download}前往夸克网盘下载` +
           `</a>` +
-          (d.code ? `<button class="btn btn--ghost btn--lg" type="button" data-copy-all="${escapeHtml(s.id)}">${ICONS.copy}复制链接与提取码</button>` : '') +
+          `<button class="btn btn--ghost btn--lg" type="button" data-copy-all="${escapeHtml(s.id)}">${ICONS.copy}${copyLabel}</button>` +
         `</div>` +
         `<div class="dl-note"><strong>提示：</strong>点击后将在新标签页打开${escapeHtml(provider)}。` +
           `${d.note ? escapeHtml(d.note) : '请先转存到自己的网盘再下载，避免链接失效。'}</div>`
-      : `<div class="dl-empty">该技能包暂未开放下载，可通过<a href="contact.html">联系我们</a>获取</div>` +
+      : `<div class="dl-empty">` +
+          (hasSh
+            ? '该包暂未开放网盘下载，可用下方 SkillHub 方式安装'
+            : '该技能包暂未开放下载，可通过<a href="contact.html">联系我们</a>获取') +
+        `</div>` +
         `<div class="dl-actions" style="margin-top:14px">` +
           `<button class="btn btn--ghost" type="button" data-copy-page-link>${ICONS.copy}复制本页链接</button>` +
         `</div>`;
@@ -633,7 +740,7 @@
     return (
       `<section class="dl-card" id="download" aria-labelledby="dl-title">` +
         `<div class="dl-card__head">${ICONS.download}<h3 id="dl-title">下载技能包</h3></div>` +
-        `<div class="dl-card__body">${body}</div>` +
+        `<div class="dl-card__body">${body}${skillhubBlock(d)}</div>` +
       `</section>`
     );
   }
@@ -641,7 +748,7 @@
   /* ===================== 下载行为 ===================== */
   function bindGlobalActions() {
     document.addEventListener('click', async (ev) => {
-      const t = ev.target.closest('[data-copy-code],[data-copy-all],[data-copy-text],[data-copy-page-link],[data-quark-jump]');
+      const t = ev.target.closest('[data-copy-code],[data-copy-all],[data-copy-text],[data-copy-page-link],[data-copy-prompt],[data-quark-jump]');
       if (!t) return;
 
       /* 复制当前页面地址（技能包暂未开放下载时也能分享本页） */
@@ -663,19 +770,40 @@
         return;
       }
 
+      if (t.hasAttribute('data-copy-prompt')) {
+        const ok = await copyText(t.getAttribute('data-copy-prompt'));
+        showToast(ok ? '安装提示词已复制' : '复制失败，请手动选择', ok);
+        return;
+      }
+
       if (t.hasAttribute('data-copy-all')) {
         const s = Store.skill(t.getAttribute('data-copy-all'));
         if (!s || !s.download) return;
-        const text = `${s.title}（${s.code} · v${s.version}）\n下载地址：${s.download.url}` +
-                     (s.download.code ? `\n提取码：${s.download.code}` : '');
+        const d = s.download;
+        const cfg = skillhubConfig();
+        let text = `${s.title}（${s.code} · v${s.version}）\n网盘下载：${d.url}` +
+                   (d.code ? `\n提取码：${d.code}` : '');
+        if (d.skillhub && d.skillhub.slug) {
+          text += `\n\n安装到 AI 助手（${cfg.displayName || 'SkillHub'}）：\n` +
+                  buildPrompt(cfg, d.skillhub.slug);
+        }
         const ok = await copyText(text);
-        showToast(ok ? '链接与提取码已复制' : '复制失败，请手动复制', ok);
+        showToast(ok ? '下载信息已复制' : '复制失败，请手动复制', ok);
         return;
       }
 
       if (t.hasAttribute('data-quark-jump')) {
         showToast('已在新标签页打开夸克网盘');
       }
+    });
+
+    /* 提示词框用 role=button，需补键盘触发（Enter / Space） */
+    document.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'Enter' && ev.key !== ' ') return;
+      const t = ev.target.closest('[data-copy-prompt]');
+      if (!t) return;
+      ev.preventDefault();
+      t.click();
     });
   }
 
@@ -769,7 +897,8 @@
     qs, debounce, copyText, showToast, modal,
     renderHeader, renderFooter,
     idx, cycleBadge, assertionChips, modeBadge,
-    skillCard, procedureRow, toolCard, barRow, downloadCard,
+    skillCard, procedureRow, toolCard, barRow, downloadCard, moduleCard,
+    skillhubBlock, skillhubConfig, buildPrompt,
     mdToHtml, renderStepText, renderSteps, renderItems,
     init, renderDataError
   };

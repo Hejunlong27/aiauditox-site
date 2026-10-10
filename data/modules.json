@@ -1,0 +1,15 @@
+{
+  "_comment": "能力模块展示配置（手工维护）。键 = 技能库中的模块目录名。只放『展示层』配置：简称、分类、排序、更新记录；其余信息（子技能、铁律、架构、配套资源等）由 tools/build_registry.py 从模块包自动解析。若模块包自带 CHANGELOG.md，则以包内为准。跑 build_registry.py 时会合并进 registry.json 的 modules[]。",
+  "heavy-asset-financial-analysis": {
+    "name": "重资产企业财务分析",
+    "category": "财务分析",
+    "tagline": "从原始资料到管理层可用的财务分析结论与报告",
+    "order": 1,
+    "changelog": [
+      {
+        "date": "2026-10-08",
+        "content": "首次发布：总控 + 6 子技能（data-prep / statement-analysis / real-estate / mining / cashflow-debt-risk / report-generator）、7 份参考文档、2 个确定性脚本（data_qc / fin_metrics）、2 套示例数据集（房企 / 矿业）。"
+      }
+    ]
+  }
+}

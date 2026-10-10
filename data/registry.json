@@ -1,12 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-10-06 10:45:18",
+    "generatedAt": "2026-10-10 14:29:01",
     "source": "D:\\deepseek\\AI AduitOx\\skills",
     "counts": {
       "skills": 27,
       "procedures": 190,
       "tools": 15,
       "officeTools": 14,
+      "modules": 1,
       "templates": 50,
       "cases": 104,
       "assertions": 5
@@ -54,7 +55,7 @@
     "subtitle": "把审计方法论沉淀成可复用、可组合、可扩展的 AI 技能",
     "description": "审小牛 AuditOx 把审计程序库逐条拆解为标准化的技能包：一个科目一个技能组，一道程序一张程序卡，凡能本地算完的一律交给确定性工具。技能库、确定性工具、底稿制式三件套，让「丢文件 → 说程序 → 出底稿」成为标准动作。",
     "version": "2.0.0",
-    "updatedAt": "2026-09-23",
+    "updatedAt": "2026-10-10",
     "author": "审小牛",
     "principle": "确定性优先：凡能本地算完的（勾稽、重算、抽样、索引号、哈希）一律调确定性工具，禁止用模型估算；LLM 只做分析、解释、判断。差异类结论必须标注「待人工确认」。",
     "contact": {
@@ -74,6 +75,19 @@
         "accessKey": "e82445b6-494b-4a99-9928-d78de8405eef",
         "subjectPrefix": "【审小牛反馈】",
         "fromName": "审小牛 AIAuditOx"
+      }
+    },
+    "install": {
+      "skillhub": {
+        "registry": "skillhub",
+        "displayName": "SkillHub",
+        "org": "org-c491l5hl",
+        "orgName": "审小牛技能组",
+        "promptDoc": "https://skillhub.cn/install/skillhub.md",
+        "promptTemplate": "请根据 {doc}，安装 `@{org}/{slug}`。",
+        "enterpriseUrl": "https://skillhub.cn/enterprise/org-c491l5hl",
+        "skillUrlTemplate": "https://skillhub.cn/skills/{org}/{slug}",
+        "offlineText": "未上架skillhub，请使用网盘下载后安装~"
       }
     },
     "roadmap": [
@@ -1677,7 +1691,10 @@
         "code": "",
         "size": "41 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板）",
-        "note": ""
+        "note": "",
+        "skillhub": {
+          "slug": "f-1-borrowings"
+        }
       }
     },
     {
@@ -2123,7 +2140,10 @@
         "code": "",
         "size": "27 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P03 程序卡 + 工作簿模板 + 黄金用例）",
-        "note": "覆盖 F2231 全部 5 项程序（归并为 3 张程序卡），利息计提测算与列报检查。"
+        "note": "覆盖 F2231 全部 5 项程序（归并为 3 张程序卡），利息计提测算与列报检查。",
+        "skillhub": {
+          "slug": "f-10-interest-payable"
+        }
       }
     },
     {
@@ -2750,7 +2770,10 @@
         "code": "",
         "size": "35 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 工作簿模板 + 黄金用例）",
-        "note": "覆盖 F2232 全部 10 项程序（归并为 5 张程序卡）；重点核查《企业会计准则第29号》口径——资产负债表日后通过的利润分配方案只能披露、不得确认为资产负债表日负债。"
+        "note": "覆盖 F2232 全部 10 项程序（归并为 5 张程序卡）；重点核查《企业会计准则第29号》口径——资产负债表日后通过的利润分配方案只能披露、不得确认为资产负债表日负债。",
+        "skillhub": {
+          "slug": "f-11-dividends-payable"
+        }
       }
     },
     {
@@ -3681,7 +3704,10 @@
         "code": "",
         "size": "44 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板 + 黄金用例）",
-        "note": "覆盖 F2241 全部 9 项程序（归并为 8 张程序卡），期后付款与期后发票检查为核心程序；含函证与会计估计评价 2 张留人卡。"
+        "note": "覆盖 F2241 全部 9 项程序（归并为 8 张程序卡），期后付款与期后发票检查为核心程序；含函证与会计估计评价 2 张留人卡。",
+        "skillhub": {
+          "slug": "f-12-other-payables"
+        }
       }
     },
     {
@@ -4274,9 +4300,12 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/9a4bf12508fd",
         "code": "",
-        "size": "34 KB",
+        "size": "33 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 工作簿模板 + 黄金用例）",
-        "note": "覆盖 F2401 全部 7 项程序（归并为 5 张程序卡），须区分「与资产相关」和「与收益相关」的政府补助。"
+        "note": "覆盖 F2401 全部 7 项程序（归并为 5 张程序卡），须区分「与资产相关」和「与收益相关」的政府补助。",
+        "skillhub": {
+          "slug": "f-13-deferred-income"
+        }
       }
     },
     {
@@ -4795,7 +4824,10 @@
         "code": "",
         "size": "32 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P06 程序卡 + 工作簿模板）",
-        "note": ""
+        "note": "",
+        "skillhub": {
+          "slug": "f-3-notes-payable"
+        }
       }
     },
     {
@@ -5548,7 +5580,10 @@
         "code": "",
         "size": "47 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
-        "note": ""
+        "note": "",
+        "skillhub": {
+          "slug": "f-4-accounts-payable"
+        }
       }
     },
     {
@@ -6076,7 +6111,10 @@
         "code": "",
         "size": "9 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡）",
-        "note": "该技能包以程序卡为主，底稿沿用通用三段式模板。"
+        "note": "该技能包以程序卡为主，底稿沿用通用三段式模板。",
+        "skillhub": {
+          "slug": "f-6-payroll-payable"
+        }
       }
     },
     {
@@ -6609,7 +6647,10 @@
         "code": "",
         "size": "30 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P04 程序卡 + 工作簿模板 + 黄金用例）",
-        "note": "覆盖 F2203 全部 5 项程序（归并为 4 张程序卡），含函证、转销日期检查与披露；预收账款长期挂账是收入跨期的高发区。"
+        "note": "覆盖 F2203 全部 5 项程序（归并为 4 张程序卡），含函证、转销日期检查与披露；预收账款长期挂账是收入跨期的高发区。",
+        "skillhub": {
+          "slug": "f-8-advances-from-customers"
+        }
       }
     },
     {
@@ -8300,7 +8341,10 @@
         "code": "",
         "size": "63 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P12 程序卡 + 工作簿模板 + 黄金用例）",
-        "note": "全线最复杂的负债包：覆盖 F2221 全部 26 项程序（归并为 12 张程序卡），含增值税进销项匡算、税务不确定性（UTE）、土地增值税清算，含 2 张留人卡。"
+        "note": "全线最复杂的负债包：覆盖 F2221 全部 26 项程序（归并为 12 张程序卡），含增值税进销项匡算、税务不确定性（UTE）、土地增值税清算，含 2 张留人卡。",
+        "skillhub": {
+          "slug": "f-9-taxes-payable"
+        }
       }
     },
     {
@@ -9310,9 +9354,12 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/cc4db6527ae4",
         "code": "",
-        "size": "60 KB",
+        "size": "59 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P12 程序卡 + 工作簿模板）",
-        "note": "覆盖 S6001 + S6051 程序库共 71 项程序，最大的一个技能包。"
+        "note": "覆盖 S6001 + S6051 程序库共 71 项程序，最大的一个技能包。",
+        "skillhub": {
+          "slug": "s-1-revenue"
+        }
       }
     },
     {
@@ -11056,9 +11103,12 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/767151b8e244",
         "code": "",
-        "size": "38 KB",
+        "size": "37 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P06 程序卡 + 工作簿模板 + 黄金用例）",
-        "note": "覆盖 S6603 全部 12 项程序（归并为 6 张程序卡），利息收支测算可脚本化；资本化/费用化划分须人工判断。"
+        "note": "覆盖 S6603 全部 12 项程序（归并为 6 张程序卡），利息收支测算可脚本化；资本化/费用化划分须人工判断。",
+        "skillhub": {
+          "slug": "s-11-financial-expenses"
+        }
       }
     },
     {
@@ -12255,7 +12305,7 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/c4cdb3a2c2cf",
         "code": "",
-        "size": "53 KB",
+        "size": "52 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板 + 黄金用例）",
         "note": "覆盖 S6604 全部 16 项程序（归并为 10 张程序卡），含授薪员工确认、工薪循环舞弊测试 2 张留人卡；完整性依赖员工名册完整性。"
       }
@@ -12591,8 +12641,11 @@
         "url": "https://pan.quark.cn/s/ab134e03b7a3",
         "code": "",
         "note": "覆盖 S6702 全部 2 项程序；预期信用损失为强制程序，含账龄分桶与计提测算。",
-        "size": "22 KB",
-        "format": ".zip（SKILL.md + dsl.json + P01~P02 程序卡 + 工作簿模板 + 黄金用例）"
+        "size": "21 KB",
+        "format": ".zip（SKILL.md + dsl.json + P01~P02 程序卡 + 工作簿模板 + 黄金用例）",
+        "skillhub": {
+          "slug": "s-14-credit-impairment"
+        }
       }
     },
     {
@@ -13126,9 +13179,12 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/ed569aaee0ac",
         "code": "",
-        "size": "31 KB",
+        "size": "30 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P04 程序卡 + 工作簿模板 + 黄金用例）",
-        "note": "覆盖 S6403 全部 8 项程序（归并为 4 张程序卡），含税务合规留人卡。"
+        "note": "覆盖 S6403 全部 8 项程序（归并为 4 张程序卡），含税务合规留人卡。",
+        "skillhub": {
+          "slug": "s-8-taxes-and-surcharges"
+        }
       }
     },
     {
@@ -14152,9 +14208,12 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/ca7cfdd73a6d",
         "code": "",
-        "size": "50 KB",
+        "size": "49 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板 + 黄金用例）",
-        "note": "覆盖 S6601 全部 18 项程序（归并为 9 张程序卡），含截止测试、广告宣传费税前扣除限额、费用舞弊应对留人卡。"
+        "note": "覆盖 S6601 全部 18 项程序（归并为 9 张程序卡），含截止测试、广告宣传费税前扣除限额、费用舞弊应对留人卡。",
+        "skillhub": {
+          "slug": "s-9-selling-expenses"
+        }
       }
     },
     {
@@ -14638,9 +14697,12 @@
         "provider": "quark",
         "url": "https://pan.quark.cn/s/e72323c73798",
         "code": "",
-        "size": "30 KB",
+        "size": "29 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 库存现金工作簿模板.xlsx）",
-        "note": "解压到技能目录后重启会话即可使用。"
+        "note": "解压到技能目录后重启会话即可使用。",
+        "skillhub": {
+          "slug": "z-1-1-cash-on-hand"
+        }
       }
     },
     {
@@ -15803,7 +15865,10 @@
         "code": "",
         "size": "135 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板 + 回归测试脚本）",
-        "note": "样板技能包，含完整回归测试与沙箱用例。"
+        "note": "样板技能包，含完整回归测试与沙箱用例。",
+        "skillhub": {
+          "slug": "z-1-2-bank-deposits"
+        }
       }
     },
     {
@@ -16426,7 +16491,10 @@
         "code": "",
         "size": "33 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
-        "note": ""
+        "note": "",
+        "skillhub": {
+          "slug": "z-1-3-other-monetary-funds"
+        }
       }
     },
     {
@@ -16974,7 +17042,10 @@
         "code": "",
         "size": "36 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
-        "note": ""
+        "note": "",
+        "skillhub": {
+          "slug": "z-2-1-notes-receivable"
+        }
       }
     },
     {
@@ -17849,7 +17920,10 @@
         "code": "",
         "size": "51 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板）",
-        "note": ""
+        "note": "",
+        "skillhub": {
+          "slug": "z-2-accounts-receivable"
+        }
       }
     },
     {
@@ -18472,7 +18546,10 @@
         "code": "",
         "size": "38 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
-        "note": ""
+        "note": "",
+        "skillhub": {
+          "slug": "z-3-prepayments"
+        }
       }
     },
     {
@@ -19111,7 +19188,10 @@
         "code": "",
         "size": "40 KB",
         "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
-        "note": ""
+        "note": "",
+        "skillhub": {
+          "slug": "z-4-other-receivables"
+        }
       }
     },
     {
@@ -19858,8 +19938,11 @@
         "url": "https://pan.quark.cn/s/950d743f878c",
         "code": "",
         "note": "覆盖 Z1131 全部 9 项程序（归并为 7 张程序卡），含明细表/增减变动/股利收入测算/期后回款/境外汇回限制/披露。",
-        "size": "41 KB",
-        "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板 + 黄金用例）"
+        "size": "40 KB",
+        "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板 + 黄金用例）",
+        "skillhub": {
+          "slug": "z-6-dividends-receivable"
+        }
       }
     },
     {
@@ -20440,8 +20523,404 @@
         "url": "https://pan.quark.cn/s/76e872f55bf2",
         "code": "",
         "note": "覆盖 Z1132 全部 6 项程序（归并为 5 张程序卡），利息测算支持 actual/365、30/360、整月三种口径。",
-        "size": "32 KB",
-        "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 工作簿模板 + 黄金用例）"
+        "size": "31 KB",
+        "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 工作簿模板 + 黄金用例）",
+        "skillhub": {
+          "slug": "z-7-interest-receivable"
+        }
+      }
+    }
+  ],
+  "modules": [
+    {
+      "id": "heavy-asset-financial-analysis",
+      "kind": "module",
+      "name": "重资产企业财务分析",
+      "fullName": "重资产企业财务分析总控",
+      "category": "财务分析",
+      "tagline": "从原始资料到管理层可用的财务分析结论与报告",
+      "order": 1,
+      "version": "1.0.0",
+      "description": "重资产企业财务分析总控（Heavy Asset Financial Analysis Orchestrator）。当用户要对房地产开发、城市更新/土地开发、矿产资源/矿山、能源、基础设施、工程建设、产业园区等重资产企业做财务分析、经营复盘、财务尽调、债务与现金流压力测试、资产质量诊断，或生成财务分析报告/管理层汇报/董事会材料/一页纸摘要时使用。职责是识别企业类型、任务类型、数据类型与分析深度（快速/标准/深度尽调），按「数据整理 → 三表及经营分析 → 行业专项 → 现金流债务风险 → 报告生成」路由到 6 个子技能（data-prep / statement-analysis / real-estate / mining / cashflow-debt-risk / report-generator）。触发词：重资产、财务分析、三表分析、财务尽调、经营复盘、年度复盘、债务压力测试、债务期限墙、现金流分析、资产质量、有息负债、净负债率、现金短债比、土地储备、去化率、回款率、单位成本、单吨毛利、矿山储量、品位、回收率、CAPEX、自由现金流、财务分析报告、管理层汇报、董事会材料、给董事长看、为什么有利润没有现金。",
+      "positioning": "把重资产企业的**原始财务与经营资料**，加工成一份管理层能直接用的**财务分析结论 + 报告**。核心不是\"算指标\"，而是回答五个问题：\n\n\n服务对象：房地产开发、城市更新/土地开发、矿产资源/矿山、能源、基础设施、工程建设、产业园区及其他重资产企业。\n\n本技能是**总控**：识别任务 → 拆解 → 路由 → 汇总 → 交付。具体计算由 6 个子技能承担。",
+      "coreQuestions": "公司现在怎么样 → 为什么这样 → 未来会怎么样 → 最大的风险是什么 → 应该怎么办。",
+      "notApplicable": "**不适用**：个人理财、二级市场证券估值与买卖建议、纯税务筹划、非重资产的轻资产/互联网公司财务分析（可执行通用部分，但须声明行业专项模型不适用）。",
+      "triggers": [
+        {
+          "scene": "财务概览",
+          "say": "\"帮我分析这家公司近三年的财务情况\""
+        },
+        {
+          "scene": "三表分析",
+          "say": "\"看看资产负债表和利润表有什么问题\""
+        },
+        {
+          "scene": "年度/季度复盘",
+          "say": "\"帮我做 2025 年度经营及财务复盘\""
+        },
+        {
+          "scene": "房地产专项",
+          "say": "\"分析这家房企的土地储备和项目盈利能力\""
+        },
+        {
+          "scene": "矿业专项",
+          "say": "\"分析这个矿山的单位成本和盈利能力\""
+        },
+        {
+          "scene": "债务分析",
+          "say": "\"帮我做债务到期压力分析\""
+        },
+        {
+          "scene": "现金流诊断",
+          "say": "\"为什么公司有利润但没有现金\""
+        },
+        {
+          "scene": "财务尽调",
+          "say": "\"根据审计报告做一份财务尽调\""
+        },
+        {
+          "scene": "风险排查",
+          "say": "\"帮我找出这家公司最大的 10 项财务风险\""
+        },
+        {
+          "scene": "管理层汇报",
+          "say": "\"做一个给董事长看的财务分析\""
+        },
+        {
+          "scene": "报告生成",
+          "say": "\"帮我生成一份正式的财务分析报告\""
+        }
+      ],
+      "ironRules": [
+        {
+          "level": 0,
+          "text": "**先数据、后分析**。没看到数据不下结论。没有数据就写「**暂无数据，无法判断**」，禁止用行业常识或记忆数据填充。"
+        },
+        {
+          "level": 0,
+          "text": "**先通用、后专项**。先确定企业整体财务状态，再进入房地产/矿业专项。"
+        },
+        {
+          "level": 0,
+          "text": "**经营与财务必须结合**。禁止只分析财务报表；有经营台账（销售/回款/产量/成本/储量）时必须做交叉验证。"
+        },
+        {
+          "level": 0,
+          "text": "**现金流优先**。分析顺序固定为 **现金 → 债务 → 资产 → 利润 → 增长**，禁止只看利润。"
+        },
+        {
+          "level": 0,
+          "text": "**异常优先**。发现异常变动（>20% 或与经营逻辑相悖）先调查原因，再谈其他。"
+        },
+        {
+          "level": 0,
+          "text": "**结论必须有数据链**。每个重大判断须能还原为：**数据 → 指标 → 趋势 → 原因 → 风险 → 结论**。"
+        },
+        {
+          "level": 0,
+          "text": "**事实 / 判断 / 风险 三分**，不得混写："
+        },
+        {
+          "level": 1,
+          "text": "事实：「2025 年末有息负债 100 亿元，同比 +25%。」"
+        },
+        {
+          "level": 1,
+          "text": "判断：「债务增速明显高于收入增速，杠杆扩张较快。」"
+        },
+        {
+          "level": 1,
+          "text": "风险：「若经营现金流无法同步增长，再融资压力将进一步上升。」"
+        },
+        {
+          "level": 0,
+          "text": "**单位与口径先统一再比较**。万元/亿元、合并/单体、币种、期间不一致时不得直接对比。"
+        },
+        {
+          "level": 0,
+          "text": "**不编造、不美化**。拒绝为迎合用户而修改数据、拔高评级、隐去风险。外部行业基准必须标注来源与年份，无来源则标为「经验参考值」。"
+        }
+      ],
+      "architecture": {
+        "diagram": "【总控】heavy-asset-financial-analysis\n                                  │\n        ┌──────────────┬──────────┴──────────┬──────────────┐\n        │              │                     │              │\n   数据处理        财务分析              行业专项分析      风险与报告\n        │              │              ┌──────┴──────┐        │\n  data-prep    statement-analysis   real-estate   mining   cashflow-debt-risk\n        │              │              └──────┬──────┘        │\n        └──────────────┴─────────────────────┴───────────────┘\n                                  │\n                        report-generator（报告与汇报）",
+        "roles": [
+          {
+            "no": "01",
+            "name": "重资产财务数据整理与质量控制",
+            "dir": "roles/data-prep",
+            "duty": "原始资料 → 标准化数据集 + 数据质量报告",
+            "id": "data-prep",
+            "exists": true
+          },
+          {
+            "no": "02",
+            "name": "重资产企业三表及经营财务分析",
+            "dir": "roles/statement-analysis",
+            "duty": "盈利/资产/效率/现金流/质量五维分析",
+            "id": "statement-analysis",
+            "exists": true
+          },
+          {
+            "no": "03",
+            "name": "房地产企业专项分析",
+            "dir": "roles/real-estate",
+            "duty": "土储 → 项目 → 销售 → 回款 → 利润",
+            "id": "real-estate",
+            "exists": true
+          },
+          {
+            "no": "04",
+            "name": "矿产资源企业专项分析",
+            "dir": "roles/mining",
+            "duty": "资源 → 产能 → 产量 → 价格 → 成本 → 现金流",
+            "id": "mining",
+            "exists": true
+          },
+          {
+            "no": "05",
+            "name": "现金流、债务与风险分析",
+            "dir": "roles/cashflow-debt-risk",
+            "duty": "现金流缺口、债务期限墙、压力测试、风险评级",
+            "id": "cashflow-debt-risk",
+            "exists": true
+          },
+          {
+            "no": "06",
+            "name": "财务分析报告与管理层汇报生成",
+            "dir": "roles/report-generator",
+            "duty": "全部分析结果 → 正式报告 / 汇报材料",
+            "id": "report-generator",
+            "exists": true
+          }
+        ]
+      },
+      "routing": "收到请求\n   │\n   ├─ 用户已明确点名某个子技能（\"只分析房地产项目盈利能力\"）\n   │        └─→ 直接进入该子技能，不跑全流程（但先确认数据可用性）\n   │\n   ├─ 数据是原始/非结构化（PDF、台账、多份表）？\n   │        └─ 是 → Skill 01（data-prep）\n   │                └─ 数据缺口清单为空或已确认接受 → 继续\n   │\n   ├─ 需要整体财务判断？ ── 是 → Skill 02（statement-analysis）\n   │\n   ├─ 行业？\n   │        ├─ 房地产/城市更新/产业园区 → Skill 03（real-estate）\n   │        ├─ 矿产/矿山/能源（资源型） → Skill 04（mining）\n   │        └─ 其他重资产 → 通用三表 + 资产质量 + 债务分析\n   │                         并**明确声明**：\"该行业专项模型尚未覆盖\"\n   │\n   ├─ 涉及债务、现金流、偿债、压力测试？ ── 是 → Skill 05（cashflow-debt-risk）\n   │\n   └─ 需要成文交付？ ── 是 → Skill 06（report-generator）",
+      "workModes": [
+        {
+          "mode": "A 快速分析",
+          "for": "高层会议、快速了解",
+          "chain": "01（轻量：只做口径统一与关键校验）→ 02 核心 → 05 摘要",
+          "deliver": "≤1 页：5 条核心结论 + ≤15 个关键指标"
+        },
+        {
+          "mode": "B 标准分析",
+          "for": "月/季/年度分析、经营复盘",
+          "chain": "01 → 02 → 03/04 → 05 → 06",
+          "deliver": "标准财务分析报告（12 章）"
+        },
+        {
+          "mode": "C 深度尽调",
+          "for": "投融资、并购、债务排查",
+          "chain": "01（全量质检 + 勾稽复核）→ 02 → 03/04 → 05（6 情景压力测试）→ 06",
+          "deliver": "深度尽调报告 + 全部中间产物"
+        }
+      ],
+      "workflow": [
+        {
+          "level": 0,
+          "text": "**建任务台账**：列出待办（数据整理 / 三表 / 专项 / 风险 / 报告），逐项推进。"
+        },
+        {
+          "level": 0,
+          "text": "**落盘与命名**：中间产物统一写入工作区 `fin-analysis/<公司简称>-<期间>/`，文件名见 `references/07-interface-contracts.md`。"
+        },
+        {
+          "level": 0,
+          "text": "**Skill 01**：产出标准化数据集、数据字典、质量报告、缺口清单、可计算/不可计算指标清单。"
+        },
+        {
+          "level": 0,
+          "text": "**确认缺口**：把缺口清单与降级方案一并告知用户，取得确认后再往下走（缺核心数据时不得静默跳过）。"
+        },
+        {
+          "level": 0,
+          "text": "**Skill 02**：五维分析 + 趋势（3 年 / 5 年 / 4 季，视数据）+ 财务质量背离识别。"
+        },
+        {
+          "level": 0,
+          "text": "**Skill 03 / 04**：按企业类型进入专项；两者互斥（同时含房开与矿业板块的混合集团，分板块各跑一次）。"
+        },
+        {
+          "level": 0,
+          "text": "**Skill 05**：现金流缺口 → 债务结构 → 期限墙 → 压力测试 → 风险评级（绿/黄/红）。"
+        },
+        {
+          "level": 0,
+          "text": "**Skill 06**：按模式选模板成文；先给\"一句话结论\"，再展开。"
+        },
+        {
+          "level": 0,
+          "text": "**自检**：对照第 8 节输出规范逐条核查后才交付。"
+        }
+      ],
+      "contracts": "Skill 01  输入：原始财务/经营资料（Excel/CSV/PDF/Word/台账）\n          输出：standard_dataset.json + 数据字典 + 数据质量报告 + 数据缺口清单\n                ↓\nSkill 02  输入：standard_dataset.json\n          输出：三表分析结论 + 财务指标表 + 财务质量背离清单\n                ↓\nSkill 03/04  输入：standard_dataset.json + 行业经营数据（项目台账 / 生产台账）\n             输出：行业专项分析结果（项目盈利矩阵 / 三级盈利 + 价格敏感性）\n                ↓\nSkill 05  输入：standard_dataset.json + Skill 02 指标 + Skill 03/04 经营结论\n          输出：现金流缺口分析 + 债务期限墙 + 压力测试结果 + 风险评级表\n                ↓\nSkill 06  输入：上述全部输出 + 用户交付偏好\n          输出：正式报告 / 管理层汇报 / 一页纸摘要 / 董事会材料",
+      "outputRules": [
+        {
+          "level": 0,
+          "text": "**结论先行**：开头给「一句话结论」+ 3–5 条核心判断，再展开论证。"
+        },
+        {
+          "level": 0,
+          "text": "**优先级排序**：分析优先级固定为 **现金安全 > 偿债能力 > 资产质量 > 盈利质量 > 盈利规模 > 增长速度**。"
+        },
+        {
+          "level": 0,
+          "text": "**数据链完整**：重要结论后附 `数据 → 指标 → 趋势 → 原因 → 风险 → 结论`。"
+        },
+        {
+          "level": 0,
+          "text": "**标注来源**：每个关键数字标注来源类型（原始报表 / 用户提供 / 计算结果 / 推算结果 / 外部数据）。"
+        },
+        {
+          "level": 0,
+          "text": "**区分三分**：事实、判断、风险分别成段或成列，不得混写。"
+        },
+        {
+          "level": 0,
+          "text": "**口径与单位**：正文统一单位（默认万元，重大金额可并列亿元），开头声明合并/单体、币种、期间。"
+        },
+        {
+          "level": 0,
+          "text": "**缺口显性**：无法计算的指标集中列在\"数据缺口\"一节，写明缺什么、影响哪个结论。"
+        },
+        {
+          "level": 0,
+          "text": "**可落地建议**：建议必须具体到动作 + 责任方向 + 时间窗，禁止\"加强管理\"这类空话。"
+        }
+      ],
+      "errorHandling": [
+        {
+          "case": "数据缺失",
+          "handle": "走降级路径，明确标注「该结论因缺少 X 数据未验证」；核心数据（资产/负债/收入/现金流）缺失时**暂停**并索取"
+        },
+        {
+          "case": "文件无法解析",
+          "handle": "要求用户导出 CSV/Excel，或提供 PDF 对应页；不得凭文件名猜测内容"
+        },
+        {
+          "case": "勾稽不平",
+          "handle": "**先列差额，不强行调平**；差额 >1% 时标为数据质量风险并回溯来源"
+        },
+        {
+          "case": "口径冲突",
+          "handle": "以用户指定口径为准；未指定时以合并口径为主、单体为辅，并在报告中声明"
+        },
+        {
+          "case": "行业未覆盖",
+          "handle": "执行通用路径 + 明确声明行业专项模型未覆盖，不做行业特有推断"
+        },
+        {
+          "case": "用户要求编造/美化",
+          "handle": "直接拒绝，并给出合规替代（如\"用敏感性分析呈现区间\"）"
+        },
+        {
+          "case": "数据量不足以支撑深度尽调",
+          "handle": "降级为标准分析，说明降级原因与缺失项"
+        }
+      ],
+      "antiPatterns": [
+        "只有指标堆砌，没有经营解释。",
+        "只讲利润，不讲现金流与债务。",
+        "风险评级无数据依据。",
+        "用行业均值掩盖个体事实；用外部数据冒充企业数据。",
+        "报喜不报忧；对异常变动只描述不追因。",
+        "建议停留在\"加强管理、优化结构\"层面。"
+      ],
+      "resources": [
+        {
+          "file": "references/01-data-dictionary.md",
+          "desc": "数据字典、标准数据集 Schema、单位与符号约定、质量检查规则"
+        },
+        {
+          "file": "references/02-indicator-library.md",
+          "desc": "通用指标库（公式/来源/适用行业/意义/风险判断）"
+        },
+        {
+          "file": "references/03-real-estate-indicators.md",
+          "desc": "房地产专项指标库 + 项目盈利矩阵"
+        },
+        {
+          "file": "references/04-mining-indicators.md",
+          "desc": "矿业专项指标库 + 价格敏感性模型"
+        },
+        {
+          "file": "references/05-risk-rules.md",
+          "desc": "9 类风险的可计算触发规则与评级标准"
+        },
+        {
+          "file": "references/06-report-templates.md",
+          "desc": "一页纸摘要 / 标准报告 / 深度尽调 / 董事会汇报 四套模板"
+        },
+        {
+          "file": "references/07-interface-contracts.md",
+          "desc": "子技能 I/O 契约、中间产物命名、目录结构"
+        },
+        {
+          "file": "scripts/data_qc.py",
+          "desc": "标准化数据集质检（缺失/勾稽/口径/可计算指标清单）"
+        },
+        {
+          "file": "scripts/fin_metrics.py",
+          "desc": "指标批量计算（成长/盈利/效率/偿债/现金流质量 + 矿业价格敏感性）"
+        },
+        {
+          "file": "examples/sample_mining_dataset.json",
+          "desc": "可直接运行的矿业示例数据集（3 年，含储量与生产台账）"
+        },
+        {
+          "file": "examples/sample_real_estate_dataset.json",
+          "desc": "可直接运行的房企示例数据集（3 年，含销售回款与土储）"
+        },
+        {
+          "file": "examples/out_*.md",
+          "desc": "上述两个数据集的脚本输出样本（质检报告 + 指标表 + 敏感性表）"
+        },
+        {
+          "file": "roles/*/SKILL.md",
+          "desc": "6 个子技能定义"
+        }
+      ],
+      "assets": {
+        "references": [
+          "01-data-dictionary.md",
+          "02-indicator-library.md",
+          "03-real-estate-indicators.md",
+          "04-mining-indicators.md",
+          "05-risk-rules.md",
+          "06-report-templates.md",
+          "07-interface-contracts.md"
+        ],
+        "scripts": [
+          "data_qc.py",
+          "fin_metrics.py"
+        ],
+        "examples": [
+          "out_mining_metrics.json",
+          "out_mining_metrics.md",
+          "out_mining_qc.md",
+          "out_re_metrics.md",
+          "out_re_qc.md",
+          "sample_mining_dataset.json",
+          "sample_real_estate_dataset.json"
+        ]
+      },
+      "changelog": [
+        {
+          "date": "2026-10-08",
+          "content": "首次发布：总控 + 6 子技能（data-prep / statement-analysis / real-estate / mining / cashflow-debt-risk / report-generator）、7 份参考文档、2 个确定性脚本（data_qc / fin_metrics）、2 套示例数据集（房企 / 矿业）。"
+        }
+      ],
+      "lastUpdated": "2026-10-08",
+      "download": {
+        "provider": "quark",
+        "url": "",
+        "code": "",
+        "note": "能力模块（非审计科目包）：总控 + 6 子技能。含 7 份参考文档、2 个确定性脚本、2 套示例数据集。",
+        "size": "",
+        "format": ".zip（SKILL.md + roles/ 6 个子技能 + references/ 7 份文档 + scripts/ 2 个脚本 + examples/ 示例数据）",
+        "skillhub": {
+          "slug": "heavy-asset-financial-analysis"
+        }
       }
     }
   ],
