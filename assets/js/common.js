@@ -273,7 +273,7 @@
     assertions() { return (this._data && this._data.assertions) || []; },
     tools() { return (this._data && this._data.tools) || []; },
     skills() { return (this._data && this._data.skills) || []; },
-    /** 能力模块（总控 + 子技能型技能包，与审计科目包并列的另一条 lane） */
+    /** 辅助分析类技能（总控 + 子技能型技能包，与审计科目包并列的另一条 lane） */
     modules() { return (this._data && this._data.modules) || []; },
     procedures() { return (this._data && this._data.procedures) || []; },
 
@@ -377,7 +377,7 @@
   const NAV_ITEMS = [
     { href: 'index.html',   label: '总览',     key: 'home' },
     { href: 'skills.html',  label: '技能库',   key: 'skills' },
-    { href: 'modules.html', label: '能力模块', key: 'modules' },
+    { href: 'modules.html', label: '辅助分析类技能', key: 'modules' },
     { href: 'atlas.html',   label: '程序图谱', key: 'atlas' },
     { href: 'tools.html',   label: '工具库',   key: 'tools' },
     { href: 'guide.html',   label: '使用方法', key: 'guide' },
@@ -542,7 +542,7 @@
     );
   }
 
-  /** 能力模块卡片（模块列表页 / 首页区块复用） */
+  /** 辅助分析类技能卡片（模块列表页 / 首页区块复用） */
   function moduleCard(m) {
     const a = m.assets || {};
     const roles = (m.architecture && m.architecture.roles) || [];
@@ -550,10 +550,10 @@
       `<article class="card card--hover">` +
         `<div class="card__body skill-tile">` +
           `<div class="skill-tile__top">` +
-            `<span class="skill-tile__code" data-c="MOD">模块</span>` +
+            `<span class="skill-tile__code" data-c="MOD">辅助分析</span>` +
             `<div style="min-width:0;flex:1">` +
               `<a class="skill-tile__title" href="module.html?id=${encodeURIComponent(m.id)}">${escapeHtml(m.name)}</a>` +
-              `<div style="font-size:12.5px;color:var(--ink-3);margin-top:3px">${escapeHtml(m.category || '能力模块')}</div>` +
+              `<div style="font-size:12.5px;color:var(--ink-3);margin-top:3px">${escapeHtml(m.category || '辅助分析类技能')}</div>` +
             `</div>` +
           `</div>` +
           `<p class="skill-tile__desc">${escapeHtml(m.tagline || m.description || '')}</p>` +

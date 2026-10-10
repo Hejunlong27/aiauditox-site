@@ -290,10 +290,10 @@
   },
   "heavy-asset-financial-analysis": {
     "provider": "quark",
-    "url": "",
+    "url": "https://pan.quark.cn/s/2c858e51893c",
     "code": "",
-    "note": "能力模块（非审计科目包）：总控 + 6 子技能。含 7 份参考文档、2 个确定性脚本、2 套示例数据集。",
-    "size": "",
+    "note": "辅助分析类技能（非审计科目包）：总控 + 6 子技能。含 7 份参考文档、2 个确定性脚本、2 套示例数据集。",
+    "size": "87 KB",
     "format": ".zip（SKILL.md + roles/ 6 个子技能 + references/ 7 份文档 + scripts/ 2 个脚本 + examples/ 示例数据）",
     "skillhub": {
       "slug": "heavy-asset-financial-analysis"

@@ -1,5 +1,5 @@
 {
-  "_comment": "能力模块展示配置（手工维护）。键 = 技能库中的模块目录名。只放『展示层』配置：简称、分类、排序、更新记录；其余信息（子技能、铁律、架构、配套资源等）由 tools/build_registry.py 从模块包自动解析。若模块包自带 CHANGELOG.md，则以包内为准。跑 build_registry.py 时会合并进 registry.json 的 modules[]。",
+  "_comment": "辅助分析类技能展示配置（手工维护）。键 = 技能库中的模块目录名。只放『展示层』配置：简称、分类、排序、更新记录；其余信息（子技能、铁律、架构、配套资源等）由 tools/build_registry.py 从模块包自动解析。若模块包自带 CHANGELOG.md，则以包内为准。跑 build_registry.py 时会合并进 registry.json 的 modules[]。",
   "heavy-asset-financial-analysis": {
     "name": "重资产企业财务分析",
     "category": "财务分析",

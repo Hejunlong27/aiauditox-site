@@ -1,4 +1,4 @@
-/* 能力模块详情页：定位 / 触发场景 / 铁律 / 系统架构(1+N) / 路由 / 工作模式 / 输出规范 / 反模式 / 配套资源 / 更新记录 */
+/* 辅助分析类技能详情页：定位 / 触发场景 / 铁律 / 系统架构(1+N) / 路由 / 工作模式 / 输出规范 / 反模式 / 配套资源 / 更新记录 */
 (function () {
   'use strict';
   const {
@@ -14,7 +14,7 @@
 
     const id = qs('id');
     const m = id ? Store.module(id) : null;
-    if (!m) { root.innerHTML = notFound('没有找到这个能力模块，它可能已被移除或链接有误'); return; }
+    if (!m) { root.innerHTML = notFound('没有找到这个辅助分析类技能，它可能已被移除或链接有误'); return; }
 
     document.title = `${m.name} · 审小牛 AIAuditOx`;
     const md = document.querySelector('meta[name="description"]');
@@ -43,13 +43,13 @@
     return (
       `<nav class="crumb" aria-label="面包屑">` +
         `<a href="index.html">总览</a>${ICONS.chevronRight}` +
-        `<a href="modules.html">能力模块</a>${ICONS.chevronRight}` +
+        `<a href="modules.html">辅助分析类技能</a>${ICONS.chevronRight}` +
         `<span class="crumb__current">${escapeHtml(m.name)}</span>` +
       `</nav>` +
 
       `<header class="detail-head" style="margin-top:20px">` +
         `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">` +
-          `<span class="mod-chip">${ICONS.puzzle}${escapeHtml(m.category || '能力模块')}</span>` +
+          `<span class="mod-chip">${ICONS.puzzle}${escapeHtml(m.category || '辅助分析类技能')}</span>` +
           `<span class="badge badge--muted">v${escapeHtml(m.version)}</span>` +
           `<span class="badge badge--muted">${roles.length} 个子技能</span>` +
         `</div>` +
@@ -77,23 +77,23 @@
 
           `<div class="alert alert--info">${ICONS.info}<div>` +
             `<div class="alert__title">使用须知</div>` +
-            `<p>模块产出为分析与参考结论，不构成审计意见、财务意见或投资建议；标注「待人工确认」「推算结果」的内容未经复核不得用于正式报告或对外披露。</p>` +
+            `<p>本技能产出为分析与参考结论，不构成审计意见、财务意见或投资建议；标注「待人工确认」「推算结果」的内容未经复核不得用于正式报告或对外披露。</p>` +
           `</div></div>` +
         `</div>` +
 
         `<aside class="sidebar">` +
           moduleDownloadCard(m) +
           `<div class="card"><div class="card__body">` +
-            `<h2 class="sidebar__title">模块信息</h2>` +
+            `<h2 class="sidebar__title">技能信息</h2>` +
             `<div class="kv">` +
-              `<span class="kv__k">分类</span><span class="kv__v">${escapeHtml(m.category || '能力模块')}</span>` +
+              `<span class="kv__k">分类</span><span class="kv__v">${escapeHtml(m.category || '辅助分析类技能')}</span>` +
               `<span class="kv__k">子技能</span><span class="kv__v">${roles.length} 个</span>` +
               `<span class="kv__k">参考文档</span><span class="kv__v">${(m.assets.references || []).length} 份</span>` +
               `<span class="kv__k">脚本</span><span class="kv__v">${(m.assets.scripts || []).length} 个</span>` +
               `<span class="kv__k">版本</span><span class="kv__v">v${escapeHtml(m.version)}</span>` +
-              `<span class="kv__k">模块 id</span><span class="kv__v" style="font-family:var(--font-mono);font-size:12.5px">${escapeHtml(m.id)}</span>` +
+              `<span class="kv__k">技能 id</span><span class="kv__v" style="font-family:var(--font-mono);font-size:12.5px">${escapeHtml(m.id)}</span>` +
             `</div>` +
-            `<button class="btn btn--quiet btn--block" type="button" style="margin-top:12px" data-copy-text="${escapeHtml(m.id)}">${ICONS.copy}复制模块 id</button>` +
+            `<button class="btn btn--quiet btn--block" type="button" style="margin-top:12px" data-copy-text="${escapeHtml(m.id)}">${ICONS.copy}复制技能 id</button>` +
           `</div></div>` +
           rolesSidebar(m) +
         `</aside>` +
@@ -134,7 +134,7 @@
           `<span style="color:var(--brand);display:flex">${ICONS.message}</span>触发场景` +
           `<span style="font-size:11.5px;font-weight:600;color:var(--ink-3);letter-spacing:.08em">When to use</span>` +
         `</h2>` +
-        `<p style="font-size:13.5px;color:var(--ink-3);margin-top:6px">满足任一场景即可加载本模块。</p>` +
+        `<p style="font-size:13.5px;color:var(--ink-3);margin-top:6px">满足任一场景即可加载本技能。</p>` +
         `<div class="data-table__wrap" style="margin-top:16px"><table class="data-table">` +
           `<thead><tr><th style="width:150px">场景</th><th>用户典型说法</th></tr></thead>` +
           `<tbody>` + m.triggers.map(t =>
@@ -280,7 +280,7 @@
           `<span style="color:var(--brand);display:flex">${ICONS.folder}</span>配套资源` +
           `<span style="font-size:11.5px;font-weight:600;color:var(--ink-3);letter-spacing:.08em">Bundle</span>` +
         `</h2>` +
-        `<p style="font-size:13.5px;color:var(--ink-3);margin-top:6px">随模块分发的参考文档、确定性脚本与示例数据。</p>` +
+        `<p style="font-size:13.5px;color:var(--ink-3);margin-top:6px">随技能分发的参考文档、确定性脚本与示例数据。</p>` +
         chips + table +
       `</div></section>`
     );
@@ -346,8 +346,8 @@
       : meta +
         `<div class="dl-empty">` +
           (hasSh
-            ? '该模块暂未开放网盘下载，可用下方 SkillHub 方式安装'
-            : '该模块暂未开放下载，可通过<a href="contact.html">联系我们</a>获取') +
+            ? '该技能暂未开放网盘下载，可用下方 SkillHub 方式安装'
+            : '该技能暂未开放下载，可通过<a href="contact.html">联系我们</a>获取') +
         `</div>` +
         `<div class="dl-actions" style="margin-top:14px">` +
           `<button class="btn btn--ghost" type="button" data-copy-page-link>${ICONS.copy}复制本页链接</button>` +
@@ -355,7 +355,7 @@
 
     return (
       `<section class="dl-card" id="download" aria-labelledby="dl-title">` +
-        `<div class="dl-card__head">${ICONS.download}<h3 id="dl-title">下载能力模块</h3></div>` +
+        `<div class="dl-card__head">${ICONS.download}<h3 id="dl-title">下载辅助分析类技能</h3></div>` +
         `<div class="dl-card__body">${body}${skillhubBlock(d)}</div>` +
       `</section>`
     );
@@ -396,10 +396,10 @@
   function notFound(msg) {
     return (
       `<div class="empty" style="padding:100px 24px">${ICONS.inbox}` +
-        `<div class="empty__title">能力模块不存在</div>` +
+        `<div class="empty__title">辅助分析类技能不存在</div>` +
         `<p class="empty__desc">${escapeHtml(msg)}</p>` +
         `<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">` +
-          `<a class="btn btn--primary" href="modules.html">返回能力模块</a>` +
+          `<a class="btn btn--primary" href="modules.html">返回辅助分析类技能</a>` +
           `<a class="btn btn--ghost" href="skills.html">浏览技能库</a>` +
         `</div>` +
       `</div>`

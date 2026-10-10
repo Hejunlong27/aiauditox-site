@@ -1201,8 +1201,8 @@ body.has-modal { overflow: hidden; }
 }
 .chg-text { flex: 1 1 320px; font-size: 14px; line-height: 1.8; color: var(--ink-2); }
 
-/* ---------- 能力模块（modules / module 页） ----------
-   模块与审计科目包是两类东西：模块是「总控 + N 子技能」的完整能力。
+/* ---------- 辅助分析类技能（modules / module 页） ----------
+   辅助分析类技能与审计科目包是两类东西：前者是「总控 + N 子技能」的完整能力。
    配色统一走点缀色（accent），与审计科目的五组色区分开。 */
 .skill-tile__code[data-c="MOD"] { background: var(--accent-50); color: var(--accent-600); }
 

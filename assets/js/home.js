@@ -114,13 +114,13 @@
     host.innerHTML = cards;
   }
 
-  /* 能力模块（首页区块） */
+  /* 辅助分析类技能（首页区块） */
   function renderModules() {
     const host = document.getElementById('module-strip');
     if (!host) return;
     const mods = Store.modules();
     if (!mods.length) {
-      host.innerHTML = '<p style="font-size:13.5px;color:var(--ink-3)">能力模块正在建设中。</p>';
+      host.innerHTML = '<p style="font-size:13.5px;color:var(--ink-3)">辅助分析类技能正在建设中。</p>';
       return;
     }
     host.innerHTML = mods.map(moduleCard).join('');
