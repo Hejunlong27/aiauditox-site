@@ -307,7 +307,7 @@
     "format": ".zip（SKILL.md + rules/ 5 份规则文档 + scripts/ 分析引擎与入口 + samples/ 脱敏样例 + output/ 样例底稿）",
     "note": "单体工具型辅助分析技能（非总控 + 子技能）：四张报表进，Excel 分析工作簿 / Word 分析底稿 / 异常清单出。",
     "skillhub": {
-      "pending": true,
+      "slug": "financial-statement-analysis",
       "url": "https://skillhub.cn/team-skills/financial-statement-analysis"
     }
   }
