@@ -1,5 +1,5 @@
 {
-  "_comment": "辅助分析类技能展示配置（手工维护）。键 = 技能库中的模块目录名。只放『展示层』配置：简称、分类、排序、更新记录；其余信息（子技能、铁律、架构、配套资源等）由 tools/build_registry.py 从模块包自动解析。若模块包自带 CHANGELOG.md，则以包内为准。跑 build_registry.py 时会合并进 registry.json 的 modules[]。",
+  "_comment": "辅助分析类技能展示配置（手工维护）。键 = 技能库中的模块目录名。只放『展示层』配置：简称、分类、排序、更新记录；其余信息（子技能、铁律、架构、配套资源等）由 tools/build_registry.py 从模块包自动解析。若模块包自带 CHANGELOG.md，则以包内为准。跑 build_registry.py 时会合并进 registry.json 的 modules[]。注意：本文件同时是『工具型』模块（无 roles/ 子目录的单体技能）的登记表 —— 目录名出现在这里，才会被归入 modules[] 而不是审计技能组。",
   "heavy-asset-financial-analysis": {
     "name": "重资产企业财务分析",
     "category": "财务分析",
@@ -9,6 +9,19 @@
       {
         "date": "2026-10-08",
         "content": "首次发布：总控 + 6 子技能（data-prep / statement-analysis / real-estate / mining / cashflow-debt-risk / report-generator）、7 份参考文档、2 个确定性脚本（data_qc / fin_metrics）、2 套示例数据集（房企 / 矿业）。"
+      }
+    ]
+  },
+  "financial-statement-analysis": {
+    "name": "财务报表分析",
+    "category": "财务分析",
+    "tagline": "四张报表进，可复算、可追溯的分析底稿出",
+    "order": 2,
+    "description": "读取资产负债表、利润表、现金流量表、所有者权益变动表的本期与上期数据，完成勾稽校验、结构分析、两年对比、比率与杜邦分解、期望值测算与跨科目一致性检查，输出 Excel 分析工作簿、Word 分析底稿与异常清单。",
+    "changelog": [
+      {
+        "date": "2026-10-11",
+        "content": "首次发布：单体工具型技能。四张报表加载与映射、数据勾稽校验、结构分析、两年对比、五组比率与杜邦分解、期望值模型、跨科目一致性检查、L1/L2/L3 异常分级；输出 A-9 索引的 11 页 Excel 分析工作簿、十章 Word 分析底稿、异常清单 CSV 与运行日志；随包 5 份规则文档、分析引擎源码与脱敏样例数据。"
       }
     ]
   }

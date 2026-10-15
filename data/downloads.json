@@ -1,5 +1,5 @@
 {
-  "_comment": "技能包下载链接（手工维护）。跑 tools/build_registry.py 时会合并进 registry.json 的 skills[].download。url 为空表示该技能包暂未开放网盘下载，网站会显示「暂未开放」。skillhub.slug 表示该包已在 skillhub.cn 上架（实测 slug 与 skill_id 一致），网站会显示对应的安装提示词；未上架的包不写该字段，网站显示「未上架skillhub，请使用网盘下载后安装~」。",
+  "_comment": "技能包下载链接（手工维护）。跑 tools/build_registry.py 时会合并进 registry.json 的 skills[].download 与 modules[].download。url 为空表示该技能包暂未开放网盘下载，网站会显示「暂未开放」。skillhub 三种状态：① 写 slug = 已上架（网站显示安装提示词，slug 实测与 skill_id 一致）；② 写 pending:true = 审核中（只挂详情页链接，不显示提示词）；③ 整个字段不写 = 未上架（网站显示「未上架skillhub，请使用网盘下载后安装~」）。可选 skillhub.url 覆盖详情页链接，用于 team-skills 这类非标准路径。",
   "auditox-wp-standard": {
     "provider": "quark",
     "url": "https://pan.quark.cn/s/ad45656e1d81",
@@ -297,6 +297,18 @@
     "format": ".zip（SKILL.md + roles/ 6 个子技能 + references/ 7 份文档 + scripts/ 2 个脚本 + examples/ 示例数据）",
     "skillhub": {
       "slug": "heavy-asset-financial-analysis"
+    }
+  },
+  "financial-statement-analysis": {
+    "provider": "quark",
+    "url": "https://pan.quark.cn/s/a8b17f51efd5",
+    "code": "",
+    "size": "190 KB",
+    "format": ".zip（SKILL.md + rules/ 5 份规则文档 + scripts/ 分析引擎与入口 + samples/ 脱敏样例 + output/ 样例底稿）",
+    "note": "单体工具型辅助分析技能（非总控 + 子技能）：四张报表进，Excel 分析工作簿 / Word 分析底稿 / 异常清单出。",
+    "skillhub": {
+      "pending": true,
+      "url": "https://skillhub.cn/team-skills/financial-statement-analysis"
     }
   }
 }

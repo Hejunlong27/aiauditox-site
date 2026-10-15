@@ -27,18 +27,23 @@
   /* ---------- 骨架 ---------- */
   function shell(m) {
     const roles = (m.architecture && m.architecture.roles) || [];
+    const isTool = (m.variant || 'orchestrator') === 'tool';
+    const scripts = (m.assets && m.assets.scripts) || [];
+    const extras = m.extraSections || [];
+    const countText = isTool ? `${scripts.length} 个确定性脚本` : `${roles.length} 个子技能`;
 
     const anchors = [
       ['position', '定位'], ['triggers', '触发场景'], ['rules', '铁律'],
       ['arch', '系统架构'], ['routing', '路由决策'], ['modes', '工作模式'],
-      ['output', '输出规范'], ['anti', '反模式'], ['assets', '配套资源'],
-      ['changelog', '更新记录']
+      ['flow', '执行流程'], ['output', '输出规范'], ['anti', '反模式'],
+      ['assets', '配套资源'], ['changelog', '更新记录']
     ].filter(([k]) => ({
       position: m.positioning, triggers: m.triggers.length, rules: m.ironRules.length,
       arch: roles.length, routing: m.routing, modes: m.workModes.length,
-      output: m.outputRules.length, anti: m.antiPatterns.length,
+      flow: (m.workflow || []).length, output: m.outputRules.length,
+      anti: m.antiPatterns.length,
       assets: m.resources.length, changelog: (m.changelog || []).length
-    }[k]));
+    }[k])).concat(extras.map((s, i) => [`extra-${i}`, s.title]));
 
     return (
       `<nav class="crumb" aria-label="面包屑">` +
@@ -51,7 +56,7 @@
         `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">` +
           `<span class="mod-chip">${ICONS.puzzle}${escapeHtml(m.category || '辅助分析类技能')}</span>` +
           `<span class="badge badge--muted">v${escapeHtml(m.version)}</span>` +
-          `<span class="badge badge--muted">${roles.length} 个子技能</span>` +
+          `<span class="badge badge--muted">${countText}</span>` +
         `</div>` +
         `<h1 class="detail-head__title" style="margin-top:12px">${escapeHtml(m.fullName || m.name)}</h1>` +
         `<p class="detail-summary">${escapeHtml(m.description || m.tagline || '')}</p>` +
@@ -70,7 +75,9 @@
           codeSection('routing', '路由决策', 'Routing', ICONS.route, m.routing,
             '总控如何识别任务并分派到子技能；子技能之间不互相调用。') +
           modesSection(m) +
+          workflowSection(m) +
           outputSection(m) +
+          extraSectionsSection(m) +
           antiSection(m) +
           assetsSection(m) +
           changelogSection(m) +
@@ -87,9 +94,13 @@
             `<h2 class="sidebar__title">技能信息</h2>` +
             `<div class="kv">` +
               `<span class="kv__k">分类</span><span class="kv__v">${escapeHtml(m.category || '辅助分析类技能')}</span>` +
-              `<span class="kv__k">子技能</span><span class="kv__v">${roles.length} 个</span>` +
-              `<span class="kv__k">参考文档</span><span class="kv__v">${(m.assets.references || []).length} 份</span>` +
-              `<span class="kv__k">脚本</span><span class="kv__v">${(m.assets.scripts || []).length} 个</span>` +
+              (isTool
+                ? `<span class="kv__k">规则文档</span><span class="kv__v">${(m.assets.references || []).length} 份</span>` +
+                  `<span class="kv__k">脚本</span><span class="kv__v">${scripts.length} 个</span>` +
+                  `<span class="kv__k">示例数据</span><span class="kv__v">${(m.assets.examples || []).length} 套</span>`
+                : `<span class="kv__k">子技能</span><span class="kv__v">${roles.length} 个</span>` +
+                  `<span class="kv__k">参考文档</span><span class="kv__v">${(m.assets.references || []).length} 份</span>` +
+                  `<span class="kv__k">脚本</span><span class="kv__v">${scripts.length} 个</span>`) +
               `<span class="kv__k">版本</span><span class="kv__v">v${escapeHtml(m.version)}</span>` +
               `<span class="kv__k">技能 id</span><span class="kv__v" style="font-family:var(--font-mono);font-size:12.5px">${escapeHtml(m.id)}</span>` +
             `</div>` +
@@ -227,6 +238,36 @@
     );
   }
 
+  /* ---------- 执行流程（工具型技能：工作方法） ---------- */
+  function workflowSection(m) {
+    const steps = m.workflow || [];
+    if (!steps.length) return '';
+    return (
+      `<section class="card" id="flow"><div class="card__body">` +
+        `<h2 style="font-size:18px;display:flex;align-items:center;gap:9px">` +
+          `<span style="color:var(--brand);display:flex">${ICONS.route}</span>执行流程` +
+          `<span style="font-size:11.5px;font-weight:600;color:var(--ink-3);letter-spacing:.08em">Workflow</span>` +
+        `</h2>` +
+        `<p style="font-size:13.5px;color:var(--ink-3);margin-top:6px">按顺序执行，每一步的结果都落到输出文件。</p>` +
+        `<div style="margin-top:16px">${renderSteps(steps)}</div>` +
+      `</div></section>`
+    );
+  }
+
+  /* ---------- 附加章节（工具型技能：输入格式 / 输出结构 / 使用步骤等） ---------- */
+  function extraSectionsSection(m) {
+    const list = m.extraSections || [];
+    if (!list.length) return '';
+    return list.map((s, i) =>
+      `<section class="card" id="extra-${i}"><div class="card__body">` +
+        `<h2 style="font-size:18px;display:flex;align-items:center;gap:9px">` +
+          `<span style="color:var(--brand);display:flex">${ICONS.clipboard}</span>${escapeHtml(s.title)}` +
+        `</h2>` +
+        `<div class="prose" style="margin-top:14px">${mdToHtml(s.body)}</div>` +
+      `</div></section>`
+    ).join('');
+  }
+
   /* ---------- 输出规范 ---------- */
   function outputSection(m) {
     if (!m.outputRules.length) return '';
@@ -312,12 +353,16 @@
     const d = m.download || {};
     const url = safeUrl(d.url);
     const provider = d.provider === 'quark' ? '夸克网盘' : (d.provider || '网盘');
+    const isTool = (m.variant || 'orchestrator') === 'tool';
+    const unitLabel = isTool ? '确定性脚本' : '子技能';
+    const unitCount = isTool ? ((m.assets && m.assets.scripts) || []).length
+                             : ((m.architecture && m.architecture.roles) || []).length;
     const meta =
       `<div class="dl-meta">` +
         `<div class="dl-meta__item"><div class="dl-meta__label">存储方式</div><div class="dl-meta__value">${escapeHtml(provider)}</div></div>` +
         `<div class="dl-meta__item"><div class="dl-meta__label">包大小</div><div class="dl-meta__value">${escapeHtml(d.size || '—')}</div></div>` +
         `<div class="dl-meta__item"><div class="dl-meta__label">版本</div><div class="dl-meta__value">v${escapeHtml(m.version)}</div></div>` +
-        `<div class="dl-meta__item"><div class="dl-meta__label">子技能</div><div class="dl-meta__value">${((m.architecture && m.architecture.roles) || []).length} 个</div></div>` +
+        `<div class="dl-meta__item"><div class="dl-meta__label">${unitLabel}</div><div class="dl-meta__value">${unitCount} 个</div></div>` +
       `</div>` +
       (d.format ? `<div style="margin-bottom:18px"><div class="dl-meta__label">包含内容</div><div class="dl-meta__value" style="font-weight:500">${escapeHtml(d.format)}</div></div>` : '') +
       (d.code
@@ -328,6 +373,7 @@
         : '');
 
     const hasSh = !!(d.skillhub && d.skillhub.slug);
+    const shPending = !!(d.skillhub && !d.skillhub.slug && d.skillhub.pending);
     const copyText = `${m.name}（${m.id} · v${m.version}）\n网盘下载：${d.url || ''}` +
                      (d.code ? `\n提取码：${d.code}` : '') +
                      (hasSh ? `\n\n安装到 AI 助手：\n` + buildPrompt(skillhubConfig(), d.skillhub.slug) : '');
@@ -347,7 +393,9 @@
         `<div class="dl-empty">` +
           (hasSh
             ? '该技能暂未开放网盘下载，可用下方 SkillHub 方式安装'
-            : '该技能暂未开放下载，可通过<a href="contact.html">联系我们</a>获取') +
+            : (shPending
+                ? '该技能暂未开放网盘下载，可先在 SkillHub 查看详情'
+                : '该技能暂未开放下载，可通过<a href="contact.html">联系我们</a>获取')) +
         `</div>` +
         `<div class="dl-actions" style="margin-top:14px">` +
           `<button class="btn btn--ghost" type="button" data-copy-page-link>${ICONS.copy}复制本页链接</button>` +

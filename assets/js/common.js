@@ -542,10 +542,19 @@
     );
   }
 
-  /** 辅助分析类技能卡片（模块列表页 / 首页区块复用） */
+  /** 辅助分析类技能卡片（模块列表页 / 首页区块复用）
+   *  两种形态：总控型（1 总控 + N 子技能）与工具型（单体技能，无子技能）。 */
   function moduleCard(m) {
     const a = m.assets || {};
     const roles = (m.architecture && m.architecture.roles) || [];
+    const isTool = (m.variant || 'orchestrator') === 'tool';
+    const metrics = isTool
+      ? [['确定性脚本', (a.scripts || []).length],
+         ['规则文档', (a.references || []).length],
+         ['示例数据', (a.examples || []).length]]
+      : [['子技能', roles.length],
+         ['参考文档', (a.references || []).length],
+         ['确定性脚本', (a.scripts || []).length]];
     return (
       `<article class="card card--hover">` +
         `<div class="card__body skill-tile">` +
@@ -558,9 +567,9 @@
           `</div>` +
           `<p class="skill-tile__desc">${escapeHtml(m.tagline || m.description || '')}</p>` +
           `<div class="skill-tile__metrics">` +
-            `<span class="metric"><span class="metric__num">${roles.length}</span><span class="metric__label">子技能</span></span>` +
-            `<span class="metric"><span class="metric__num">${(a.references || []).length}</span><span class="metric__label">参考文档</span></span>` +
-            `<span class="metric"><span class="metric__num">${(a.scripts || []).length}</span><span class="metric__label">确定性脚本</span></span>` +
+            metrics.map(([label, num]) =>
+              `<span class="metric"><span class="metric__num">${num}</span><span class="metric__label">${label}</span></span>`
+            ).join('') +
           `</div>` +
         `</div>` +
       `</article>`
@@ -652,26 +661,48 @@
   /**
    * SkillHub 安装入口区块。
    * · 已上架（download.skillhub.slug 存在）→ 可一键复制的安装提示词
+   * · 审核中（download.skillhub.pending）→ 只挂详情页链接，不放安装提示词
    * · 未上架 → 一句提示，引导回网盘
+   * 详情页链接：包内 skillhub.url 优先（可指向 team-skills 等非标准路径），否则按全局模板拼。
    */
   function skillhubBlock(d) {
     const cfg = skillhubConfig();
     const name = cfg.displayName || 'SkillHub';
-    const slug = (d && d.skillhub && d.skillhub.slug) ? String(d.skillhub.slug) : '';
+    const sh = (d && d.skillhub) || {};
+    const slug = sh.slug ? String(sh.slug) : '';
+    const pending = !slug && !!sh.pending;
+
+    const detailUrl = safeUrl(sh.url || (slug
+      ? String(cfg.skillUrlTemplate || '')
+          .replace(/\{org\}/g, cfg.org || '').replace(/\{slug\}/g, slug)
+      : ''));
 
     if (!slug) {
+      if (!pending) {
+        return (
+          `<div class="dl-sh">` +
+            `<div class="dl-sh__offline">` +
+              escapeHtml(cfg.offlineText || '未上架skillhub，请使用网盘下载后安装~') +
+            `</div>` +
+          `</div>`
+        );
+      }
       return (
         `<div class="dl-sh">` +
-          `<div class="dl-sh__offline">` +
-            escapeHtml(cfg.offlineText || '未上架skillhub，请使用网盘下载后安装~') +
+          `<div class="dl-sh__head">${ICONS.message}安装到 AI 助手` +
+            `<span class="dl-sh__badge" aria-hidden="true">${escapeHtml(name)}</span>` +
           `</div>` +
+          `<div class="dl-sh__hint">该技能已提交 ${escapeHtml(name)} 审核，通过后可用一段提示词一键安装。当前请先用上方网盘下载。</div>` +
+          (detailUrl
+            ? `<div class="dl-sh__meta">` +
+                `<a href="${escapeHtml(detailUrl)}" target="_blank" rel="noopener noreferrer nofollow">在 ${escapeHtml(name)} 查看 ↗</a>` +
+              `</div>`
+            : '') +
         `</div>`
       );
     }
 
     const prompt = buildPrompt(cfg, slug);
-    const skillUrl = safeUrl(String(cfg.skillUrlTemplate || '')
-      .replace(/\{org\}/g, cfg.org || '').replace(/\{slug\}/g, slug));
 
     return (
       `<div class="dl-sh">` +
@@ -685,9 +716,9 @@
           `<span class="dl-prompt__text">${promptHtml(prompt)}</span>` +
           `<span class="dl-prompt__copy" aria-hidden="true">${ICONS.copy}</span>` +
         `</div>` +
-        (skillUrl
+        (detailUrl
           ? `<div class="dl-sh__meta">` +
-              `<a href="${escapeHtml(skillUrl)}" target="_blank" rel="noopener noreferrer nofollow">在 ${escapeHtml(name)} 查看 ↗</a>` +
+              `<a href="${escapeHtml(detailUrl)}" target="_blank" rel="noopener noreferrer nofollow">在 ${escapeHtml(name)} 查看 ↗</a>` +
             `</div>`
           : '') +
       `</div>`
