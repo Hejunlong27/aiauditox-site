@@ -377,7 +377,7 @@
     const copyText = `${m.name}（${m.id} · v${m.version}）\n网盘下载：${d.url || ''}` +
                      (d.code ? `\n提取码：${d.code}` : '') +
                      (hasSh ? `\n\n安装到 AI 助手：\n` + buildPrompt(skillhubConfig(), d.skillhub.slug) : '');
-    const copyLabel = hasSh ? '复制下载信息' : '复制链接与提取码';
+    const copyLabel = hasSh ? '复制下载信息' : (d.code ? '复制链接与提取码' : '复制下载链接');
 
     const body = url
       ? meta +
