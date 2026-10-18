@@ -1,7 +1,7 @@
 /* 技能库页：组 / 报表项目 / 认定 / 执行方式 / 工具 五维筛选 + 搜索 + 排序 */
 (function () {
   'use strict';
-  const { ICONS, Store, escapeHtml, debounce, init, renderDataError, skillCard } = window.OX;
+  const { ICONS, Store, escapeHtml, debounce, init, renderDataError, skillCard, track } = window.OX;
 
   const state = { keyword: '', cycle: '', group: '', assertion: '', mode: '', tool: '', sort: 'code' };
 
@@ -166,10 +166,20 @@
   /* ---------- 事件 ---------- */
   function bindEvents() {
     const search = document.getElementById('search-input');
+    /* 搜索词只报一次：停顿 1.2 秒、长度 ≥2、且与上次上报不同。
+       目的是看用户到底在找什么，而不是统计每一次敲键盘。 */
+    let lastTrackedKw = '';
+    const trackSearch = debounce(() => {
+      const kw = state.keyword;
+      if (kw.length < 2 || kw === lastTrackedKw) return;
+      lastTrackedKw = kw;
+      track('站内搜索', kw);
+    }, 1200);
     search.addEventListener('input', debounce(() => {
       state.keyword = search.value.trim();
       writeUrl(true);
       render();
+      trackSearch();
     }, 200));
 
     document.getElementById('sort-select').addEventListener('change', e => {

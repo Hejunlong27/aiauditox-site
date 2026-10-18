@@ -5,6 +5,21 @@
 (function (global) {
   'use strict';
 
+  /* ===================== 访问统计 ===================== */
+  /* 统计脚本本体由 tools/inject_analytics.py 静态写入各页 <head>，不在这里注入。
+     原因：百度统计的「代码校验」是抓 HTML 源码找 hm.js，JS 动态插入的抓不到。
+     ID 只存在 HTML 里一处，改 ID 重跑那个脚本即可，10 个页面一起改。 */
+
+  /* 关键动作上报。只有百度统计支持自定义事件，Cloudflare 免费版仅记 PV，
+     所以事件数据以百度为准，CF 只用来兜底页面浏览量的准确性。 */
+  function track(action, label) {
+    try {
+      if (global._hmt && global._hmt.push) {
+        global._hmt.push(['_trackEvent', '关键动作', action, String(label || '')]);
+      }
+    } catch (e) { /* 统计失败绝不能影响页面 */ }
+  }
+
   /* ===================== 图标库 ===================== */
   /* ⚠️ 必须带默认 width/height：SVG 只有 viewBox 时，若没有任何 CSS 约束尺寸，
      会按替换元素的默认尺寸渲染（实测撑到 149×149），把容器撑爆。
@@ -786,24 +801,28 @@
       if (t.hasAttribute('data-copy-page-link')) {
         const ok = await copyText(global.location.href);
         showToast(ok ? '本页链接已复制' : '复制失败，请手动复制', ok);
+        track('复制本页链接', global.location.pathname);
         return;
       }
 
       if (t.hasAttribute('data-copy-code')) {
         const ok = await copyText(t.getAttribute('data-copy-code'));
         showToast(ok ? '提取码已复制' : '复制失败，请手动选择', ok);
+        track('复制提取码', qs('id'));
         return;
       }
 
       if (t.hasAttribute('data-copy-text')) {
         const ok = await copyText(t.getAttribute('data-copy-text'));
         showToast(ok ? '已复制' : '复制失败，请手动复制', ok);
+        track('复制文本', qs('id'));
         return;
       }
 
       if (t.hasAttribute('data-copy-prompt')) {
         const ok = await copyText(t.getAttribute('data-copy-prompt'));
         showToast(ok ? '安装提示词已复制' : '复制失败，请手动选择', ok);
+        track('复制安装提示词', qs('id'));
         return;
       }
 
@@ -820,11 +839,13 @@
         }
         const ok = await copyText(text);
         showToast(ok ? '下载信息已复制' : '复制失败，请手动复制', ok);
+        track('复制下载信息', t.getAttribute('data-copy-all'));
         return;
       }
 
       if (t.hasAttribute('data-quark-jump')) {
         showToast('已在新标签页打开夸克网盘');
+        track('前往网盘下载', t.getAttribute('data-quark-jump'));
       }
     });
 
@@ -926,6 +947,7 @@
     ICONS, Store, NAV_ITEMS,
     escapeHtml, safeUrl, formatNumber, formatDate, relativeDate,
     qs, debounce, copyText, showToast, modal,
+    track,
     renderHeader, renderFooter,
     idx, cycleBadge, assertionChips, modeBadge,
     skillCard, procedureRow, toolCard, barRow, downloadCard, moduleCard,
