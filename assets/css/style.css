@@ -126,6 +126,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
 .grid--3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 .grid--4 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 
+/* 联系页联系方式卡：固定两列（4 张卡排成 2×2），窄屏自动落成单列 */
+@media (min-width: 860px) {
+  #contact-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 .row { display: flex; align-items: center; gap: 12px; }
 .row--between { justify-content: space-between; }
 .row--wrap { flex-wrap: wrap; }

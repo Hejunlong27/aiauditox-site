@@ -12,6 +12,13 @@
     "email": "317950728@qq.com",
     "wechatQr": "assets/img/wechat-qr.png",
     "replyNote": "底层审计牛马一枚，平时需要上班，看到之后会尽快处理！",
+    "wechatGroup": {
+      "_note": "开源交流群。微信群二维码 7 天内有效，过期后重新生成并覆盖 assets/img/wechat-group-qr.png 即可，别改路径。",
+      "name": "审小牛开源交流群",
+      "qr": "assets/img/wechat-group-qr.png",
+      "desc": "技能怎么用、底稿怎么改、审计 AI 怎么落地 —— 都在这儿聊。想要新科目、发现程序卡有错，直接群里说。",
+      "expireNote": "群码 7 天有效，失效扫左边个人微信，备注「交流群」。"
+    },
     "wechatMp": {
       "_note": "微信公众号名片。name 是公众号名称，id 是原始ID（gh_ 开头），qr/avatar 换图直接覆盖 assets/img 下的文件即可。",
       "name": "审小牛",

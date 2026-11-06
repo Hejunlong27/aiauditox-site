@@ -483,6 +483,9 @@
             `<ul class="footer-links">` +
               (c.email ? `<li><a href="mailto:${escapeHtml(c.email)}">${escapeHtml(c.email)}</a></li>` : '') +
               (c.wechat ? `<li>微信：${escapeHtml(c.wechat)}</li>` : '') +
+              (c.wechatGroup && c.wechatGroup.qr
+                ? `<li><a href="contact.html#contact-cards">开源交流群</a></li>`
+                : '') +
               `<li><a href="contact.html">更多联系方式</a></li>` +
             `</ul>` +
           `</div>` +

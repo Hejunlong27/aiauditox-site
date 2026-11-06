@@ -55,20 +55,35 @@
 
   function openQrZoom(kind) {
     const mp = CONTACT.wechatMp || {};
-    const isMp = kind === 'mp';
-    const qr = isMp ? (mp.qr || '') : (CONTACT.wechatQr || '');
-    if (!qr) return;
-    const name = mp.name || '审小牛';
+    const grp = CONTACT.wechatGroup || {};
+    const MAP = {
+      me: {
+        qr: CONTACT.wechatQr || '',
+        title: '扫码加我微信',
+        hint: '备注「审小牛」优先通过',
+        alt: '微信二维码，扫码添加'
+      },
+      mp: {
+        qr: mp.qr || '',
+        title: `关注「${mp.name || '审小牛'}」`,
+        hint: '微信扫一扫，或长按识别二维码<br>关注公众号，新内容第一时间收到',
+        alt: `${mp.name || '微信公众号'} 二维码`
+      },
+      group: {
+        qr: grp.qr || '',
+        title: grp.name || '加入开源交流群',
+        hint: '微信扫一扫，或长按识别二维码<br>群二维码 7 天内有效，失效请加个人微信',
+        alt: '审小牛开源交流群二维码'
+      }
+    };
+    const cfg = MAP[kind] || MAP.me;
+    if (!cfg.qr) return;
     modal({
-      title: isMp ? `关注「${name}」` : '扫码加我微信',
+      title: cfg.title,
       desc:
         `<div class="qr-zoom">` +
-          `<img src="${escapeHtml(qr)}" alt="${isMp ? escapeHtml(name) + ' 公众号二维码' : '微信二维码，扫码添加'}">` +
-          `<p class="qr-zoom__hint">` +
-            (isMp
-              ? `微信扫一扫，或长按识别二维码<br>关注公众号，新内容第一时间收到`
-              : '备注「审小牛」优先通过') +
-          `</p>` +
+          `<img src="${escapeHtml(cfg.qr)}" alt="${escapeHtml(cfg.alt)}">` +
+          `<p class="qr-zoom__hint">${cfg.hint}</p>` +
         `</div>`,
       actions: [{ label: '好，知道了', style: 'primary' }]
     });
@@ -82,6 +97,7 @@
     const email = CONTACT.email || '';
     const qr = CONTACT.wechatQr || '';
     const mp = CONTACT.wechatMp || {};
+    const grp = CONTACT.wechatGroup || {};
 
     /* 微信卡片：只展示二维码，不再暴露微信号文本。
        排在邮箱后面 —— 两张都是「联系方式」，放一起更顺。
@@ -95,6 +111,24 @@
             `<div style="font-size:12.5px;color:var(--ink-3)">微信</div>` +
             `<div style="font-size:15.5px;font-weight:650;margin:2px 0 4px">欢迎沟通交流</div>` +
             `<p style="font-size:13px;color:var(--ink-2);margin:0;line-height:1.7">手机微信扫一下，备注「审小牛」优先通过。</p>` +
+          `</div>` +
+        `</div></div>`
+      : '';
+
+    /* 开源交流群：本次新增的主入口。群二维码有 7 天有效期，过期文案单独一行提示，
+       避免访客扫到失效码后无路可走。 */
+    const groupCard = grp.qr
+      ? `<div class="card"><div class="card__body qr-card">` +
+          `<button class="qr-card__img" type="button" data-qr-zoom="group" title="点击放大二维码" aria-label="放大开源交流群二维码">` +
+            `<img src="${escapeHtml(grp.qr)}" alt="审小牛开源交流群二维码" loading="lazy" width="104" height="104">` +
+          `</button>` +
+          `<div style="flex:1;min-width:0">` +
+            `<div style="font-size:12.5px;color:var(--ink-3)">开源交流群</div>` +
+            `<div style="font-size:15.5px;font-weight:650;margin:2px 0 4px">${escapeHtml(grp.name || '审小牛开源交流群')}</div>` +
+            `<p style="font-size:13px;color:var(--ink-2);margin:0;line-height:1.7">${escapeHtml(grp.desc || '')}</p>` +
+            (grp.expireNote
+              ? `<p style="font-size:12px;color:var(--ink-3);margin:6px 0 0;line-height:1.6">${escapeHtml(grp.expireNote)}</p>`
+              : '') +
           `</div>` +
         `</div></div>`
       : '';
@@ -131,6 +165,7 @@
         action: '写邮件'
       },
       { html: wechatCard },
+      { html: groupCard },
       { html: mpCard }
     ];
 

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-11-06 16:12:23",
+    "generatedAt": "2026-11-06 16:40:03",
     "source": "D:\\deepseek\\AI AduitOx\\skills",
     "counts": {
       "skills": 27,
@@ -62,6 +62,12 @@
       "email": "317950728@qq.com",
       "wechatQr": "assets/img/wechat-qr.png",
       "replyNote": "底层审计牛马一枚，平时需要上班，看到之后会尽快处理！",
+      "wechatGroup": {
+        "name": "审小牛开源交流群",
+        "qr": "assets/img/wechat-group-qr.png",
+        "desc": "技能怎么用、底稿怎么改、审计 AI 怎么落地 —— 都在这儿聊。想要新科目、发现程序卡有错，直接群里说。",
+        "expireNote": "群码 7 天有效，失效扫左边个人微信，备注「交流群」。"
+      },
       "wechatMp": {
         "name": "审小牛",
         "id": "gh_7c4e1cd133d6",
@@ -83,6 +89,7 @@
         "displayName": "SkillHub",
         "org": "indiv-27",
         "orgName": "审小牛",
+        "accountHandle": "user_5daeec45",
         "promptDoc": "https://skillhub.cn/install/skillhub.md",
         "promptTemplate": "请根据 {doc}，安装 `@{org}/{slug}`。",
         "enterpriseUrl": "https://skillhub.cn/user/indiv-27",
