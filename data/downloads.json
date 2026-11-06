@@ -6,7 +6,10 @@
     "code": "",
     "size": "18 KB",
     "format": ".zip（SKILL.md + dsl.json + 通用三段式底稿模板.xlsx + 黄金用例）",
-    "note": "全局制式规范包，其余技能包均依赖它，建议先装。"
+    "note": "全局制式规范包，其余技能包均依赖它，建议先装。",
+    "skillhub": {
+      "slug": "aiauditox-auditox-wp-standard"
+    }
   },
   "f-1-borrowings": {
     "provider": "quark",
@@ -16,7 +19,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板）",
     "note": "",
     "skillhub": {
-      "slug": "f-1-borrowings"
+      "slug": "aiauditox-f-1-borrowings"
     }
   },
   "f-10-interest-payable": {
@@ -27,7 +30,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P03 程序卡 + 工作簿模板 + 黄金用例）",
     "note": "覆盖 F2231 全部 5 项程序（归并为 3 张程序卡），利息计提测算与列报检查。",
     "skillhub": {
-      "slug": "f-10-interest-payable"
+      "slug": "aiauditox-f-10-interest-payable"
     }
   },
   "f-11-dividends-payable": {
@@ -38,7 +41,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 工作簿模板 + 黄金用例）",
     "note": "覆盖 F2232 全部 10 项程序（归并为 5 张程序卡）；重点核查《企业会计准则第29号》口径——资产负债表日后通过的利润分配方案只能披露、不得确认为资产负债表日负债。",
     "skillhub": {
-      "slug": "f-11-dividends-payable"
+      "slug": "aiauditox-f-11-dividends-payable"
     }
   },
   "f-12-other-payables": {
@@ -49,7 +52,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板 + 黄金用例）",
     "note": "覆盖 F2241 全部 9 项程序（归并为 8 张程序卡），期后付款与期后发票检查为核心程序；含函证与会计估计评价 2 张留人卡。",
     "skillhub": {
-      "slug": "f-12-other-payables"
+      "slug": "aiauditox-f-12-other-payables"
     }
   },
   "f-13-deferred-income": {
@@ -60,7 +63,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 工作簿模板 + 黄金用例）",
     "note": "覆盖 F2401 全部 7 项程序（归并为 5 张程序卡），须区分「与资产相关」和「与收益相关」的政府补助。",
     "skillhub": {
-      "slug": "f-13-deferred-income"
+      "slug": "aiauditox-f-13-deferred-income"
     }
   },
   "f-3-notes-payable": {
@@ -71,7 +74,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P06 程序卡 + 工作簿模板）",
     "note": "",
     "skillhub": {
-      "slug": "f-3-notes-payable"
+      "slug": "aiauditox-f-3-notes-payable"
     }
   },
   "f-4-accounts-payable": {
@@ -82,7 +85,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
     "note": "",
     "skillhub": {
-      "slug": "f-4-accounts-payable"
+      "slug": "aiauditox-f-4-accounts-payable"
     }
   },
   "f-6-payroll-payable": {
@@ -93,7 +96,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡）",
     "note": "该技能包以程序卡为主，底稿沿用通用三段式模板。",
     "skillhub": {
-      "slug": "f-6-payroll-payable"
+      "slug": "aiauditox-f-6-payroll-payable"
     }
   },
   "f-8-advances-from-customers": {
@@ -104,7 +107,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P04 程序卡 + 工作簿模板 + 黄金用例）",
     "note": "覆盖 F2203 全部 5 项程序（归并为 4 张程序卡），含函证、转销日期检查与披露；预收账款长期挂账是收入跨期的高发区。",
     "skillhub": {
-      "slug": "f-8-advances-from-customers"
+      "slug": "aiauditox-f-8-advances-from-customers"
     }
   },
   "f-9-taxes-payable": {
@@ -115,7 +118,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P12 程序卡 + 工作簿模板 + 黄金用例）",
     "note": "全线最复杂的负债包：覆盖 F2221 全部 26 项程序（归并为 12 张程序卡），含增值税进销项匡算、税务不确定性（UTE）、土地增值税清算，含 2 张留人卡。",
     "skillhub": {
-      "slug": "f-9-taxes-payable"
+      "slug": "aiauditox-f-9-taxes-payable"
     }
   },
   "s-1-revenue": {
@@ -126,7 +129,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P12 程序卡 + 工作簿模板）",
     "note": "覆盖 S6001 + S6051 程序库共 71 项程序，最大的一个技能包。",
     "skillhub": {
-      "slug": "s-1-revenue"
+      "slug": "aiauditox-s-1-revenue"
     }
   },
   "s-10-admin-expenses": {
@@ -135,7 +138,10 @@
     "code": "",
     "size": "48 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板 + 黄金用例）",
-    "note": "覆盖 S6602 全部 17 项程序（归并为 9 张程序卡），含截止测试、业务招待费扣除限额、费用舞弊应对留人卡。"
+    "note": "覆盖 S6602 全部 17 项程序（归并为 9 张程序卡），含截止测试、业务招待费扣除限额、费用舞弊应对留人卡。",
+    "skillhub": {
+      "slug": "aiauditox-s-10-admin-expenses"
+    }
   },
   "s-11-financial-expenses": {
     "provider": "quark",
@@ -145,7 +151,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P06 程序卡 + 工作簿模板 + 黄金用例）",
     "note": "覆盖 S6603 全部 12 项程序（归并为 6 张程序卡），利息收支测算可脚本化；资本化/费用化划分须人工判断。",
     "skillhub": {
-      "slug": "s-11-financial-expenses"
+      "slug": "aiauditox-s-11-financial-expenses"
     }
   },
   "s-12-payroll-expenses": {
@@ -154,7 +160,10 @@
     "code": "",
     "size": "52 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板 + 黄金用例）",
-    "note": "覆盖 S6604 全部 16 项程序（归并为 10 张程序卡），含授薪员工确认、工薪循环舞弊测试 2 张留人卡；完整性依赖员工名册完整性。"
+    "note": "覆盖 S6604 全部 16 项程序（归并为 10 张程序卡），含授薪员工确认、工薪循环舞弊测试 2 张留人卡；完整性依赖员工名册完整性。",
+    "skillhub": {
+      "slug": "aiauditox-s-12-payroll-expenses"
+    }
   },
   "s-14-credit-impairment": {
     "provider": "quark",
@@ -164,7 +173,7 @@
     "size": "21 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P02 程序卡 + 工作簿模板 + 黄金用例）",
     "skillhub": {
-      "slug": "s-14-credit-impairment"
+      "slug": "aiauditox-s-14-credit-impairment"
     }
   },
   "s-8-taxes-and-surcharges": {
@@ -175,7 +184,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P04 程序卡 + 工作簿模板 + 黄金用例）",
     "note": "覆盖 S6403 全部 8 项程序（归并为 4 张程序卡），含税务合规留人卡。",
     "skillhub": {
-      "slug": "s-8-taxes-and-surcharges"
+      "slug": "aiauditox-s-8-taxes-and-surcharges"
     }
   },
   "s-9-selling-expenses": {
@@ -186,7 +195,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P09 程序卡 + 工作簿模板 + 黄金用例）",
     "note": "覆盖 S6601 全部 18 项程序（归并为 9 张程序卡），含截止测试、广告宣传费税前扣除限额、费用舞弊应对留人卡。",
     "skillhub": {
-      "slug": "s-9-selling-expenses"
+      "slug": "aiauditox-s-9-selling-expenses"
     }
   },
   "z-1-1-cash-on-hand": {
@@ -197,7 +206,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 库存现金工作簿模板.xlsx）",
     "note": "解压到技能目录后重启会话即可使用。",
     "skillhub": {
-      "slug": "z-1-1-cash-on-hand"
+      "slug": "aiauditox-z-1-1-cash-on-hand"
     }
   },
   "z-1-2-bank-deposits": {
@@ -208,7 +217,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板 + 回归测试脚本）",
     "note": "样板技能包，含完整回归测试与沙箱用例。",
     "skillhub": {
-      "slug": "z-1-2-bank-deposits"
+      "slug": "aiauditox-z-1-2-bank-deposits"
     }
   },
   "z-1-3-other-monetary-funds": {
@@ -219,7 +228,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P08 程序卡 + 工作簿模板）",
     "note": "",
     "skillhub": {
-      "slug": "z-1-3-other-monetary-funds"
+      "slug": "aiauditox-z-1-3-other-monetary-funds"
     }
   },
   "z-2-1-notes-receivable": {
@@ -230,7 +239,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
     "note": "",
     "skillhub": {
-      "slug": "z-2-1-notes-receivable"
+      "slug": "aiauditox-z-2-1-notes-receivable"
     }
   },
   "z-2-accounts-receivable": {
@@ -241,7 +250,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P10 程序卡 + 工作簿模板）",
     "note": "",
     "skillhub": {
-      "slug": "z-2-accounts-receivable"
+      "slug": "aiauditox-z-2-accounts-receivable"
     }
   },
   "z-3-prepayments": {
@@ -252,7 +261,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
     "note": "",
     "skillhub": {
-      "slug": "z-3-prepayments"
+      "slug": "aiauditox-z-3-prepayments"
     }
   },
   "z-4-other-receivables": {
@@ -263,7 +272,7 @@
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板）",
     "note": "",
     "skillhub": {
-      "slug": "z-4-other-receivables"
+      "slug": "aiauditox-z-4-other-receivables"
     }
   },
   "z-6-dividends-receivable": {
@@ -274,7 +283,7 @@
     "size": "40 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P07 程序卡 + 工作簿模板 + 黄金用例）",
     "skillhub": {
-      "slug": "z-6-dividends-receivable"
+      "slug": "aiauditox-z-6-dividends-receivable"
     }
   },
   "z-7-interest-receivable": {
@@ -285,7 +294,7 @@
     "size": "31 KB",
     "format": ".zip（SKILL.md + dsl.json + P01~P05 程序卡 + 工作簿模板 + 黄金用例）",
     "skillhub": {
-      "slug": "z-7-interest-receivable"
+      "slug": "aiauditox-z-7-interest-receivable"
     }
   },
   "heavy-asset-financial-analysis": {
@@ -296,7 +305,7 @@
     "size": "87 KB",
     "format": ".zip（SKILL.md + roles/ 6 个子技能 + references/ 7 份文档 + scripts/ 2 个脚本 + examples/ 示例数据）",
     "skillhub": {
-      "slug": "heavy-asset-financial-analysis"
+      "slug": "aiauditox-heavy-asset-financial-analysis"
     }
   },
   "financial-statement-analysis": {
@@ -307,8 +316,29 @@
     "format": ".zip（SKILL.md + rules/ 5 份规则文档 + scripts/ 分析引擎与入口 + samples/ 脱敏样例 + output/ 样例底稿）",
     "note": "单体工具型辅助分析技能（非总控 + 子技能）：四张报表进，Excel 分析工作簿 / Word 分析底稿 / 异常清单出。",
     "skillhub": {
-      "slug": "financial-statement-analysis",
-      "url": "https://skillhub.cn/team-skills/financial-statement-analysis"
+      "slug": "aiauditox-financial-statement-analysis"
+    }
+  },
+  "confirmation-address-auditor": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "",
+    "format": ".zip（SKILL.md + scripts/ + references/ + assets/）",
+    "note": "六阶段闭环：多格式读取 → 名称地址标准化 → 三级匹配 → 逐项差异比对 → 风险识别与审计判断 → 输出核对记录表与底稿。",
+    "skillhub": {
+      "slug": "aiauditox-confirmation-address-auditor"
+    }
+  },
+  "doc-ocr-extract": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "618 KB",
+    "format": ".zip（SKILL.md + scripts/ 7 个模块 + rules/ 4 份规则 + samples/ 脱敏样例 + tests/）",
+    "note": "PDF 文本层直读与扫描件 OCR 双引擎；发票 16 字段带坐标溯源；合同条款切分；全程本地推理。",
+    "skillhub": {
+      "slug": "aiauditox-doc-ocr-extract"
     }
   }
 }

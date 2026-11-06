@@ -34,12 +34,13 @@
     "skillhub": {
       "registry": "skillhub",
       "displayName": "SkillHub",
-      "org": "org-c491l5hl",
-      "orgName": "审小牛技能组",
+      "org": "indiv-27",
+      "orgName": "审小牛",
+      "accountHandle": "user_5daeec45",
       "promptDoc": "https://skillhub.cn/install/skillhub.md",
       "promptTemplate": "请根据 {doc}，安装 `@{org}/{slug}`。",
-      "enterpriseUrl": "https://skillhub.cn/enterprise/org-c491l5hl",
-      "skillUrlTemplate": "https://skillhub.cn/skills/{org}/{slug}",
+      "enterpriseUrl": "https://skillhub.cn/user/indiv-27",
+      "skillUrlTemplate": "https://skillhub.cn/skills/{slug}",
       "offlineText": "未上架skillhub，请使用网盘下载后安装~"
     }
   },
