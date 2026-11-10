@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-11-10 11:03:02",
+    "generatedAt": "2026-11-10 11:09:11",
     "source": "D:\\deepseek\\AI AduitOx\\skills",
     "counts": {
       "skills": 27,
@@ -21598,11 +21598,11 @@
       "lastUpdated": "2026-11-10",
       "download": {
         "provider": "quark",
-        "url": "",
+        "url": "https://pan.quark.cn/s/80e3a332e24e",
         "code": "",
-        "size": "≈120 KB",
-        "format": ".zip（SKILL.md + rules/ 9 份规则 + modules/ 8 份模块指令 + scripts/ 6 个脚本 + tests/ 6 份场景 + templates/ 输入表与模板生成脚本）",
-        "note": "研究对象的识别先于一切：先判 A–F 主体类型与信息路径，再调查；公开信息只作线索、同业数据只作基准，风险必须落到报表项目与认定。模板为按需生成（scripts/build_templates.py）。",
+        "size": "224 KB",
+        "format": ".zip（SKILL.md + rules/ 9 份规则 + modules/ 8 份模块指令 + scripts/ 6 个脚本 + templates/ 7 个空白模板 + samples/ 2 份示例 + tests/ 6 份场景）",
+        "note": "识别研究对象先于一切：先判 A–F 主体类型与信息路径，再调查；公开信息只作线索、同业数据只作基准，风险必须落到报表项目与认定。包内已附 Excel/Word 空白模板（主体分类、财务分析、同业对标、风险台账、PBC 清单、背景报告、访谈问题）。",
         "skillhub": {
           "slug": "aiauditox-universal-annual-audit"
         }
