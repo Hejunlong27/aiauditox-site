@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-11-06 16:40:03",
+    "generatedAt": "2026-11-10 11:03:02",
     "source": "D:\\deepseek\\AI AduitOx\\skills",
     "counts": {
       "skills": 27,
       "procedures": 190,
       "tools": 15,
       "officeTools": 14,
-      "modules": 4,
+      "modules": 5,
       "templates": 50,
       "cases": 104,
       "assertions": 5
@@ -21318,6 +21318,293 @@
         "note": "六阶段闭环：多格式读取 → 名称地址标准化 → 三级匹配 → 逐项差异比对 → 风险识别与审计判断 → 输出核对记录表与底稿。",
         "skillhub": {
           "slug": "aiauditox-confirmation-address-auditor"
+        }
+      }
+    },
+    {
+      "id": "universal-annual-audit",
+      "kind": "module",
+      "variant": "tool",
+      "name": "通用年报审计项目启动研究",
+      "fullName": "通用年报审计项目启动研究",
+      "category": "风险评估",
+      "tagline": "先确认研究谁，再选信息路径，最终落到风险台账与 PBC",
+      "order": 5,
+      "version": "1.0.0",
+      "description": "面向年报审计项目启动与风险评估前期：先识别被审计法律主体与披露环境（A–F 六类），再沿上市公司法定披露与非上市多渠道两条路径开展背景调查、行业与商业模式研究、财务趋势与勾稽分析、监管司法信用与舆情线索收集，最终转化为可追溯的风险假设、18 列风险台账、30 条预置的首轮 PBC 清单与项目启动会访谈问题。附 9 份规则文档、8 份模块指令、6 个确定性脚本（比率计算、同业分布、来源登记与校验、财报规范化、模板生成、成果生成）与 6 份测试场景。",
+      "positioning": "在项目启动和风险评估前期，把\"翻资料、猜风险、拍脑袋列清单\"变成一条可追溯、可复核的研究流水线：先确认研究对象到底是谁，再按主体属性选对信息路径，最后把每一条发现落到报表项目、认定、待核实问题和 PBC 请求上。\n\n使用者是审计项目组。本 Skill 负责检索方向、结构化分析与风险假设生成；**重大错报风险的最终评估、风险等级定性和审计程序决策，始终由项目组和签字人作出**。",
+      "coreQuestions": "研究对象是谁？走哪条信息路径？每条发现能落到哪个报表项目、哪项认定、哪份待取资料？",
+      "notApplicable": "出具审计意见、判断意见类型、评价持续经营假设的最终结论；认定舞弊、违法、财务造假或管理层不诚信；编制、重编或调整财务报表，代编会计政策；替代询问、观察、检查、函证、监盘、重新计算等审计程序；确定重要性水平、样本量与具体抽样方案；在缺少被审计单位全称或可核对身份信息的情况下继续研究（须先补信息，见「不确定时的处理」）。",
+      "triggers": [
+        {
+          "scene": "年报审计项目已承接、尚未进场或刚…",
+          "say": "年报审计项目已承接、尚未进场或刚进场，需要快速了解被审计单位及其环境、行业与商业模式、监管与舆情状况。"
+        },
+        {
+          "scene": "需要形成风险评估阶段的初步风险清…",
+          "say": "需要形成风险评估阶段的初步风险清单、待核实问题清单与首轮 PBC 资料请求。"
+        },
+        {
+          "scene": "被审计单位为上市公司、非上市但有…",
+          "say": "被审计单位为上市公司、非上市但有公开披露义务（发债、挂牌、国资）、普通非上市公司、上市集团下属非上市主体、曾上市/退市主体或境外跨境主体。"
+        },
+        {
+          "scene": "已有客户资料（报表、总账、合同）…",
+          "say": "已有客户资料（报表、总账、合同）需要与公开信息交叉印证；或客户资料尚未取得，只能先行公开渠道研究。"
+        },
+        {
+          "scene": "需要把行业与同业上市公司数据组织…",
+          "say": "需要把行业与同业上市公司数据组织成可解释的财务基准，用于识别异常而非替代事实。"
+        }
+      ],
+      "ironRules": [
+        {
+          "level": 0,
+          "text": "主体识别先于一切研究 —— 未确认被审计法律主体就直接检索年报，是最常见也最致命的错误。"
+        },
+        {
+          "level": 0,
+          "text": "一套共同审计逻辑，两条主要信息路径 —— 路径差异只体现在信息来源、数据深度与结论置信度，研究模块本身不变。"
+        },
+        {
+          "level": 0,
+          "text": "公开信息不等于审计证据 —— 公开资料用于了解背景、发现线索、形成待验证假设，不能单独支持审计结论。"
+        },
+        {
+          "level": 0,
+          "text": "同业上市公司只作基准 —— 可比公司的收入、利润、现金流、资产余额不得作为被审计单位数据；不得据同业政策推断本单位政策；不得将同业风险直接认定为本单位已发生风险。"
+        },
+        {
+          "level": 0,
+          "text": "未知就是未知 —— 信息缺失时写\"公开渠道未检索到（附检索日期与范围）\"\"目前资料不足以判断\"\"需向管理层取得资料\"，不得推测填补。"
+        },
+        {
+          "level": 0,
+          "text": "结论必须可追溯 —— 每项关键事实应附来源名称、链接或文号、发布日期、事件日期、检索日期、页码或公告编号、来源等级（S1–S5 / I1）与置信度。"
+        },
+        {
+          "level": 0,
+          "text": "措辞按依据性质分级 —— 官方文件用\"公告显示\"\"监管决定载明\"；企业自述用\"公司称\"\"管理层披露\"；媒体用\"据某媒体报道，尚待核实\"；推论用\"可能提示\"\"形成以下风险假设\"\"建议进一步核查\"；无资料用\"需向管理层取得资料\"。"
+        },
+        {
+          "level": 0,
+          "text": "研究结论必须落到报表项目与认定 —— 风险台账中不得只写\"存在风险\"或\"内控不完善\"。"
+        },
+        {
+          "level": 0,
+          "text": "六项共同研究模块 —— 两条路径共用公司画像、行业与商业模式、财务表现、监管司法信用与舆情、会计政策与重大估计、风险识别与启动准备六个模块，区别只在数据可得性与结论置信度。"
+        },
+        {
+          "level": 0,
+          "text": "叠加模块按主体属性加载 —— 上市集团组成部分、发债主体、国有企业、金融机构、房地产建筑、医药医疗、软件互联网、跨境经营、单一客户依赖、新设快速扩张，按 rules/special_entity_overlays.md 的 M1–M10 追加研究内容，不改变主路径。"
+        },
+        {
+          "level": 0,
+          "text": "不越界：不出意见、不定性、不替代职业判断 —— 研究阶段不得输出审计意见、不得认定舞弊或违法、不得给出定量重要性水平。"
+        }
+      ],
+      "architecture": {
+        "diagram": "",
+        "roles": []
+      },
+      "routing": "",
+      "workModes": [],
+      "workflow": [
+        {
+          "level": 0,
+          "text": "项目初始化：确认审计年度、报告期间、财务报表日、研究截止日、编制基础、适用准则、审计范围（单体/合并/组成部分）、资料清单与保密边界。产出填好的输入表。"
+        },
+        {
+          "level": 0,
+          "text": "主体识别与路径分流（强制前置）：核实目标法律主体的全称、信用代码、注册地、上市状态、其他披露义务、集团关系与行业属性，落到 A–F 六类之一。详见 modules/entity_classification.md。未完成本步不得进入后续研究。"
+        },
+        {
+          "level": 0,
+          "text": "制定检索计划：逐条列出信息源、检索目的、关键词、时间范围、可能局限。上市公司路径见 rules/listed_disclosure_sources.md，非上市路径见 rules/nonlisted_public_sources.md。"
+        },
+        {
+          "level": 0,
+          "text": "采集与登记：优先原始权威资料，对同一事项交叉核验，区分事件发生日/披露日/检索日，保留文件名、URL、页码或公告编号。信息点统一登记（scripts/source_register.py），字段规范见 rules/source_reliability.md。"
+        },
+        {
+          "level": 0,
+          "text": "建立公司画像：基本情况、股权至最终控制方（注明未穿透层级）、治理层变动、组织架构与合并范围、关联方线索、客户供应商集中度、重大交易时间轴。详见 modules/company_profile.md。"
+        },
+        {
+          "level": 0,
+          "text": "行业与商业模式：行业规模与格局、周期与季节性、政策与许可、采购—生产—销售—结算—售后流程、收入确认节点、集中度与依赖。详见 modules/industry_research.md。"
+        },
+        {
+          "level": 0,
+          "text": "财务分析：先取被审计单位真实数据，再做结构、趋势、比率与勾稽分析；用 scripts/calculate_financial_ratios.py 做确定性计算，异常信号只作提示。详见 modules/financial_analysis.md。"
+        },
+        {
+          "level": 0,
+          "text": "同业对标（仅在需要基准时）：按 rules/peer_comparison_method.md 筛选样本，用 scripts/peer_comparison.py 出中位数与四分位分布，被审计单位单列并标\"被审计单位实际数据\"。"
+        },
+        {
+          "level": 0,
+          "text": "监管司法信用与舆情：按 modules/regulatory_research.md 与 modules/public_opinion_research.md 检索并登记事项状态；舆情只形成线索清单，不判案。"
+        },
+        {
+          "level": 0,
+          "text": "会计政策与重大估计：先确认编制基础，再逐项记录政策、依据、与同业差异、变更情况与待核实事项。详见 modules/accounting_analysis.md。"
+        },
+        {
+          "level": 0,
+          "text": "风险映射：把前述发现转成风险台账，每条必须含事实锚点、潜在错报方式、报表项目、认定、风险层次、初步等级与理由、待核实问题、PBC 编号、程序方向。详见 modules/audit_risk_assessment.md 与 rules/audit_assertions.md。"
+        },
+        {
+          "level": 0,
+          "text": "出交付物：用 scripts/generate_reports.py 生成成果骨架，再按模块指令补写叙述性内容，最后逐项过质量检查清单。"
+        }
+      ],
+      "contracts": "",
+      "outputRules": [
+        {
+          "level": 0,
+          "text": "每项关键事实有来源、日期、定位信息，来源等级与内容性质匹配。"
+        },
+        {
+          "level": 0,
+          "text": "日期三件套齐全：事件发生日、披露日、检索日。"
+        },
+        {
+          "level": 0,
+          "text": "主体同一性无混用：母公司与子公司、同名企业、集团合并数与单体数。"
+        },
+        {
+          "level": 0,
+          "text": "数据标签齐全且未混排：被审计单位实际 / 可比公司数据 / 行业参考值 / 预算。"
+        },
+        {
+          "level": 0,
+          "text": "比率与公式可复算：分子、分母、单位、期间、来源齐全。"
+        },
+        {
+          "level": 0,
+          "text": "五类表述不混用：已披露事实、企业陈述、媒体报道、未核实线索、分析判断。"
+        },
+        {
+          "level": 0,
+          "text": "每条风险已映射到报表项目、认定、待核实问题、PBC 编号与程序方向。"
+        },
+        {
+          "level": 0,
+          "text": "信息缺口已明确披露，无虚构数据、无推测补齐。"
+        },
+        {
+          "level": 0,
+          "text": "全文无\"审计证据\"\"审计意见\"性质的表述，无舞弊或违法定性。"
+        },
+        {
+          "level": 0,
+          "text": "研究截止日、检索范围与不可得信息已在报告中说明。"
+        }
+      ],
+      "errorHandling": [],
+      "antiPatterns": [],
+      "extraSections": [
+        {
+          "title": "输入格式",
+          "body": "### 1. 项目输入表（必需）\n\n按 `templates/project_intake.yaml` 填写：被审计单位全称、统一社会信用代码、审计年度与报告期间、注册地、上市状态、上市市场与代码、其他披露义务、集团关系、行业与实际业务、财务报告编制基础、适用审计准则、审计范围、已获得与缺失资料、保密与检索边界。\n\n不确定的字段一律写「待确认」，**不得凭推测填写**。\n\n### 2. 财务数据（宽表 CSV）\n\n首列为科目名称，其余列为期间，单位在调用脚本时声明（元/千元/万元/亿元）。科目名称支持常见别名（如\"营业总收入\"\"主营业务收入\"均映射到营业收入）。\n\n```csv\n项目,2023,2024,2025\n营业收入,10000,12000,19500\n营业成本,7000,8800,15600\n应收账款,1500,2200,4800\n经营活动现金流量净额,-100,-200,-300\n```\n\n可用 `samples/financial_sample.csv` 先验证流程。原始 `.xlsx` 亦可用 `scripts/extract_financial_data.py` 转成标准长表，脚本会标出未识别科目与无法解析的单元格，**不做任何推断性补全**。\n\n### 3. 同业数据（长表 CSV）\n\n四列固定：`公司,指标,期间,数值`，可选 `数据标签`。被审计单位须以确定的名称出现在\"公司\"列中，脚本将其排除在分布统计之外，仅用于定位比较。\n\n```csv\n公司,指标,期间,数值,数据标签\n甲公司,毛利率,2025,0.212,可比公司数据\n被审计单位,毛利率,2025,0.200,被审计单位实际\n```\n\n### 4. 模板文件（按需生成）\n\n`templates/` 只随包提供 `project_intake.yaml`（纯文本）。Excel/Word 空白模板由脚本生成，避免二进制附件影响分发：\n\n```bash\npython scripts/build_templates.py --out-dir templates\n```\n\n生成：主体分类记录、财务分析表、同业对标表、风险台账、PBC 清单（xlsx）与背景报告、访谈问题清单（docx）。需要 `openpyxl` 与 `python-docx`；未安装时脚本会提示，也可以直接用自身办公技能按「输出结构」的字段约定产出。"
+        },
+        {
+          "title": "输出结构",
+          "body": "五项固定成果：\n\n| 编号 | 成果 | 载体 | 模板 |\n| --- | --- | --- | --- |\n| 01 | 被审计单位背景调查报告 | Word/PDF | `templates/company_profile.docx`（脚本生成） |\n| 02 | 财务及行业对标分析表 | Excel | `templates/financial_analysis.xlsx` + `templates/peer_benchmark.xlsx`（脚本生成） |\n| 03 | 审计风险识别与待核实事项台账 | Excel | `templates/audit_risk_register.xlsx`（脚本生成） |\n| 04 | 首轮 PBC 资料需求清单 | Excel | `templates/pbc_list.xlsx`（脚本生成） |\n| 05 | 项目启动会及管理层访谈问题清单 | Word/PPT | `templates/kickoff_questions.docx`（脚本生成） |\n\n支撑文件：\n\n- `source_register.csv` / `.md`：来源与信息点登记表，随报告归档。\n- `ratios.csv` / `anomalies.csv` / `summary.md`：财务比率与异常信号的计算依据。\n- `peer_stats.csv` / `.md`：同业分布统计与位置判断。\n- `output/00_交付清单.md`：交付状态一览。\n\n风险台账字段固定 18 列（编号、主题、事实线索、来源及日期、事实标签、风险假设、报表项目、认定、层次、等级、等级理由、待核实问题、资料需求、程序方向、特别风险待评估、责任人、状态、更新日期），填写要求见台账「字段说明」页。"
+        },
+        {
+          "title": "使用步骤",
+          "body": "1. 复制并填写 `templates/project_intake.yaml`，把「待确认」项列成清单。\n2. 执行主体识别，输出分类结果、依据、来源、置信度与未确认事项。\n3. 按「输入格式」第 4 条生成模板文件，或直接用自身办公技能按字段约定产出。\n4. 按检索计划采集信息，边采集边登记（`scripts/source_register.py` 的 import-csv / validate / dedupe / export）。\n5. 财务数据规范化与分析（`scripts/extract_financial_data.py` → `scripts/calculate_financial_ratios.py`）。\n6. 需要基准时跑同业统计（`scripts/peer_comparison.py`）；样本不足三家时只列参照值、不下位置判断。\n7. 生成成果骨架（`scripts/generate_reports.py --project <目录> --xlsx`）。\n8. 按模块指令补写叙述内容，逐条过质量检查清单。\n9. 交付并记录研究截止日、资料版本与未取得事项。"
+        },
+        {
+          "title": "不确定时的处理",
+          "body": "出现下列情形，暂停自动流程，输出缺口清单与下一步所需信息，不要自行假设：\n\n1. 被审计单位全称或统一社会信用代码无法确认，或存在多个同名主体。\n2. 无法确定目标法律主体是否上市，尤其母子公司关系不清。\n3. 审计年度、报告期间或财务报告编制基础未明确。\n4. 集团关系不明导致单体/合并口径无法确定。\n5. 检索要求涉及未获授权的内部资料、个人隐私或违反保密约定的范围。\n6. 要求把研究结论直接表述为审计意见、舞弊结论或定量重要性水平。\n\n输出格式：已确认事实与来源 → 待确认清单（逐条写需要什么材料、由谁提供）→ 可能路径及各自影响 → 建议下一步。"
+        },
+        {
+          "title": "已知限制",
+          "body": "- 本技能不联网检索，检索能力由执行环境提供；`rules/listed_disclosure_sources.md` 与 `rules/nonlisted_public_sources.md` 中的站点与栏目须在每次执行前核验可访问性与路径。\n- 财务脚本的默认异常阈值仅为提示值，报告中必须披露所采用阈值、设定理由与判断人；未触发不等于无异常。\n- 行业风险库覆盖 12 个主要行业方向，细分行业需按项目补充；不对任何具体行业的会计处理作结论性判断。\n- M1–M10 叠加模块与行业风险库尚未在真实项目完整验证，首轮使用建议与项目组同步复核。\n- Excel/Word 模板需 `openpyxl`、`python-docx` 生成；两者缺失时可改用执行环境自带的办公文档能力。\n- 准则条文与监管规则以项目启动日现行有效版本为准，条文级引用须核对原文，本技能不提供条文解释。"
+        }
+      ],
+      "resources": [
+        {
+          "file": "rules/accounting_frameworks.md",
+          "desc": "会计准则与财务报告框架索引"
+        },
+        {
+          "file": "rules/audit_assertions.md",
+          "desc": "报表项目与认定映射"
+        },
+        {
+          "file": "rules/audit_standards.md",
+          "desc": "适用审计准则索引与版本管理"
+        },
+        {
+          "file": "rules/industry_risk_library.md",
+          "desc": "行业风险库"
+        },
+        {
+          "file": "rules/listed_disclosure_sources.md",
+          "desc": "上市公司信息源与检索路径"
+        },
+        {
+          "file": "rules/nonlisted_public_sources.md",
+          "desc": "非上市公司公开信息源与调查路径"
+        },
+        {
+          "file": "rules/peer_comparison_method.md",
+          "desc": "同业上市公司对标方法"
+        },
+        {
+          "file": "rules/source_reliability.md",
+          "desc": "信息来源分级、登记与措辞规范"
+        },
+        {
+          "file": "rules/special_entity_overlays.md",
+          "desc": "特殊主体与行业叠加模块"
+        }
+      ],
+      "assets": {
+        "references": [
+          "accounting_frameworks.md",
+          "audit_assertions.md",
+          "audit_standards.md",
+          "industry_risk_library.md",
+          "listed_disclosure_sources.md",
+          "nonlisted_public_sources.md",
+          "peer_comparison_method.md",
+          "source_reliability.md",
+          "special_entity_overlays.md"
+        ],
+        "scripts": [
+          "build_templates.py",
+          "calculate_financial_ratios.py",
+          "extract_financial_data.py",
+          "generate_reports.py",
+          "peer_comparison.py",
+          "source_register.py"
+        ],
+        "examples": [
+          "financial_sample.csv",
+          "peers.csv"
+        ]
+      },
+      "changelog": [
+        {
+          "date": "2026-11-10",
+          "content": "首次发布 v1.0.0：主体识别分流（A–F 六类，含上市集团下属非上市主体、发债、退市、跨境）；两条信息路径 + 六项共同研究模块 + M1–M10 叠加模块；来源 S1–S5/I1 分级与可追溯登记；同业对标仅作基准（中位数/四分位，样本不足三家不下判断）；五项交付成果（背景报告 / 财务与对标表 / 风险台账 / PBC 清单 / 访谈问题）；6 个标准库脚本，异常阈值默认值须在报告中披露。"
+        }
+      ],
+      "lastUpdated": "2026-11-10",
+      "download": {
+        "provider": "quark",
+        "url": "",
+        "code": "",
+        "size": "≈120 KB",
+        "format": ".zip（SKILL.md + rules/ 9 份规则 + modules/ 8 份模块指令 + scripts/ 6 个脚本 + tests/ 6 份场景 + templates/ 输入表与模板生成脚本）",
+        "note": "研究对象的识别先于一切：先判 A–F 主体类型与信息路径，再调查；公开信息只作线索、同业数据只作基准，风险必须落到报表项目与认定。模板为按需生成（scripts/build_templates.py）。",
+        "skillhub": {
+          "slug": "aiauditox-universal-annual-audit"
         }
       }
     }
