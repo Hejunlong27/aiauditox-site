@@ -343,11 +343,11 @@
   },
   "universal-annual-audit": {
     "provider": "quark",
-    "url": "https://pan.quark.cn/s/80e3a332e24e",
+    "url": "https://pan.quark.cn/s/4a5f6a3117fc",
     "code": "",
-    "size": "224 KB",
-    "format": ".zip（SKILL.md + rules/ 9 份规则 + modules/ 8 份模块指令 + scripts/ 6 个脚本 + templates/ 7 个空白模板 + samples/ 2 份示例 + tests/ 6 份场景）",
-    "note": "识别研究对象先于一切：先判 A–F 主体类型与信息路径，再调查；公开信息只作线索、同业数据只作基准，风险必须落到报表项目与认定。包内已附 Excel/Word 空白模板（主体分类、财务分析、同业对标、风险台账、PBC 清单、背景报告、访谈问题）。",
+    "size": "290 KB",
+    "format": "universal-annual-audit-v1.1.0.zip（SKILL.md + rules/ 10 份规则 + modules/ 10 份模块指令 + scripts/ 6 个脚本 + templates/ 10 个空白模板 + samples/ 2 份示例 + tests/ 7 份场景）",
+    "note": "目的是让项目组在进场前读懂这家公司：业务到底怎么赚钱、在什么行业里竞争、被哪些政策和监管约束。三域是主体，风险台账与 PBC 是派生成果。包内附三张域事实表（业务 / 行业 / 政策与资质），Excel 与 Word 空白模板由 scripts/build_templates.py 生成。",
     "skillhub": {
       "slug": "aiauditox-universal-annual-audit"
     }
