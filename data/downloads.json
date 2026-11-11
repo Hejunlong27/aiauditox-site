@@ -343,10 +343,10 @@
   },
   "universal-annual-audit": {
     "provider": "quark",
-    "url": "https://pan.quark.cn/s/4a5f6a3117fc",
+    "url": "https://pan.quark.cn/s/92023e013627",
     "code": "",
     "size": "290 KB",
-    "format": "universal-annual-audit-v1.1.0.zip（SKILL.md + rules/ 10 份规则 + modules/ 10 份模块指令 + scripts/ 6 个脚本 + templates/ 10 个空白模板 + samples/ 2 份示例 + tests/ 7 份场景）",
+    "format": "universal-annual-audit-v1.1.1.zip（SKILL.md + rules/ 10 份规则 + modules/ 10 份模块指令 + scripts/ 6 个脚本 + templates/ 10 个空白模板 + samples/ 2 份示例 + tests/ 7 份场景）",
     "note": "目的是让项目组在进场前读懂这家公司：业务到底怎么赚钱、在什么行业里竞争、被哪些政策和监管约束。三域是主体，风险台账与 PBC 是派生成果。包内附三张域事实表（业务 / 行业 / 政策与资质），Excel 与 Word 空白模板由 scripts/build_templates.py 生成。",
     "skillhub": {
       "slug": "aiauditox-universal-annual-audit"
