@@ -347,7 +347,7 @@
     "code": "",
     "size": "约 186 KB（42 文件，无二进制）",
     "format": ".zip（SKILL.md + rules/ 10 份规则 + modules/ 10 份模块指令 + scripts/ 7 个脚本 + templates/ 3 份模板 + samples/ 3 份样例 + tests/ 8 份场景）",
-    "note": "目的是让项目组在进场前读懂这家公司：业务怎么赚钱、在什么行业竞争、被哪些政策监管约束，并可用一条命令生成一页图形化的公司概览（股权穿透图、组织架构图、业务流程图）。三域是主体，风险台账与 PBC 是派生成果。Excel/Word 空白模板由 scripts/build_templates.py 生成。",
+    "note": "目的是让项目组在进场前读懂这家公司：业务怎么赚钱、在什么行业竞争、被哪些政策监管约束。可用一条命令生成一页图形化的公司概览（00_公司概览.html）：工商信息、股权穿透、集团与分子公司架构、分子公司地域分布（按大区分组的泡泡图，气泡直径即人数）、业务组成、境内外分布、近两年一期财务对比（万元）、未决诉讼与立案调查；每个板块标注来源并附可点网址。三域是主体，风险台账与 PBC 是派生成果。Excel/Word 空白模板由 scripts/build_templates.py 生成。",
     "skillhub": {
       "slug": "aiauditox-universal-annual-audit"
     }
