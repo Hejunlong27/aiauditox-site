@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-11-22 09:38:51",
+    "generatedAt": "2026-11-22 09:44:28",
     "source": "D:\\编程\\AIAuditOx\\skill-library",
     "counts": {
       "skills": 27,
@@ -22055,11 +22055,11 @@
       "lastUpdated": "2026-11-22",
       "download": {
         "provider": "quark",
-        "url": "",
-        "code": "",
-        "size": "约 342 KB（67 文件，无二进制）",
-        "format": ".zip（SKILL.md + scripts/ 通用引擎与 CLI + references/ 9 份文档 + assets/ 模板 + tests/ 8 组用例 + examples/ 结构化样例）",
-        "note": "配置驱动：新底稿模板与新原始数据每次重新分析、重新确认映射。示例 Excel 与运行产物不入包，用 scripts/create_demo_project.py 一键重建。",
+        "url": "https://pan.quark.cn/s/648e1636e182?pwd=e5wQ",
+        "code": "e5wQ",
+        "size": "118 KB（121,279 字节 / 67 文件）",
+        "format": ".zip（SKILL.md + scripts/ 通用引擎与 16 个 CLI + references/ 9 份文档 + assets/ 模板 + tests/ 8 组用例 + examples/ 结构化样例）",
+        "note": "配置驱动：新底稿模板与新原始数据每次重新分析、重新确认映射。示例 Excel 与运行产物不入包，用 scripts/create_demo_project.py 一键重建。下载后解压到技能目录即可。",
         "skillhub": {
           "slug": "aiauditox-audit-workpaper-reverse-engineering"
         }
