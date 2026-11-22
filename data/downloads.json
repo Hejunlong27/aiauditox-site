@@ -351,5 +351,16 @@
     "skillhub": {
       "slug": "aiauditox-universal-annual-audit"
     }
+  },
+  "audit-workpaper-reverse-engineering": {
+    "provider": "quark",
+    "url": "",
+    "code": "",
+    "size": "约 342 KB（67 文件，无二进制）",
+    "format": ".zip（SKILL.md + scripts/ 通用引擎与 CLI + references/ 9 份文档 + assets/ 模板 + tests/ 8 组用例 + examples/ 结构化样例）",
+    "note": "配置驱动：新底稿模板与新原始数据每次重新分析、重新确认映射。示例 Excel 与运行产物不入包，用 scripts/create_demo_project.py 一键重建。",
+    "skillhub": {
+      "slug": "aiauditox-audit-workpaper-reverse-engineering"
+    }
   }
 }

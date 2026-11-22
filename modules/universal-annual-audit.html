@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>通用年报审计项目启动研究 · 辅助分析类技能 | 审小牛 AIAuditOx</title>
+<meta name="description" content="通用年报审计项目启动研究｜审小牛辅助分析类技能。面向年报审计项目启动与风险评估前期，目标是让项目组在进场前真正读懂这家公司。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aiauditox.l.cd/modules/universal-annual-audit.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "TechArticle",
+   "@id": "https://aiauditox.l.cd/modules/universal-annual-audit.html#article",
+   "headline": "通用年报审计项目启动研究｜审小牛辅助分析类技能",
+   "description": "通用年报审计项目启动研究｜审小牛辅助分析类技能。面向年报审计项目启动与风险评估前期，目标是让项目组在进场前真正读懂这家公司。",
+   "inLanguage": "zh-CN",
+   "url": "https://aiauditox.l.cd/modules/universal-annual-audit.html",
+   "isPartOf": {
+    "@id": "https://aiauditox.l.cd/#website"
+   },
+   "publisher": {
+    "@id": "https://aiauditox.l.cd/#organization"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "首页",
+     "item": "https://aiauditox.l.cd/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "辅助分析类技能",
+     "item": "https://aiauditox.l.cd/modules.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "通用年报审计项目启动研究",
+     "item": "https://aiauditox.l.cd/modules/universal-annual-audit.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<style>
+  .pr-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .pr-crumb{font-size:13px;color:var(--ink-3);padding:26px 0 0;line-height:1.9}
+  .pr-crumb a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line-2)}
+  .pr-crumb a:hover{color:var(--brand);border-color:var(--brand)}
+  .pr-crumb span{color:var(--ink-3);margin:0 6px}
+  .pr-h1{font-size:27px;line-height:1.35;margin:14px 0 0;letter-spacing:-.01em}
+  .pr-lead{font-size:14.5px;color:var(--ink-2);line-height:1.85;margin:14px 0 0;max-width:760px}
+  .pr-meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  .pr-tag{font-size:12px;padding:4px 10px;border-radius:99px;background:var(--surface-2);
+          color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .pr-tag--code{background:var(--brand-50);color:var(--brand);font-weight:600;font-family:var(--font-mono)}
+  .pr-card{margin-top:34px}
+  .pr-h2{font-size:17px;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  .pr-note{font-size:12.5px;color:var(--ink-3);margin:-6px 0 12px;line-height:1.7}
+  .pr-card ul{margin:0;padding-left:20px}
+  .pr-card li{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:5px 0}
+  .pr-card p{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:0 0 10px}
+  .pr-tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+  .pr-tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:680px}
+  .pr-tbl th{text-align:left;padding:10px 12px;background:var(--surface-2);font-size:11.5px;
+             color:var(--ink-3);letter-spacing:.04em;border-bottom:1px solid var(--line);white-space:nowrap}
+  .pr-tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+  .pr-tbl tr:last-child td{border-bottom:0}
+  .pr-tbl a{color:var(--brand);text-decoration:none;font-family:var(--font-mono);font-size:12.5px}
+  .pr-tbl a:hover{text-decoration:underline}
+  .pr-as{display:inline-block;min-width:16px;text-align:center;font-size:11px;font-weight:700;
+         border-radius:3px;padding:1px 3px;margin-right:2px}
+  .pr-as-E{background:var(--as-E-bg);color:var(--as-E)}
+  .pr-as-C{background:var(--as-C-bg);color:var(--as-C)}
+  .pr-as-A{background:var(--as-A-bg);color:var(--as-A)}
+  .pr-as-V{background:var(--as-V-bg);color:var(--as-V)}
+  .pr-as-P{background:var(--as-P-bg);color:var(--as-P)}
+  .pr-mode{font-size:12.5px;color:var(--ink-2)}
+  .pr-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+  .pr-steps li{counter-increment:s;position:relative;padding-left:30px;margin:9px 0}
+  .pr-steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:20px;height:20px;
+    border-radius:50%;background:var(--brand-50);color:var(--brand);font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center}
+  .pr-nav{display:flex;flex-wrap:wrap;gap:10px;margin:40px 0 0}
+  .pr-nav a{font-size:13px;color:var(--ink-2);text-decoration:none;padding:9px 15px;
+            border:1px solid var(--line-2);border-radius:8px;background:var(--surface)}
+  .pr-nav a:hover{border-color:var(--brand);color:var(--brand)}
+  .pr-end{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+          font-size:12.5px;color:var(--ink-3);line-height:1.85}
+  .pr-end a{color:var(--ink-2)}
+  .pr-head{border-bottom:1px solid var(--line);background:var(--surface)}
+  .pr-head__in{max-width:960px;margin:0 auto;padding:13px 24px;display:flex;
+               align-items:center;justify-content:space-between;gap:16px}
+  .pr-head a{font-size:14px;font-weight:650;color:var(--ink);text-decoration:none}
+  .pr-head nav{display:flex;gap:18px;flex-wrap:wrap}
+  .pr-head nav a{font-size:13px;font-weight:400;color:var(--ink-2)}
+  .pr-head nav a:hover{color:var(--brand)}
+  .pr-foot{background:var(--surface);border-top:1px solid var(--line);margin-top:60px}
+  .pr-foot__in{max-width:960px;margin:0 auto;padding:24px;font-size:12.5px;color:var(--ink-3);line-height:1.9}
+  @media (max-width:640px){.pr-h1{font-size:22px}.pr-head nav{display:none}}
+</style>
+
+</head>
+<body>
+
+<header class="pr-head"><div class="pr-head__in">
+  <a href="../index.html">审小牛 AIAuditOx</a>
+  <nav>
+    <a href="../skills.html">技能库</a>
+    <a href="../atlas.html">程序图谱</a>
+    <a href="../tools.html">工具库</a>
+    <a href="../guide.html">使用方法</a>
+  </nav>
+</div></header>
+
+<main class="pr-wrap">
+<div class="pr-crumb"><a href="../index.html">首页</a><span>/</span><a href="../modules.html">辅助分析类技能</a><span>/</span><strong>通用年报审计项目启动研究</strong></div>
+<h1 class="pr-h1">通用年报审计项目启动研究</h1>
+<p class="pr-lead">先看清这个客户：做什么生意、在什么行业、受什么监管</p>
+<div class="pr-meta"><span class="pr-tag pr-tag--code">universal-annual-audit</span><span class="pr-tag ">风险评估</span><span class="pr-tag ">单体工具型</span><span class="pr-tag ">版本 v1.3.0</span></div>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">技能说明</h2>
+      
+      <p>面向年报审计项目启动与风险评估前期，目标是让项目组在进场前真正读懂这家公司。主体识别之后，以三大知识域为主体开展研究：业务情况（卖什么、卖给谁、怎么造、怎么卖、怎么收钱、谁供料、靠什么活着、收入成本如何形成）、行业情况（细分环节、产业链位置与议价能力、规模增速、竞争格局、周期位置、关键驱动变量、技术与模式变化、同业会计惯例）、政策监管情况（主管部门分工、资质台账与有效期、产业政策、财税规则、环保安全能耗等非财务约束、政策变动时间轴、政策到报表的影响路径）。三域达标后，再把理解派生为可追溯的风险假设、18 列风险台账、首轮 PBC 清单与启动会访谈问题。另外可生成一份图形化入口页（00_公司概览.html）：一页看清工商信息、股权穿透、集团与分子公司架构、分子公司地域分布（按大区分组的泡泡图，气泡直径即人数）、业务组成、境内外分布、近两年一期财务对比（万元）、未决诉讼与立案调查。每个板块标注来源，必须写全名称+网址+检索日期，网址可点击可复制可打印，并按 S1–S5/I1 标等级；缺来源显示橙色「来源未标注」且不得作为结论依据；业务与资金流转为可选板块，拿不到该公司的访谈或合同证据就不生成，不用通用流程凑数。地域图为分组泡泡，不含行政边界线，港澳台单列冠以「中国」；单文件离线可开、可直接打印 A4。附 10 份规则文档（含三域了解基线）、10 份模块指令、8 张结构化事实表与 2 份 Word 模板、7 个确定性脚本、8 份测试场景。</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">定位</h2>
+      
+      <p>让审计项目组在进场之前，真正读懂这家公司。</p><p>读懂的含义是具体的：知道它靠什么赚钱、钱在哪个环节变成利润、它在一个什么样的行业里竞争、谁在管着它、规则正在怎么变。做到这一步，项目组才能在启动会上问出对的问题，才知道该向客户要什么资料，也才可能识别出真正的重大错报风险。</p><p>风险台账、PBC 清单、访谈问题都是研究的派生成果——它们是理解的产物，不能替代理解。一份只有风险条目而没有业务、行业、政策三条主线的报告，无论条目多少，都不算完成本项目。</p><p>使用者是审计项目组。本 Skill 负责研究框架、检索方向、结构化分析与风险假设生成；重大错报风险的最终评估、风险等级定性和审计程序决策，始终由项目组和签字人作出。</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">核心问题</h2>
+      
+      <p>这家公司靠什么赚钱？它在一个什么样的行业里竞争？谁在管它、规则正在怎么变？</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">触发场景</h2>
+      
+      <div class="pr-tbl-wrap"><table class="pr-tbl" style="min-width:560px"><thead><tr><th style="width:200px">场景</th><th>用户这样说</th></tr></thead><tbody><tr><td>年报审计项目已承接、尚未进场或刚…</td><td>年报审计项目已承接、尚未进场或刚进场，需要了解被审计单位及其环境：业务模式、行业格局、政策监管条件。</td></tr><tr><td>需要在启动会前形成一份能让项目组…</td><td>需要在启动会前形成一份能让项目组成员读懂客户业务的背景调查报告。</td></tr><tr><td>需要把业务理解转化为初步风险清单…</td><td>需要把业务理解转化为初步风险清单、待核实问题清单与首轮 PBC 资料请求。</td></tr><tr><td>被审计单位为上市公司、非上市但有…</td><td>被审计单位为上市公司、非上市但有公开披露义务（发债、挂牌、国资）、普通非上市公司、上市集团下属非上市主体、曾上市/退市主体或境外跨境主体。</td></tr><tr><td>新客户承接、老客户连续审计的业务…</td><td>新客户承接、老客户连续审计的业务变化跟踪、集团新纳入合并范围的组成部分。</td></tr></tbody></table></div>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">铁律</h2>
+      
+      <ul><li>了解客户本身就是交付目标 —— 本项目的第一成果是&quot;项目组读懂了这家公司&quot;，不是&quot;列出多少条风险&quot;。</li><li>业务、行业、政策监管三域必须讲清 —— 三域缺一不可，且须达到 rules/understanding_baseline.md 的深度判定。</li><li>主体识别先于一切研究 —— 未确认被审计法律主体就直接检索年报，是最常见也最致命的错误。</li><li>一套共同审计逻辑，两条主要信息路径 —— 路径差异只体现在信息来源、数据深度与结论置信度，研究模块本身不变。</li><li>业务理解要落到报表形成路径 —— 业务特征必须翻译成报表语言：控制权转移点在哪、收入按什么方法确认、成本怎么归集、存货与合同资产长什么样、结算方式如何形成应收与合同负债。</li><li>风险必须能追溯到具体业务动作或政策约束 —— 风险台账中不得只写&quot;存在风险&quot;&quot;内控不完善&quot;&quot;行业竞争加剧&quot;。</li><li>公开信息不等于审计证据 —— 公开资料用于了解背景、发现线索、形成待验证假设，不能单独支持审计结论。</li><li>同业上市公司只作基准 —— 可比公司的收入、利润、现金流、资产余额不得作为被审计单位数据；不得据同业政策推断本单位政策；不得将同业风险直接认定为本单位已发生风险。</li><li>未知就是未知 —— 信息缺失时写&quot;公开渠道未检索到（附检索日期与范围）&quot;&quot;目前资料不足以判断&quot;&quot;需向管理层取得资料&quot;，不得推测填补。</li><li>结论必须可追溯 —— 每项关键事实应附来源名称、链接或文号、发布日期、事件日期、检索日期、页码或公告编号、来源等级（S1–S5 / I1）与置信度。</li><li>措辞按依据性质分级 —— 官方文件用&quot;公告显示&quot;&quot;监管决定载明&quot;；企业自述用&quot;公司称&quot;&quot;管理层披露&quot;；媒体用&quot;据某媒体报道，尚待核实&quot;；推论用&quot;可能提示&quot;&quot;形成以下风险假设&quot;&quot;建议进一步核查&quot;；无资料用&quot;需向管理层取得资料&quot;。</li><li>研究模块的层级：三域是主体，其余是支撑 —— 三域（业务、行业、政策监管）是研究对象，占主体篇幅。</li><li>叠加模块按主体属性加载 —— 上市集团组成部分、发债主体、国有企业、金融机构、房地产建筑、医药医疗、软件互联网、跨境经营、单一客户依赖、新设快速扩张，按 rules/special_entity_overlays.md 的 M1–M10 追加研究内容，不改变主路径。</li><li>不越界：不出意见、不定性、不替代职业判断 —— 研究阶段不得输出审计意见、不得认定舞弊或违法、不得给出定量重要性水平。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">工作流程</h2>
+      
+      <ul><li>项目初始化：确认审计年度、报告期间、财务报表日、研究截止日、编制基础、适用准则、审计范围（单体/合并/组成部分）、资料清单与保密边界。产出填好的输入表。</li><li>主体识别与路径分流（强制前置）：核实目标法律主体的全称、信用代码、注册地、上市状态、其他披露义务、集团关系与行业属性，落到 A–F 六类之一，详见 modules/entity_classification.md。未完成本步不得进入后续研究。</li><li>主体结构与控制关系：股权至最终控制方、治理层、组织架构与合并范围、关联方线索、人员规模与经营场所、重大交易时间轴。详见 modules/company_profile.md。</li><li>A 业务情况：按 modules/business_model.md 的 2.1–2.8 逐项研究——产品线、客户与集中度、生产与产能、采购与成本、渠道与定价、结算与收款、核心竞争力、收入成本形成路径。产出业务流程图、资金流图与&quot;收入成本路径表&quot;，并用三句话概括商业模式。</li><li>B 行业情况：按 modules/industry_research.md 的 3.1–3.8 研究——行业界定与细分环节、产业链位置与议价能力、市场规模与增速、竞争格局与集中度、周期与季节性、关键驱动变量、技术与模式变化、同业会计惯例。产出行业事实表与周期位置判断。</li><li>C 政策监管情况：按 modules/policy_environment.md 的 4.1–4.8 研究——监管体制与部门分工、准入与资质台账、产业政策、财税规则、非财务约束（环保安全能耗质量价格数据）、政策变动时间轴、前瞻性变化、政策到报表的影响路径。产出监管地图与资质台账。</li><li>三域交叉校验：政策是否解释了行业格局？行业驱动变量是否解释了本公司毛利与收入波动？业务特征是否落到具体报表项目？报表异常能否在业务上找到解释？四问答不上来即说明该域未达基线，须补证而非补写（校验表见 rules/understanding_baseline.md）。</li><li>财务分析：先取被审计单位真实数据，再做结构、趋势、比率与勾稽分析；用 scripts/calculate_financial_ratios.py 做确定性计算，异常信号只作提示。每个异常都要回到三域找解释，找不到解释的异常本身就是待核实事项。详见 modules/financial_analysis.md。</li><li>同业对标（仅在需要基准时）：按 rules/peer_comparison_method.md 筛选样本，用 scripts/peer_comparison.py 出中位数与四分位分布，被审计单位单列并标&quot;被审计单位实际数据&quot;。</li><li>监管司法信用与舆情：按 modules/regulatory_research.md 与 modules/public_opinion_research.md 检索并登记事项状态；先由政策模块确定&quot;该查什么、查到意味着什么&quot;，再动手查。舆情只形成线索清单，不判案。</li><li>采集登记：贯穿全程，优先原始权威资料，对同一事项交叉核验，区分事件发生日/披露日/检索日，保留文件名、URL、页码或公告编号。信息点统一登记（scripts/source_register.py），字段规范见 rules/source_reliability.md。</li><li>会计政策与重大估计：先确认编制基础，再逐项记录政策、依据、与同业差异、变更情况与待核实事项。详见 modules/accounting_analysis.md。</li><li>风险映射：把三域发现转成风险台账，每条必须能追溯到具体的业务动作或政策约束，并含事实锚点、潜在错报方式、报表项目、认定、风险层次、初步等级与理由、待核实问题、PBC 编号、程序方向。详见 modules/audit_risk_assessment.md 与 rules/audit_assertions.md。无法追溯到三域的风险条目应删除或降级为待补研究事项。</li><li>出交付物：用 scripts/generate_reports.py 生成成果骨架，再按模块指令补写叙述性内容，最后逐项过质量检查清单。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">输出规范</h2>
+      
+      <ul><li>业务篇能用三句话讲清商业模式，且三句话分别对应收入、成本、费用。</li><li>业务篇有业务流程图与收入成本形成路径表，明确控制权转移点与收入确认方法。</li><li>客户与供应商集中度有量化数字，或明确标注&quot;未取得，需向管理层索取&quot;。</li><li>行业篇的规模、增速、集中度至少各有一个带来源与年份的数字。</li><li>行业篇能判断产业链议价能力与当前周期位置，且各有至少两个支撑点。</li><li>政策篇列出不少于三个主管部门及其职责分工。</li><li>政策篇的关键资质不少于三项，且带发证机关、证号与有效期。</li><li>政策篇的政策清单不少于三条，且带文号、生效日期与对报表的影响方向。</li><li>三域交叉校验四问全部有答案（政策→行业、行业→业务、业务→报表、报表→业务）。</li><li>三域合计占报告主体篇幅 60% 以上，风险条目未挤占三域篇幅。</li><li>每项关键事实有来源、日期、定位信息，来源等级与内容性质匹配。</li><li>日期三件套齐全：事件发生日、披露日、检索日。</li><li>主体同一性无混用：母公司与子公司、同名企业、集团合并数与单体数。</li><li>数据标签齐全且未混排：被审计单位实际 / 可比公司数据 / 行业参考值 / 预算。</li><li>比率与公式可复算：分子、分母、单位、期间、来源齐全。</li><li>五类表述不混用：已披露事实、企业陈述、媒体报道、未核实线索、分析判断。</li><li>每条风险可追溯到具体业务动作或政策约束，并已映射报表项目、认定、待核实问题、PBC 编号与程序方向。</li><li>信息缺口已明确披露，无虚构数据、无推测补齐。</li><li>全文无&quot;审计证据&quot;&quot;审计意见&quot;性质的表述，无舞弊或违法定性。</li><li>研究截止日、检索范围与不可得信息已在报告中说明。</li><li>完成度自评表三域均标注达标；未达标项已逐条说明补救安排。</li><li>启用的板块齐全，缺数据处显示「未取得」而非留白或编造；可选板块（业务与资金流转）未启用时不留空壳。</li><li>每个板块都有来源标注，且带网址（内部资料注明提供人、日期、记录编号）；出现「来源未标注」的项目不得作为结论依据，须补齐出处或删除。</li><li>网址在页面上可点击、可复制、打印后仍可辨认；长网址按「/」「.」换行，不得把 https:// 拆成两截。</li><li>股权图不虚构控制关系：公众持股、明确不受控的股东不得被画出控制人连线。</li><li>集团图能区分合并范围内外，且有图例；三级结构挂在自己的上级下，未平铺。</li><li>地域分布的人数与花名册一致，参股主体画虚线空心泡、不并入合计；缺人数显示「?」泡而非估算。</li><li>地域泡泡图按大区分组，港澳台单列并写作「中国香港／中国澳门／中国台湾」，不得归入境外；图下必须有「不含行政边界、不作地理依据」的说明。</li><li>财务表的单位统一、期间口径明确；变动列只比较两个完整年度，负值项目的变动率已说明为代数值。</li><li>诉讼板块区分「已列示」「已核实无」「未取得」三态；未核实的情形不得显示成&quot;无诉讼&quot;。</li><li>业务组成的条形宽度与标注百分比一致；流程图的报表科目与环节一一对应。</li><li>所有节点框内文字不溢出、不与相邻框粘连；A4 打印不被分页切断。</li><li>单文件离线可打开，除来源网址外无外链资源；断网打开版式与图形不失真。</li><li>图中每个数字都能在报告正文或事实表中找到出处。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">附带资源（10 项）</h2>
+      
+      <div class="pr-tbl-wrap"><table class="pr-tbl" style="min-width:560px"><thead><tr><th style="width:300px">文件</th><th>说明</th></tr></thead><tbody><tr><td><code style="font-size:12px">rules/accounting_frameworks.md</code></td><td>会计准则与财务报告框架索引</td></tr><tr><td><code style="font-size:12px">rules/audit_assertions.md</code></td><td>报表项目与认定映射</td></tr><tr><td><code style="font-size:12px">rules/audit_standards.md</code></td><td>适用审计准则索引与版本管理</td></tr><tr><td><code style="font-size:12px">rules/industry_risk_library.md</code></td><td>行业风险库</td></tr><tr><td><code style="font-size:12px">rules/listed_disclosure_sources.md</code></td><td>上市公司信息源与检索路径</td></tr><tr><td><code style="font-size:12px">rules/nonlisted_public_sources.md</code></td><td>非上市公司公开信息源与调查路径</td></tr><tr><td><code style="font-size:12px">rules/peer_comparison_method.md</code></td><td>同业上市公司对标方法</td></tr><tr><td><code style="font-size:12px">rules/source_reliability.md</code></td><td>信息来源分级、登记与措辞规范</td></tr><tr><td><code style="font-size:12px">rules/special_entity_overlays.md</code></td><td>特殊主体与行业叠加模块</td></tr><tr><td><code style="font-size:12px">rules/understanding_baseline.md</code></td><td>了解被审计单位的最低交付基线</td></tr></tbody></table></div>
+    </section>
+<div class="pr-nav"><a href="../modules.html">← 返回辅助分析类技能</a><a href="../module.html?id=universal-annual-audit">交互式详情页</a><a href="../skills.html">审计技能库</a></div>
+</main>
+
+<footer class="pr-foot"><div class="pr-foot__in">
+  本页由技能库数据静态生成，内容与站点技能库一致。技能包与文档仅供学习与工作参考，
+  不构成审计意见或专业建议；AI 输出不替代注册会计师的职业判断，标注「待人工确认」的结论未经复核不得用于正式底稿。
+  <br>项目主页 <a href="../index.html">aiauditox.l.cd</a> · 免费分享，禁止商用转售。
+</div></footer>
+
+</body>
+</html>

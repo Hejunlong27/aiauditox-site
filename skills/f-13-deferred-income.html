@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F-13 递延收益 · 审计技能组 | 审小牛 AIAuditOx</title>
+<meta name="description" content="F-13 递延收益｜审小牛审计技能组，含 5 张程序卡：审计目标与认定、所需资料与数据、核对逻辑、程序分派表与易错点。递延收益审计技能组（负债类 F-13，对应所内科目 2401 / 程序库 F2401）。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aiauditox.l.cd/skills/f-13-deferred-income.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "TechArticle",
+   "@id": "https://aiauditox.l.cd/skills/f-13-deferred-income.html#article",
+   "headline": "F-13 递延收益｜审小牛审计技能组",
+   "description": "F-13 递延收益｜审小牛审计技能组，含 5 张程序卡：审计目标与认定、所需资料与数据、核对逻辑、程序分派表与易错点。递延收益审计技能组（负债类 F-13，对应所内科目 2401 / 程序库 F2401）。",
+   "inLanguage": "zh-CN",
+   "url": "https://aiauditox.l.cd/skills/f-13-deferred-income.html",
+   "isPartOf": {
+    "@id": "https://aiauditox.l.cd/#website"
+   },
+   "publisher": {
+    "@id": "https://aiauditox.l.cd/#organization"
+   },
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "审计程序"
+    },
+    {
+     "@type": "Thing",
+     "name": "递延收益"
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "首页",
+     "item": "https://aiauditox.l.cd/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "技能库",
+     "item": "https://aiauditox.l.cd/skills.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "F-13 递延收益",
+     "item": "https://aiauditox.l.cd/skills/f-13-deferred-income.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<style>
+  .pr-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .pr-crumb{font-size:13px;color:var(--ink-3);padding:26px 0 0;line-height:1.9}
+  .pr-crumb a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line-2)}
+  .pr-crumb a:hover{color:var(--brand);border-color:var(--brand)}
+  .pr-crumb span{color:var(--ink-3);margin:0 6px}
+  .pr-h1{font-size:27px;line-height:1.35;margin:14px 0 0;letter-spacing:-.01em}
+  .pr-lead{font-size:14.5px;color:var(--ink-2);line-height:1.85;margin:14px 0 0;max-width:760px}
+  .pr-meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  .pr-tag{font-size:12px;padding:4px 10px;border-radius:99px;background:var(--surface-2);
+          color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .pr-tag--code{background:var(--brand-50);color:var(--brand);font-weight:600;font-family:var(--font-mono)}
+  .pr-card{margin-top:34px}
+  .pr-h2{font-size:17px;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  .pr-note{font-size:12.5px;color:var(--ink-3);margin:-6px 0 12px;line-height:1.7}
+  .pr-card ul{margin:0;padding-left:20px}
+  .pr-card li{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:5px 0}
+  .pr-card p{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:0 0 10px}
+  .pr-tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+  .pr-tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:680px}
+  .pr-tbl th{text-align:left;padding:10px 12px;background:var(--surface-2);font-size:11.5px;
+             color:var(--ink-3);letter-spacing:.04em;border-bottom:1px solid var(--line);white-space:nowrap}
+  .pr-tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+  .pr-tbl tr:last-child td{border-bottom:0}
+  .pr-tbl a{color:var(--brand);text-decoration:none;font-family:var(--font-mono);font-size:12.5px}
+  .pr-tbl a:hover{text-decoration:underline}
+  .pr-as{display:inline-block;min-width:16px;text-align:center;font-size:11px;font-weight:700;
+         border-radius:3px;padding:1px 3px;margin-right:2px}
+  .pr-as-E{background:var(--as-E-bg);color:var(--as-E)}
+  .pr-as-C{background:var(--as-C-bg);color:var(--as-C)}
+  .pr-as-A{background:var(--as-A-bg);color:var(--as-A)}
+  .pr-as-V{background:var(--as-V-bg);color:var(--as-V)}
+  .pr-as-P{background:var(--as-P-bg);color:var(--as-P)}
+  .pr-mode{font-size:12.5px;color:var(--ink-2)}
+  .pr-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+  .pr-steps li{counter-increment:s;position:relative;padding-left:30px;margin:9px 0}
+  .pr-steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:20px;height:20px;
+    border-radius:50%;background:var(--brand-50);color:var(--brand);font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center}
+  .pr-nav{display:flex;flex-wrap:wrap;gap:10px;margin:40px 0 0}
+  .pr-nav a{font-size:13px;color:var(--ink-2);text-decoration:none;padding:9px 15px;
+            border:1px solid var(--line-2);border-radius:8px;background:var(--surface)}
+  .pr-nav a:hover{border-color:var(--brand);color:var(--brand)}
+  .pr-end{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+          font-size:12.5px;color:var(--ink-3);line-height:1.85}
+  .pr-end a{color:var(--ink-2)}
+  .pr-head{border-bottom:1px solid var(--line);background:var(--surface)}
+  .pr-head__in{max-width:960px;margin:0 auto;padding:13px 24px;display:flex;
+               align-items:center;justify-content:space-between;gap:16px}
+  .pr-head a{font-size:14px;font-weight:650;color:var(--ink);text-decoration:none}
+  .pr-head nav{display:flex;gap:18px;flex-wrap:wrap}
+  .pr-head nav a{font-size:13px;font-weight:400;color:var(--ink-2)}
+  .pr-head nav a:hover{color:var(--brand)}
+  .pr-foot{background:var(--surface);border-top:1px solid var(--line);margin-top:60px}
+  .pr-foot__in{max-width:960px;margin:0 auto;padding:24px;font-size:12.5px;color:var(--ink-3);line-height:1.9}
+  @media (max-width:640px){.pr-h1{font-size:22px}.pr-head nav{display:none}}
+</style>
+
+</head>
+<body>
+
+<header class="pr-head"><div class="pr-head__in">
+  <a href="../index.html">审小牛 AIAuditOx</a>
+  <nav>
+    <a href="../skills.html">技能库</a>
+    <a href="../atlas.html">程序图谱</a>
+    <a href="../tools.html">工具库</a>
+    <a href="../guide.html">使用方法</a>
+  </nav>
+</div></header>
+
+<main class="pr-wrap">
+<div class="pr-crumb"><a href="../index.html">首页</a><span>/</span><a href="../skills.html">技能库</a><span>/</span><strong>F-13 递延收益</strong></div>
+<h1 class="pr-h1">F-13 递延收益</h1>
+<p class="pr-lead">递延收益审计技能组（负债类 F-13，对应所内科目 2401 / 程序库 F2401）。</p>
+<div class="pr-meta"><span class="pr-tag pr-tag--code">F-13</span><span class="pr-tag ">负债类</span><span class="pr-tag ">版本 v1.0.0</span><span class="pr-tag ">5 张程序卡</span><span class="pr-tag ">报表项目 F-13</span><span class="pr-tag ">风险 （待定）</span><span class="pr-tag ">执行角色 审计助理</span></div>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">审计目标（对应认定）</h2>
+      
+      <p>完整性（C）：所有递延收益均已记录（含未列示于账面者）；存在（E）：记录的递延收益于资产负债表日存在且归被审计单位拥有或控制；准确性（A）：金额正确计算、适当加总且准确记录；计价（V）：按恰当金额计价（含减值、摊销、公允价值等调整）；列报（P）：分类、披露恰当</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">所需资料</h2>
+      
+      <ul><li>递延收益明细表与明细账</li><li>政府补助批准文件与收款凭证</li><li>摊销政策与摊销计算表</li><li>首次接受委托时的年初余额资料</li><li>合同负债明细账</li><li>销售合同（含履约义务与收款条款）</li><li>预收款项明细</li><li>收入确认进度表</li><li>报表附注</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">所需数据</h2>
+      
+      <ul><li>各补助项目期初与期末余额</li><li>本期增加额与摊销额</li><li>摊销年限</li><li>补助性质（与资产相关或与收益相关）</li><li>预期摊销额</li><li>合同金额与已收款金额</li><li>已履约金额</li><li>应确认合同负债金额</li><li>实际执行的重要性水平</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">核对逻辑</h2>
+      
+      <ul><li>1. 实质性分析程序（将实际值与预期值进行比较。）</li><li>2. 递延收益明细表编制与核对（获取或编制递延收益明细表，复核加计正确并与总账数、报表数和明细账合计数核对是否相符。）</li><li>3. 递延收益余额抽样与追溯检查（抽样检查递延收益余额）</li><li>4. 合同负债完整性检查（检查合同负债完整性）</li><li>5. 递延收益披露检查（审计递延收益的披露）</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">程序分派表（5 张）</h2>
+      <p class="pr-note">每张卡可独立执行，也可按本表顺序串起来跑。点卡号进入单卡详情。</p>
+      <div class="pr-tbl-wrap"><table class="pr-tbl"><thead><tr><th>卡号</th><th>程序名称</th><th>认定</th><th>执行方式</th><th>调用工具</th><th>产出底稿</th></tr></thead><tbody><tr><td><a href="../procedures/F-13-P01.html">P01</a></td><td>实质性分析程序</td><td><span class="pr-as pr-as-C" title="完整性">C</span><span class="pr-as pr-as-E" title="存在">E</span><span class="pr-as pr-as-A" title="准确性">A</span></td><td class="pr-mode">自动（预期值测算）+人工判断</td><td>threshold_flag、recalc_check</td><td>F-13-01</td></tr><tr><td><a href="../procedures/F-13-P02.html">P02</a></td><td>递延收益明细表编制与核对</td><td><span class="pr-as pr-as-A" title="准确性">A</span><span class="pr-as pr-as-V" title="计价与分摊">V</span></td><td class="pr-mode">自动（脚本核对）</td><td>recalc_check、balance_confirm</td><td>F-13-02</td></tr><tr><td><a href="../procedures/F-13-P03.html">P03</a></td><td>递延收益余额抽样与追溯检查</td><td><span class="pr-as pr-as-C" title="完整性">C</span><span class="pr-as pr-as-E" title="存在">E</span><span class="pr-as pr-as-A" title="准确性">A</span></td><td class="pr-mode">自动（抽样）+人工确认</td><td>sampling_draw、rule_check</td><td>F-13-03</td></tr><tr><td><a href="../procedures/F-13-P04.html">P04</a></td><td>合同负债完整性检查</td><td><span class="pr-as pr-as-C" title="完整性">C</span></td><td class="pr-mode">自动（截止+完整性校验）+人工确认</td><td>cutoff_test、rule_check</td><td>F-13-04</td></tr><tr><td><a href="../procedures/F-13-P05.html">P05</a></td><td>递延收益披露检查</td><td><span class="pr-as pr-as-P" title="列报">P</span></td><td class="pr-mode">自动（schema 校验）+人工确认</td><td>rule_check</td><td>F-13-05</td></tr></tbody></table></div>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">易错点（Pitfalls）</h2>
+      
+      <ul><li>与资产相关的政府补助应冲减资产账面价值或确认为递延收益并在资产使用寿命内分期计入损益；与收益相关的补助用于补偿以后期间费用的才计入递延收益，分类错误会导致摊销方法与年限错误</li><li>摊销进度应与补助文件约定的受益期间一致，过快或过慢都须查明</li><li>首次接受委托时年初递延收益必须追溯查验，入账依据不充分的年初余额会影响期初余额的可依赖程度</li><li>递延收益与合同负债是两个不同性质的科目（前者是政府补助，后者是已收未履约的合同款），勿混用</li><li>合同负债与预收款项的划分应按准则判断，错误划分会导致列报错报</li><li>已满足确认条件的补助未及时摊销会虚增负债并低估损益</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">边界与禁止事项</h2>
+      
+      <ul><li>允许操作范围：仅项目工作目录内文件；仅调用 file_ops（读/写/改/格式）、数据核对脚本、Excel 计算。</li><li>禁止：物理删除任何文件（删除一律移入可恢复区）；向项目目录外发送客户数据；代替人工执行函证寄发/跟函/监盘动作；修改原始资料目录（01_原始资料 只读）；跳过强制程序。</li><li>数字核对一律使用脚本精确匹配，禁止以模型估算代替；差异原因说明可用模型起草，但必须标注「待人工确认」。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">验证要点（Verification）</h2>
+      
+      <ul><li>工作簿公式重算无错误；合计数与总账/报表数核对一致。</li><li>每张底稿「审计程序执行结果」与「审计说明」均有实质内容或明确的不适用声明。</li><li>修订记录 .md 与工作簿版本一一对应。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">一级复核清单</h2>
+      
+      <ul><li>完整性：P01~P05 计划实施的程序均有底稿或「不适用+理由」记录；索引号连续无缺。</li><li>勾稽：明细表合计数 = 总账数 = 报表数；底稿间交叉索引正确。</li><li>证据充分性：每项结论可回溯到数据源；差异事项均有解释与支持文件。</li><li>异常闭环：所有异常事项有处理结果记录；未回函/回函差异已实施替代程序。</li><li>制式合规：每张底稿四段式结构完整，表头七要素齐全，修订记录同步。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">输出格式</h2>
+      
+      <p>xlsx 工作簿（模板见 templates/F-13递延收益审计工作簿模板.xlsx），每份底稿同路径伴随「底稿名称+修订记录」.md</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">底稿范围</h2>
+      
+      <p>见「产出清单」，全部底稿采用四段式制式：底稿名称与表头（项目基本信息）→ 审计目标和程序说明 → 审计程序执行结果 → 审计说明。共 5 张底稿。</p>
+    </section>
+<div class="pr-nav"><a href="../skills.html">← 返回技能库</a><a href="../skill.html?id=f-13-deferred-income">交互式详情页</a><a href="../atlas.html">程序图谱</a></div>
+<div class="pr-end">技能包下载入口见 <a href="../skill.html?id=f-13-deferred-income">交互式详情页</a>；安装方式见 <a href="../guide.html">使用方法</a>。首次使用请先安装 A-00《审计工作底稿标准》。</div>
+</main>
+
+<footer class="pr-foot"><div class="pr-foot__in">
+  本页由技能库数据静态生成，内容与站点技能库一致。技能包与文档仅供学习与工作参考，
+  不构成审计意见或专业建议；AI 输出不替代注册会计师的职业判断，标注「待人工确认」的结论未经复核不得用于正式底稿。
+  <br>项目主页 <a href="../index.html">aiauditox.l.cd</a> · 免费分享，禁止商用转售。
+</div></footer>
+
+</body>
+</html>

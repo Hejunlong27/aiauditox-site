@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P04 应交增值税检查 · F-9 应交税费 | 审小牛 AIAuditOx</title>
+<meta name="description" content="F-9 应交税费 · P04 应交增值税检查｜认定 CEAV，执行方式 自动（进销项匡算+重算）+人工确认，产出底稿 F-9-04。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aiauditox.l.cd/procedures/F-9-P04.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "TechArticle",
+   "@id": "https://aiauditox.l.cd/procedures/F-9-P04.html#article",
+   "headline": "P04 应交增值税检查｜F-9 应交税费",
+   "description": "F-9 应交税费 · P04 应交增值税检查｜认定 CEAV，执行方式 自动（进销项匡算+重算）+人工确认，产出底稿 F-9-04。",
+   "inLanguage": "zh-CN",
+   "url": "https://aiauditox.l.cd/procedures/F-9-P04.html",
+   "isPartOf": {
+    "@id": "https://aiauditox.l.cd/skills/f-9-taxes-payable.html"
+   },
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "审计程序"
+    },
+    {
+     "@type": "Thing",
+     "name": "应交增值税检查"
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "首页",
+     "item": "https://aiauditox.l.cd/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "技能库",
+     "item": "https://aiauditox.l.cd/skills.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "F-9 应交税费",
+     "item": "https://aiauditox.l.cd/skills/f-9-taxes-payable.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "P04 应交增值税检查",
+     "item": "https://aiauditox.l.cd/procedures/F-9-P04.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<style>
+  .pr-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .pr-crumb{font-size:13px;color:var(--ink-3);padding:26px 0 0;line-height:1.9}
+  .pr-crumb a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line-2)}
+  .pr-crumb a:hover{color:var(--brand);border-color:var(--brand)}
+  .pr-crumb span{color:var(--ink-3);margin:0 6px}
+  .pr-h1{font-size:27px;line-height:1.35;margin:14px 0 0;letter-spacing:-.01em}
+  .pr-lead{font-size:14.5px;color:var(--ink-2);line-height:1.85;margin:14px 0 0;max-width:760px}
+  .pr-meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  .pr-tag{font-size:12px;padding:4px 10px;border-radius:99px;background:var(--surface-2);
+          color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .pr-tag--code{background:var(--brand-50);color:var(--brand);font-weight:600;font-family:var(--font-mono)}
+  .pr-card{margin-top:34px}
+  .pr-h2{font-size:17px;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  .pr-note{font-size:12.5px;color:var(--ink-3);margin:-6px 0 12px;line-height:1.7}
+  .pr-card ul{margin:0;padding-left:20px}
+  .pr-card li{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:5px 0}
+  .pr-card p{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:0 0 10px}
+  .pr-tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+  .pr-tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:680px}
+  .pr-tbl th{text-align:left;padding:10px 12px;background:var(--surface-2);font-size:11.5px;
+             color:var(--ink-3);letter-spacing:.04em;border-bottom:1px solid var(--line);white-space:nowrap}
+  .pr-tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+  .pr-tbl tr:last-child td{border-bottom:0}
+  .pr-tbl a{color:var(--brand);text-decoration:none;font-family:var(--font-mono);font-size:12.5px}
+  .pr-tbl a:hover{text-decoration:underline}
+  .pr-as{display:inline-block;min-width:16px;text-align:center;font-size:11px;font-weight:700;
+         border-radius:3px;padding:1px 3px;margin-right:2px}
+  .pr-as-E{background:var(--as-E-bg);color:var(--as-E)}
+  .pr-as-C{background:var(--as-C-bg);color:var(--as-C)}
+  .pr-as-A{background:var(--as-A-bg);color:var(--as-A)}
+  .pr-as-V{background:var(--as-V-bg);color:var(--as-V)}
+  .pr-as-P{background:var(--as-P-bg);color:var(--as-P)}
+  .pr-mode{font-size:12.5px;color:var(--ink-2)}
+  .pr-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+  .pr-steps li{counter-increment:s;position:relative;padding-left:30px;margin:9px 0}
+  .pr-steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:20px;height:20px;
+    border-radius:50%;background:var(--brand-50);color:var(--brand);font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center}
+  .pr-nav{display:flex;flex-wrap:wrap;gap:10px;margin:40px 0 0}
+  .pr-nav a{font-size:13px;color:var(--ink-2);text-decoration:none;padding:9px 15px;
+            border:1px solid var(--line-2);border-radius:8px;background:var(--surface)}
+  .pr-nav a:hover{border-color:var(--brand);color:var(--brand)}
+  .pr-end{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+          font-size:12.5px;color:var(--ink-3);line-height:1.85}
+  .pr-end a{color:var(--ink-2)}
+  .pr-head{border-bottom:1px solid var(--line);background:var(--surface)}
+  .pr-head__in{max-width:960px;margin:0 auto;padding:13px 24px;display:flex;
+               align-items:center;justify-content:space-between;gap:16px}
+  .pr-head a{font-size:14px;font-weight:650;color:var(--ink);text-decoration:none}
+  .pr-head nav{display:flex;gap:18px;flex-wrap:wrap}
+  .pr-head nav a{font-size:13px;font-weight:400;color:var(--ink-2)}
+  .pr-head nav a:hover{color:var(--brand)}
+  .pr-foot{background:var(--surface);border-top:1px solid var(--line);margin-top:60px}
+  .pr-foot__in{max-width:960px;margin:0 auto;padding:24px;font-size:12.5px;color:var(--ink-3);line-height:1.9}
+  @media (max-width:640px){.pr-h1{font-size:22px}.pr-head nav{display:none}}
+</style>
+
+</head>
+<body>
+
+<header class="pr-head"><div class="pr-head__in">
+  <a href="../index.html">审小牛 AIAuditOx</a>
+  <nav>
+    <a href="../skills.html">技能库</a>
+    <a href="../atlas.html">程序图谱</a>
+    <a href="../tools.html">工具库</a>
+    <a href="../guide.html">使用方法</a>
+  </nav>
+</div></header>
+
+<main class="pr-wrap">
+<div class="pr-crumb"><a href="../index.html">首页</a><span>/</span><a href="../skills.html">技能库</a><span>/</span><a href="../skills/f-9-taxes-payable.html">F-9 应交税费</a><span>/</span><strong>P04 应交增值税检查</strong></div>
+<h1 class="pr-h1">P04 应交增值税检查</h1>
+<p class="pr-lead">属于技能组 <a href="../skills/f-9-taxes-payable.html">F-9 应交税费</a>。执行方式 自动（进销项匡算+重算）+人工确认，服务认定 C（完整性）、E（存在）、A（准确性）、V（计价与分摊）。</p>
+<div class="pr-meta"><span class="pr-tag pr-tag--code">F-9-P04</span><span class="pr-tag ">自动（进销项匡算+重算）+人工确认</span><span class="pr-tag ">产出底稿 F-9-04</span></div>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">服务认定</h2>
+      
+      <p>C（完整性）、E（存在）、A（准确性）、V（计价与分摊）</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">程序库来源</h2>
+      
+      <p>F2221 其他17</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">所需输入</h2>
+      
+      <ul><li>应交增值税明细表</li><li>增值税纳税申报表</li><li>进项税抵扣汇总表</li><li>原材料等采购科目数据</li><li>进项税发票与海关完税凭证</li><li>出口货物退（免）税申报表</li><li>已交增值税资料</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">执行步骤（17 步）</h2>
+      <p class="pr-note">步骤中的【脚本】表示由确定性工具计算，【规则】表示按准则判断；凡涉及专业判断的环节，结果须标注「待人工确认」。</p>
+      <ol class="pr-steps"><li style="padding-left:30px">【规则】检查应交增值税</li><li style="padding-left:30px;margin-left:20px">（1）获取或编制应交增值税明细表，加计复核其正确性，并与明细账核对相符；</li><li style="padding-left:30px;margin-left:20px">（2）将应交增值税明细表与被审计单位增值税纳税申报表进行核对，比较两者是否总体相符，并分析其差额的原因；</li><li style="padding-left:30px;margin-left:20px">（3）检查进项税：</li><li style="padding-left:30px;margin-left:20px">（4）检查销项税：</li><li style="padding-left:30px;margin-left:20px">（5）取得《出口货物退（免）税申报表》及办理出口退税有关凭证，复核出口货物退税的计算是否正确，是否按规定进行了会计处理；</li><li style="padding-left:30px;margin-left:20px">（6）对经主管税务机关批准实行核定征收率征收增值税的被审计单位，应检查其是否按照有关规定正确执行。如果申报增值税金额小于核定征收率计算的增值税金额，应注意超过申报额部分的会计处理是否正确；</li><li style="padding-left:30px;margin-left:20px">（7）抽查本期已交增值税资料，确定已交款数的正确性。&quot;</li><li style="padding-left:30px;margin-left:20px">①通过“原材料”等相关科目匡算进项税是否合理；</li><li style="padding-left:30px;margin-left:20px">②抽查一定期间的进项税抵扣汇总表，与应交增值税明细表相关数额合计数核对，如有差异，查明原因并作适当处理；</li><li style="padding-left:30px;margin-left:20px">③抽查重要进项税发票、海关完税凭证、收购凭证或运费发票，并与网上申报系统进行核对，并注意：</li><li style="padding-left:30px;margin-left:20px">a）进口货物、购进的免税农产品或废旧物资、支付运费、接受投资或捐赠、接受应税劳务等应计的进项税额是否按规定进行了会计处理；</li><li style="padding-left:30px;margin-left:20px">b）因存货改变用途或发生非常损失应计的进项税额转出数的计算是否正确，是否按规定进行了会计处理；</li><li style="padding-left:30px;margin-left:20px">①根据与增值税销项税额相关账户审定的有关数据，复核存货销售，以及是否按规定进行会计处理；</li><li style="padding-left:30px;margin-left:20px">②复核存货销售，或将存货用于投资、无偿馈赠他人、分配给股东（或投资者）应计的销项税额；</li><li style="padding-left:30px;margin-left:20px">③将自产、委托加工的产品用于非应税项目的，其计税依据确定是否正确以及应计的销项税额是否正确计算；</li><li style="padding-left:30px;margin-left:20px">④检查适用税率是否符合税法规定；</li></ol>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">质量门（Quality Gate）</h2>
+      
+      <ul><li>进项税匡算合理，差异已查明原因</li><li>进项税抵扣汇总表与应交增值税明细表相关数额合计数核对一致</li><li>重要进项税发票、海关完税凭证已与网上申报系统核对</li><li>出口退税计算正确，核定征收情形下的会计处理已检查</li><li>抽查本期已交增值税资料，确定已交款数的正确性</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">升级路径（Escalation）</h2>
+      
+      <ul><li>进项税匡算差异重大 → 升级项目经理，评估虚增进项或未取得合规凭证的风险</li><li>出口退税计算异常 → 升级，评估退税合规性与税务风险</li><li>明细表与申报表总体不符且无法解释 → 升级，考虑对增值税整体认定的影响</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">调用工具</h2>
+      
+      <p>recalc_check、threshold_flag、excel_read</p><p class="pr-note">工具契约是稳定接口：名称、参数、输出结构只增不改。</p>
+    </section>
+<div class="pr-nav"><a href="../skills/f-9-taxes-payable.html">← 返回技能组</a><a href="F-9-P03.html">← P03 纳税申报表核对</a><a href="F-9-P05.html">下一张 P05 各税种计算与凭证检查 →</a></div>
+</main>
+
+<footer class="pr-foot"><div class="pr-foot__in">
+  本页由技能库数据静态生成，内容与站点技能库一致。技能包与文档仅供学习与工作参考，
+  不构成审计意见或专业建议；AI 输出不替代注册会计师的职业判断，标注「待人工确认」的结论未经复核不得用于正式底稿。
+  <br>项目主页 <a href="../index.html">aiauditox.l.cd</a> · 免费分享，禁止商用转售。
+</div></footer>
+
+</body>
+</html>

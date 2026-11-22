@@ -1,0 +1,138 @@
+# 审小牛 AIAuditOx
+
+> 把财务报表审计程序拆解成可执行的 AI 技能包：一个科目一个技能组，一道程序一张程序卡，凡能本地算完的一律交给确定性工具。
+
+审小牛 AuditOx 把审计程序库逐条拆解为标准化的技能包：一个科目一个技能组，一道程序一张程序卡，凡能本地算完的一律交给确定性工具。技能库、确定性工具、底稿制式三件套，让「丢文件 → 说程序 → 出底稿」成为标准动作。
+
+站点地址 https://aiauditox.l.cd。当前版本 v2.0.0，数据更新于 2026-10-10。规模：27 个审计技能组、190 张程序卡、29 个内置工具（15 个审计确定性工具 + 14 个办公格式工具）、6 个辅助分析类技能。
+
+目标读者：会计师事务所的项目经理、现场负责人与审计助理；适用场景为年报审计中的**科目底稿编制**。
+
+## 核心概念
+
+- **审小牛 / AIAuditOx / AuditOx**：三者为同一项目的不同写法，指同一个审计 AI 技能库项目，作者为一线审计从业者，非软件厂商。
+- **技能组（Skill Group）**：一个会计科目对应一个技能包，内含 SKILL.md（六要素、程序分派表、调度流程、一级复核清单、边界与禁止事项）、procedures/（逐张程序卡）、dsl.json（程序卡到工具的映射）、templates/（工作簿模板）、tests/（黄金用例）。
+- **程序卡（Procedure Card）**：一项可独立执行的审计程序，标注它服务的认定（存在 E / 完整性 C / 准确性 A / 计价与分摊 V / 列报 P）、执行方式（全自动 / 自动+人工 / 人工主导）、产出底稿索引号。
+- **确定性优先原则**：凡能本地算完的（勾稽、重算、抽样、索引号、哈希）一律调确定性工具，禁止用模型估算；LLM 只做分析、解释、判断。差异类结论必须标注「待人工确认」。
+- **四段式底稿**：项目基本信息（表头七要素）→ 审计目标和程序说明 → 审计程序执行结果（数据表含公式自动计算）→ 审计说明（编号说明 + 编制/审核签字行 + 修订记录伴随声明）。由 A-00《审计工作底稿标准》全局强制。
+- **底稿索引号**：与事务所审计底稿索引体系同源，技能编号与索引号使用同一套编号逻辑。
+
+## 审计技能库（27 个技能组 / 190 张程序卡）
+
+按「报表循环 → 科目 → 程序卡」三级组织。资产类 Z、负债类 F、损益类 S、通用 A；权益类 Q 建设中。
+
+### A · 通用
+
+- **A-00 审计工作底稿标准**（2 张程序卡）[https://aiauditox.l.cd/skill.html?id=auditox-wp-standard]：审小牛AuditOx底稿制式规范（全局强制）
+
+### Z · 资产类
+
+- **Z-1-1 货币资金·库存现金**（5 张程序卡）[https://aiauditox.l.cd/skill.html?id=z-1-1-cash-on-hand]：审小牛AuditOx库存现金审计技能组（资产类Z-1货币资金组）
+- **Z-1-2 货币资金·银行存款**（10 张程序卡）[https://aiauditox.l.cd/skill.html?id=z-1-2-bank-deposits]：审小牛AuditOx银行存款审计技能组（资产类Z-1货币资金组）
+- **Z-1-3 货币资金·其他货币资金**（8 张程序卡）[https://aiauditox.l.cd/skill.html?id=z-1-3-other-monetary-funds]：审小牛AuditOx其他货币资金审计技能组（资产类Z-1货币资金组）
+- **Z-2-1 销售类·应收票据**（7 张程序卡）[https://aiauditox.l.cd/skill.html?id=z-2-1-notes-receivable]：审小牛AuditOx应收票据审计技能组（资产类Z组）
+- **Z-2 销售类·应收账款**（10 张程序卡）[https://aiauditox.l.cd/skill.html?id=z-2-accounts-receivable]：审小牛AuditOx应收账款审计技能组（资产类Z组）
+- **Z-3 预付类·预付账款**（7 张程序卡）[https://aiauditox.l.cd/skill.html?id=z-3-prepayments]：审小牛AuditOx预付账款审计技能组（资产类Z组）
+- **Z-4 其他应收·其他应收款**（7 张程序卡）[https://aiauditox.l.cd/skill.html?id=z-4-other-receivables]：审小牛AuditOx其他应收款审计技能组（资产类Z组）
+- **Z-6 应收股利**（7 张程序卡）[https://aiauditox.l.cd/skill.html?id=z-6-dividends-receivable]：应收股利审计技能组（资产类 Z-6，对应所内科目 1131 / 程序库 Z1131）
+- **Z-7 应收利息**（5 张程序卡）[https://aiauditox.l.cd/skill.html?id=z-7-interest-receivable]：应收利息审计技能组（资产类 Z-7，对应所内科目 1132 / 程序库 Z1132）
+
+### F · 负债类
+
+- **F-1 借款类·短期借款**（9 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-1-borrowings]：审小牛AuditOx借款审计技能组（负债类F组，覆盖短期借款2001/长期借款2501）
+- **F-10 应付利息**（3 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-10-interest-payable]：应付利息审计技能组（负债类 F-10，对应所内科目 2231 / 程序库 F2231）
+- **F-11 应付股利**（5 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-11-dividends-payable]：应付股利审计技能组（负债类 F-11，对应所内科目 2232 / 程序库 F2232）
+- **F-12 其他应付款**（8 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-12-other-payables]：其他应付款审计技能组（负债类 F-12，对应所内科目 2241 / 程序库 F2241）
+- **F-13 递延收益**（5 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-13-deferred-income]：递延收益审计技能组（负债类 F-13，对应所内科目 2401 / 程序库 F2401）
+- **F-3 采购类·应付票据**（6 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-3-notes-payable]：审小牛AuditOx应付票据审计技能组（负债类F组）
+- **F-4 采购类·应付账款**（8 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-4-accounts-payable]：审小牛AuditOx应付账款审计技能组（负债类F组）
+- **F-6 应付职工薪酬**（10 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-6-payroll-payable]：审小牛AuditOx应付职工薪酬审计技能组（负债类F组）
+- **F-8 预收账款**（4 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-8-advances-from-customers]：预收账款审计技能组（负债类 F-8，对应所内科目 2203 / 程序库 F2203）
+- **F-9 应交税费**（12 张程序卡）[https://aiauditox.l.cd/skill.html?id=f-9-taxes-payable]：应交税费审计技能组（负债类 F-9，对应所内科目 2221 / 程序库 F2221）
+
+### S · 损益类
+
+- **S-1 营业收入**（12 张程序卡）[https://aiauditox.l.cd/skill.html?id=s-1-revenue]：审小牛AuditOx营业收入审计技能组（损益类S组）
+- **S-10 管理费用**（9 张程序卡）[https://aiauditox.l.cd/skill.html?id=s-10-admin-expenses]：管理费用审计技能组（损益类 S-10，对应所内科目 6602 / 程序库 S6602）
+- **S-11 财务费用**（6 张程序卡）[https://aiauditox.l.cd/skill.html?id=s-11-financial-expenses]：财务费用审计技能组（损益类 S-11，对应所内科目 6603 / 程序库 S6603）
+- **S-12 工资费用**（10 张程序卡）[https://aiauditox.l.cd/skill.html?id=s-12-payroll-expenses]：工资费用审计技能组（损益类 S-12，对应所内科目 6604 / 程序库 S6604）
+- **S-14 信用减值损失**（2 张程序卡）[https://aiauditox.l.cd/skill.html?id=s-14-credit-impairment]：信用减值损失审计技能组（损益类 S-14，对应所内科目 6702 / 程序库 S6702）
+- **S-8 税金及附加**（4 张程序卡）[https://aiauditox.l.cd/skill.html?id=s-8-taxes-and-surcharges]：税金及附加审计技能组（损益类 S-8，对应所内科目 6403 / 程序库 S6403）
+- **S-9 销售费用**（9 张程序卡）[https://aiauditox.l.cd/skill.html?id=s-9-selling-expenses]：销售费用审计技能组（损益类 S-9，对应所内科目 6601 / 程序库 S6601）
+
+## 辅助分析类技能（6 个）
+
+技能库之外的另一条线：面向经营与财务分析，把一整套专业方法沉淀为可复用能力。
+
+- **重资产企业财务分析** [https://aiauditox.l.cd/module.html?id=heavy-asset-financial-analysis]：重资产企业财务分析总控（Heavy Asset Financial Analysis Orchestrator）
+- **财务报表分析** [https://aiauditox.l.cd/module.html?id=financial-statement-analysis]：读取资产负债表、利润表、现金流量表、所有者权益变动表的本期与上期数据，完成勾稽校验、结构分析、两年对比、比率与杜邦分解、期望值测算与跨科目一致性检查，输出 Excel 分析工作簿、Word 分析底稿与异常清单
+- **文档识别与结构化** [https://aiauditox.l.cd/module.html?id=doc-ocr-extract]：把合同、增值税发票、票据/银行回单、对账单等原始文件（电子 PDF、扫描件、手机照片、批量目录）转换为可复用的 Markdown 全文与结构化 JSON
+- **函证地址智能核对助手** [https://aiauditox.l.cd/module.html?id=confirmation-address-auditor]：读取银行/客户/供应商询证函地址清单（Excel/CSV/PDF/Word）与工商信息查询截图，完成名称与地址标准化、三级匹配、逐项差异比对、高中低风险识别与审计判断，输出含超链接的 Excel 核对记录表与《函证地址…
+- **通用年报审计项目启动研究** [https://aiauditox.l.cd/module.html?id=universal-annual-audit]：面向年报审计项目启动与风险评估前期，目标是让项目组在进场前真正读懂这家公司
+- **审计工作底稿逆向工程与自动化开发** [https://aiauditox.l.cd/module.html?id=audit-workpaper-reverse-engineering]：读取新的审计底稿 Excel 模板与总账/明细账/科目余额表/辅助核算等原始数据表头，完成底稿结构与源数据结构分析、字段映射候选与人工确认，生成配置驱动的填表流水线，产出填充底稿副本、SQLite 双向数据血缘、Dec…
+
+## 确定性工具（29 个）
+
+纯函数内核，同一输入必然同一输出。工具契约是稳定接口：工具名、参数、输出结构只增不改，历史程序卡不会因工具升级而失效。
+
+- 勾稽重算
+- 余额认定核对
+- 账↔单双向核对
+- 调节表双向重算
+- 阈值判定打标
+- 审计抽样
+- 规则校验
+- 账龄分桶
+- 计提测算
+- 利息测算
+- 截止测试
+- 索引号编制
+- 四段式底稿填充
+- 修订记录生成
+- 证据台账生成
+- 底稿导出 Excel
+- 底稿导出 Word
+- Excel 读取
+- Excel 写入
+- 已知审计公式重算
+- 表格转 CSV
+- CSV 转表格
+- PDF 转 Word
+- PDF 表格转 Excel
+- PDF 合并拆分
+- 文件哈希
+- 批量导入
+- 批量导出
+- 图片文字提取
+
+## 关键页面
+
+- [首页](https://aiauditox.l.cd/)
+- [技能库总览](https://aiauditox.l.cd/skills.html)
+- [程序图谱（190 张程序卡）](https://aiauditox.l.cd/atlas.html)
+- [确定性工具库](https://aiauditox.l.cd/tools.html)
+- [辅助分析类技能](https://aiauditox.l.cd/modules.html)
+- [安装与使用方法](https://aiauditox.l.cd/guide.html)
+- [联系我们](https://aiauditox.l.cd/contact.html)
+
+## 安装与使用
+
+1. 先安装 A-00《审计工作底稿标准》——它是全局制式包，其余技能包都依赖它。
+2. 再安装所需科目的技能组包。单包 18KB ~ 63KB，含 SKILL.md、dsl.json、全部程序卡、工作簿模板、黄金用例。
+3. 解压后把技能组文件夹放进技能目录，重启会话即被识别。
+4. 按技能组的程序分派表逐张执行程序卡，产出 xlsx 底稿 + 同名修订记录 .md。
+5. 下载入口在技能组详情页；SkillHub 商店搜索「审小牛」或安装 `@indiv-27/{slug}`。
+
+## 边界、限制与免责
+
+- 这些程序基于个人审计经历沉淀，以省属国有企业底稿模板为基础设计，**不通用**；换客户类型、换行业、换事务所，很多地方需要自行调整。它是起点，不是标准答案。
+- AI 输出结果不替代注册会计师的职业判断。差异原因、错报认定类结论未经复核不得进正式底稿，技能包内统一标注「待人工确认」。
+- 技能包与文档仅供学习与工作参考，不构成审计意见或专业建议。
+- 免费分享，禁止商用转售或二次打包售卖。
+- 站点不托管任何文件，下载跳转第三方网盘；请勿将客户敏感数据用于公开 AI 服务。
+
+## 联系
+
+- 反馈与需求：https://aiauditox.l.cd/contact.html
+- 邮箱：317950728@qq.com
+- 开源交流群与微信公众号入口见站点「联系我们」页。

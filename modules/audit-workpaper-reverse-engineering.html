@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>审计工作底稿逆向工程与自动化开发 · 辅助分析类技能 | 审小牛 AIAuditOx</title>
+<meta name="description" content="审计工作底稿逆向工程与自动化开发｜审小牛辅助分析类技能。读取新的审计底稿 Excel 模板与总账/明细账/科目余额表/辅助核算等原始数据表头，完成底稿结构与源数据结构分析、字段映射候选与人工确认，生成配置驱动的填表流水线，产出填充底稿副…">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aiauditox.l.cd/modules/audit-workpaper-reverse-engineering.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "TechArticle",
+   "@id": "https://aiauditox.l.cd/modules/audit-workpaper-reverse-engineering.html#article",
+   "headline": "审计工作底稿逆向工程与自动化开发｜审小牛辅助分析类技能",
+   "description": "审计工作底稿逆向工程与自动化开发｜审小牛辅助分析类技能。读取新的审计底稿 Excel 模板与总账/明细账/科目余额表/辅助核算等原始数据表头，完成底稿结构与源数据结构分析、字段映射候选与人工确认，生成配置驱动的填表流水线，产出填充底稿副…",
+   "inLanguage": "zh-CN",
+   "url": "https://aiauditox.l.cd/modules/audit-workpaper-reverse-engineering.html",
+   "isPartOf": {
+    "@id": "https://aiauditox.l.cd/#website"
+   },
+   "publisher": {
+    "@id": "https://aiauditox.l.cd/#organization"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "首页",
+     "item": "https://aiauditox.l.cd/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "辅助分析类技能",
+     "item": "https://aiauditox.l.cd/modules.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "审计工作底稿逆向工程与自动化开发",
+     "item": "https://aiauditox.l.cd/modules/audit-workpaper-reverse-engineering.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<style>
+  .pr-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .pr-crumb{font-size:13px;color:var(--ink-3);padding:26px 0 0;line-height:1.9}
+  .pr-crumb a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line-2)}
+  .pr-crumb a:hover{color:var(--brand);border-color:var(--brand)}
+  .pr-crumb span{color:var(--ink-3);margin:0 6px}
+  .pr-h1{font-size:27px;line-height:1.35;margin:14px 0 0;letter-spacing:-.01em}
+  .pr-lead{font-size:14.5px;color:var(--ink-2);line-height:1.85;margin:14px 0 0;max-width:760px}
+  .pr-meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  .pr-tag{font-size:12px;padding:4px 10px;border-radius:99px;background:var(--surface-2);
+          color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .pr-tag--code{background:var(--brand-50);color:var(--brand);font-weight:600;font-family:var(--font-mono)}
+  .pr-card{margin-top:34px}
+  .pr-h2{font-size:17px;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  .pr-note{font-size:12.5px;color:var(--ink-3);margin:-6px 0 12px;line-height:1.7}
+  .pr-card ul{margin:0;padding-left:20px}
+  .pr-card li{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:5px 0}
+  .pr-card p{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:0 0 10px}
+  .pr-tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+  .pr-tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:680px}
+  .pr-tbl th{text-align:left;padding:10px 12px;background:var(--surface-2);font-size:11.5px;
+             color:var(--ink-3);letter-spacing:.04em;border-bottom:1px solid var(--line);white-space:nowrap}
+  .pr-tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+  .pr-tbl tr:last-child td{border-bottom:0}
+  .pr-tbl a{color:var(--brand);text-decoration:none;font-family:var(--font-mono);font-size:12.5px}
+  .pr-tbl a:hover{text-decoration:underline}
+  .pr-as{display:inline-block;min-width:16px;text-align:center;font-size:11px;font-weight:700;
+         border-radius:3px;padding:1px 3px;margin-right:2px}
+  .pr-as-E{background:var(--as-E-bg);color:var(--as-E)}
+  .pr-as-C{background:var(--as-C-bg);color:var(--as-C)}
+  .pr-as-A{background:var(--as-A-bg);color:var(--as-A)}
+  .pr-as-V{background:var(--as-V-bg);color:var(--as-V)}
+  .pr-as-P{background:var(--as-P-bg);color:var(--as-P)}
+  .pr-mode{font-size:12.5px;color:var(--ink-2)}
+  .pr-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+  .pr-steps li{counter-increment:s;position:relative;padding-left:30px;margin:9px 0}
+  .pr-steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:20px;height:20px;
+    border-radius:50%;background:var(--brand-50);color:var(--brand);font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center}
+  .pr-nav{display:flex;flex-wrap:wrap;gap:10px;margin:40px 0 0}
+  .pr-nav a{font-size:13px;color:var(--ink-2);text-decoration:none;padding:9px 15px;
+            border:1px solid var(--line-2);border-radius:8px;background:var(--surface)}
+  .pr-nav a:hover{border-color:var(--brand);color:var(--brand)}
+  .pr-end{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+          font-size:12.5px;color:var(--ink-3);line-height:1.85}
+  .pr-end a{color:var(--ink-2)}
+  .pr-head{border-bottom:1px solid var(--line);background:var(--surface)}
+  .pr-head__in{max-width:960px;margin:0 auto;padding:13px 24px;display:flex;
+               align-items:center;justify-content:space-between;gap:16px}
+  .pr-head a{font-size:14px;font-weight:650;color:var(--ink);text-decoration:none}
+  .pr-head nav{display:flex;gap:18px;flex-wrap:wrap}
+  .pr-head nav a{font-size:13px;font-weight:400;color:var(--ink-2)}
+  .pr-head nav a:hover{color:var(--brand)}
+  .pr-foot{background:var(--surface);border-top:1px solid var(--line);margin-top:60px}
+  .pr-foot__in{max-width:960px;margin:0 auto;padding:24px;font-size:12.5px;color:var(--ink-3);line-height:1.9}
+  @media (max-width:640px){.pr-h1{font-size:22px}.pr-head nav{display:none}}
+</style>
+
+</head>
+<body>
+
+<header class="pr-head"><div class="pr-head__in">
+  <a href="../index.html">审小牛 AIAuditOx</a>
+  <nav>
+    <a href="../skills.html">技能库</a>
+    <a href="../atlas.html">程序图谱</a>
+    <a href="../tools.html">工具库</a>
+    <a href="../guide.html">使用方法</a>
+  </nav>
+</div></header>
+
+<main class="pr-wrap">
+<div class="pr-crumb"><a href="../index.html">首页</a><span>/</span><a href="../modules.html">辅助分析类技能</a><span>/</span><strong>审计工作底稿逆向工程与自动化开发</strong></div>
+<h1 class="pr-h1">审计工作底稿逆向工程与自动化开发</h1>
+<p class="pr-lead">新底稿模板进，配置驱动的填表程序、数据血缘与本地 EXE 出</p>
+<div class="pr-meta"><span class="pr-tag pr-tag--code">audit-workpaper-reverse-engineering</span><span class="pr-tag ">基础支撑</span><span class="pr-tag ">单体工具型</span><span class="pr-tag ">版本 v1.0.0</span></div>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">技能说明</h2>
+      
+      <p>读取新的审计底稿 Excel 模板与总账/明细账/科目余额表/辅助核算等原始数据表头，完成底稿结构与源数据结构分析、字段映射候选与人工确认，生成配置驱动的填表流水线，产出填充底稿副本、SQLite 双向数据血缘、Decimal 独立复算的勾稽报告与异常报告，并可打包成项目专属的 Windows 本地 EXE。首次调用强制确认数据脱敏与处理边界，未确认不读数据；原始文件只读、映射须确认、差异不调平、血缘双向可溯。</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">定位</h2>
+      
+      <p>把一个新的底稿模板 + 新的原始数据表头/样例适配成一套可重复运行的项目程序。每次项目都必须重新分析、重新确认映射，再生成独立的项目配置和 EXE。技能不预置任何客户字段、科目编码或单元格坐标，避免把上一家客户的结构带进下一家。</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">核心问题</h2>
+      
+      <p>把「一套新底稿模板 + 一批新原始数据」变成可重复运行、可追溯、可交付的项目程序，而不是为某一张固定底稿写死代码。</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">触发场景</h2>
+      
+      <div class="pr-tbl-wrap"><table class="pr-tbl" style="min-width:560px"><thead><tr><th style="width:200px">场景</th><th>用户这样说</th></tr></thead><tbody><tr><td>收到新的审计底稿 Excel 模…</td><td>收到新的审计底稿 Excel 模板，需要改造成自动填表程序</td></tr><tr><td>总账 / 明细账 / 科目余额表…</td><td>总账 / 明细账 / 科目余额表 / 辅助核算 / 资产卡片 / 收入台账 / 成本台账等原始数据的表头与样例需要确认字段映射</td></tr><tr><td>需要任一目标单元格可反查源文件…</td><td>需要任一目标单元格可反查源文件、原始行与计算过程的数据血缘</td></tr><tr><td>需要独立复算的勾稽报告，且差异不…</td><td>需要独立复算的勾稽报告，且差异不允许自动调平</td></tr><tr><td>需要把上述流水线打包成项目专属的…</td><td>需要把上述流水线打包成项目专属的 Windows 本地 EXE</td></tr></tbody></table></div>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">铁律</h2>
+      
+      <ul><li>隐私闸门优先 —— 未确认不读数据。</li><li>原文件只读 —— 禁止覆盖模板或原始数据；写回必须另存副本，并给出原始文件哈希未变的证据。</li><li>配置驱动 —— 项目字段、筛选、坐标和公式不能硬编码进通用程序，只能写进项目配置。</li><li>映射须确认 —— 歧义字段、金额单位、期间、借贷方向和审计判断必须由用户确认，未确认映射默认被拒绝。</li><li>公式不臆测 —— openpyxl 不计算公式，不得把空缓存值当成零；勾稽一律用 Python Decimal 独立复算。</li><li>差异不调平 —— 勾稽失败只生成报告，不得修改数据凑平，任何差异都保留原值与来源。</li><li>血缘必须双向 —— 目标单元格可追溯全部来源记录，源记录可反查全部引用目标，缺一侧即视为血缘不完整。</li><li>格式保留可验证 —— 工作表顺序、合并、冻结、打印区域、隐藏状态、行列尺寸等必须比对；无法保留的高级对象要明确列出。</li><li>不编造专业结论 —— 业务用途、审计逻辑和异常解释证据不足时列为待确认事项，不得补全为确定结论。</li><li>不对外发布 —— 上传网盘、SkillHub、公开仓库或其他外部动作必须先取得用户明确授权。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">工作流程</h2>
+      
+      <ul><li>阶段 0 · 确认与隔离：完成强制脱敏确认，为项目建立独立目录并生成 privacy_gate.json，原始模板与原始数据全程只读。</li><li>阶段 1 · 结构分析：运行 inspect_workbook.py 与 inspect_source_data.py，脚本给事实，AI 负责解释；业务用途只给候选与证据。</li><li>阶段 2 · 审计逻辑与映射：运行 analyze_mapping.py 与 build_mapping.py 产出映射候选，解释依据，歧义项暂停并请用户确认。</li><li>阶段 3 · 项目配置：按配置规范建立 sources / mappings / writes / calculations / reconciliations，项目专属字段只进配置，不进通用引擎。</li><li>阶段 4 · 执行与复核：运行 run_pipeline.py，产出填充底稿、lineage.sqlite3、勾稽报告、异常报告与执行报告；差异只报告不调平。</li><li>阶段 5 · 桌面程序与 EXE：运行 build_desktop_app.py 与 package_exe.py，必须通过内置 --self-test，EXE 不联网、不上传数据。</li><li>阶段 6 · 交付：交付技能与项目目录、配置文件与全部产物、测试结果、已知限制，以及原始文件未被修改的哈希证据。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">输出规范</h2>
+      
+      <ul><li>Skill 能被目标 Agent/Harness 识别，且首次调用先执行脱敏确认。</li><li>模板和源数据可由脚本解析并输出结构化分析。</li><li>映射候选可解释，歧义项经用户确认后固化。</li><li>配置驱动流水线可生成填充底稿副本。</li><li>至少一项正向血缘查询和一项反向血缘查询通过。</li><li>勾稽 pass/fail/unknown 均能报告，差异不自动调平。</li><li>Windows EXE 可打包、可启动、内置自测退出码为 0。</li><li>测试套件全绿，已知限制和未完成项写清楚。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">附带资源（9 项）</h2>
+      
+      <div class="pr-tbl-wrap"><table class="pr-tbl" style="min-width:560px"><thead><tr><th style="width:300px">文件</th><th>说明</th></tr></thead><tbody><tr><td><code style="font-size:12px">references/agent_compatibility.md</code></td><td>跨 Agent 兼容性</td></tr><tr><td><code style="font-size:12px">references/audit_logic.md</code></td><td>审计计算逻辑与专业边界</td></tr><tr><td><code style="font-size:12px">references/config_schema.md</code></td><td>项目配置字段</td></tr><tr><td><code style="font-size:12px">references/data_lineage.md</code></td><td>数据血缘模型</td></tr><tr><td><code style="font-size:12px">references/excel_analysis.md</code></td><td>Excel 底稿与原始数据分析</td></tr><tr><td><code style="font-size:12px">references/exe_development.md</code></td><td>桌面程序与 EXE 开发规范</td></tr><tr><td><code style="font-size:12px">references/field_mapping.md</code></td><td>字段映射规则</td></tr><tr><td><code style="font-size:12px">references/privacy_and_quality.md</code></td><td>隐私、数据边界与质量门</td></tr><tr><td><code style="font-size:12px">references/reconciliation.md</code></td><td>勾稽检查规范</td></tr></tbody></table></div>
+    </section>
+<div class="pr-nav"><a href="../modules.html">← 返回辅助分析类技能</a><a href="../module.html?id=audit-workpaper-reverse-engineering">交互式详情页</a><a href="../skills.html">审计技能库</a></div>
+</main>
+
+<footer class="pr-foot"><div class="pr-foot__in">
+  本页由技能库数据静态生成，内容与站点技能库一致。技能包与文档仅供学习与工作参考，
+  不构成审计意见或专业建议；AI 输出不替代注册会计师的职业判断，标注「待人工确认」的结论未经复核不得用于正式底稿。
+  <br>项目主页 <a href="../index.html">aiauditox.l.cd</a> · 免费分享，禁止商用转售。
+</div></footer>
+
+</body>
+</html>

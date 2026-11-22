@@ -12,6 +12,137 @@
 <script>window._hmt=window._hmt||[];</script>
 <script async src="https://hm.baidu.com/hm.js?c5bdca31d1b27a37c63dce4307c49377"></script>
 <!-- ox:analytics:end -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aiauditox.l.cd/#organization",
+      "name": "审小牛",
+      "alternateName": ["AIAuditOx", "AuditOx", "审小牛审计技能库"],
+      "url": "https://aiauditox.l.cd/",
+      "logo": "https://aiauditox.l.cd/assets/img/favicon.svg",
+      "description": "把财务报表审计程序拆解为可执行 AI 技能包的开源项目：一个科目一个技能组，一道程序一张程序卡，凡能本地算完的一律交给确定性工具。",
+      "email": "317950728@qq.com",
+      "knowsAbout": ["财务报表审计", "审计工作底稿", "审计程序", "审计智能化", "确定性工具", "AI Skill 设计"],
+      "sameAs": [
+        "https://skillhub.cn/user/indiv-27",
+        "https://github.com/Hejunlong27/aiauditox-site"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aiauditox.l.cd/#website",
+      "url": "https://aiauditox.l.cd/",
+      "name": "审小牛 AIAuditOx",
+      "alternateName": "AIAuditOx",
+      "description": "审计程序 Skill 化的审计技能库：27 个技能组、190 张程序卡、29 个内置工具、5 个辅助分析类技能。",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://aiauditox.l.cd/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://aiauditox.l.cd/#skillset",
+      "name": "审小牛审计技能库",
+      "alternateName": "AIAuditOx Skill Library",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "审计底稿编制",
+      "operatingSystem": "Windows, macOS, Linux",
+      "softwareVersion": "2.0.0",
+      "dateModified": "2026-10-10",
+      "inLanguage": "zh-CN",
+      "url": "https://aiauditox.l.cd/skills.html",
+      "description": "27 个审计技能组、190 张程序卡，覆盖资产类 Z、负债类 F、损益类 S 与通用 A。每个技能包含 SKILL.md、逐张程序卡、dsl.json 工具映射、工作簿模板与黄金用例。",
+      "featureList": [
+        "一个会计科目一个技能包，按程序分派表逐张执行",
+        "确定性工具完成勾稽、重算、抽样、索引号、哈希等计算类工作",
+        "四段式底稿制式全局强制",
+        "每张程序卡标注服务认定与执行方式",
+        "差异类结论统一标注「待人工确认」"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY",
+        "description": "免费分享，仅限个人学习与工作使用，禁止商用转售或二次打包售卖。"
+      },
+      "publisher": { "@id": "https://aiauditox.l.cd/#organization" },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aiauditox.l.cd/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "审小牛 AIAuditOx 是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "审小牛是把财务报表审计程序拆解成可执行 AI 技能包的项目。一个会计科目对应一个技能组，一道审计程序对应一张程序卡，每张卡标注服务的认定、执行方式与产出底稿索引号。目前有 27 个技能组、190 张程序卡，覆盖资产类、负债类、损益类与通用制式，权益类仍在建设中。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "审小牛能一键生成审计底稿吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。它做的是把规则明确、输入输出确定、做完一眼能看出对错的机械程序从人手里拿走，例如明细表核对、勾稽重算、账龄分桶、抽样、截止测试、索引号编制。底稿仍需按程序分派表逐张执行，差异原因与错报认定这类结论必须由人判断，未经复核不得进入正式底稿。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "审小牛是免费的吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "免费分享，仅限个人学习与工作使用，禁止商用转售或二次打包售卖。网站不托管任何文件，下载跳转第三方网盘。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "审小牛怎么安装？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先安装 A-00《审计工作底稿标准》，它是全局制式包，规定所有底稿的四段式结构，其余技能包都依赖它；再安装所需科目的技能组包。解压 zip 后把技能组文件夹放进技能目录，重启会话即可被识别。每个包 18KB 到 63KB，内含 SKILL.md、dsl.json、全部程序卡、工作簿模板与黄金用例。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "审小牛支持哪些会计科目？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "目前 27 个技能组、190 张程序卡：资产类 Z 组覆盖库存现金、银行存款、其他货币资金、应收票据、应收账款、预付账款、其他应收款、应收股利、应收利息；负债类 F 组覆盖短期借款、应付票据、应付账款、应付职工薪酬、预收账款、应交税费、应付利息、应付股利、其他应付款、递延收益；损益类 S 组覆盖营业收入、税金及附加、销售费用、管理费用、财务费用、工资费用、信用减值损失；另有通用 A-00 底稿制式标准。权益类 Q 组仍在建设中。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "审小牛的底稿制式是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "四段式：一、项目基本信息（被审计单位、审计期间、编制人、编制日期、审核人、审核日期、索引号七要素）；二、审计目标和程序说明；三、审计程序执行结果（数据表含公式自动计算）；四、审计说明（编号说明行、编制与审核签字行、修订记录伴随声明）。制式由全局技能 A-00 强制，所有技能包必须遵循。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "审小牛适用于哪些客户和行业？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这些程序基于个人审计经历沉淀，以省属国有企业底稿模板为基础设计，并不通用。换客户类型、换行业、换事务所，很多地方需要自行调整。它是起点，不是标准答案。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 生成的审计结论能直接用于正式底稿吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。产品设计上坚持确定性优先：凡能本地算完的一律调用确定性工具，禁止用模型估算；模型只做分析、解释、判断。差异原因说明可由模型起草，但必须标注「待人工确认」，未经复核不得用于正式底稿。AI 输出不替代注册会计师的职业判断，执业风险仍由事务所与签字注册会计师承担。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header id="site-header"></header>
@@ -165,6 +296,59 @@
         </p>
       </div></div>
     </div>
+  </section>
+
+  <!-- ============ 常见问题 ============ -->
+  <section class="section container" id="faq">
+    <div class="section__head">
+      <div>
+        <h2 class="section__title">常见问题</h2>
+        <p class="section__desc">安装、覆盖范围、底稿制式与能力边界，一次性说清。</p>
+      </div>
+    </div>
+    <div class="card"><div class="card__body">
+
+      <h3 style="font-size:15.5px;margin:0 0 8px">审小牛 AIAuditOx 是什么？</h3>
+      <p style="font-size:13.5px;color:var(--ink-2);line-height:1.8;margin:0 0 4px">
+        审小牛是把财务报表审计程序拆解成可执行 AI 技能包的项目。一个会计科目对应一个技能组，一道审计程序对应一张程序卡，每张卡标注服务的认定、执行方式与产出底稿索引号。目前有 27 个技能组、190 张程序卡，覆盖资产类、负债类、损益类与通用制式，权益类仍在建设中。
+      </p>
+
+      <h3 style="font-size:15.5px;margin:22px 0 8px">审小牛能一键生成审计底稿吗？</h3>
+      <p style="font-size:13.5px;color:var(--ink-2);line-height:1.8;margin:0 0 4px">
+        不能。它做的是把规则明确、输入输出确定、做完一眼能看出对错的机械程序从人手里拿走，例如明细表核对、勾稽重算、账龄分桶、抽样、截止测试、索引号编制。底稿仍需按程序分派表逐张执行，差异原因与错报认定这类结论必须由人判断，未经复核不得进入正式底稿。
+      </p>
+
+      <h3 style="font-size:15.5px;margin:22px 0 8px">审小牛是免费的吗？</h3>
+      <p style="font-size:13.5px;color:var(--ink-2);line-height:1.8;margin:0 0 4px">
+        免费分享，仅限个人学习与工作使用，禁止商用转售或二次打包售卖。网站不托管任何文件，下载跳转第三方网盘。
+      </p>
+
+      <h3 style="font-size:15.5px;margin:22px 0 8px">审小牛怎么安装？</h3>
+      <p style="font-size:13.5px;color:var(--ink-2);line-height:1.8;margin:0 0 4px">
+        先安装 A-00《审计工作底稿标准》，它是全局制式包，规定所有底稿的四段式结构，其余技能包都依赖它；再安装所需科目的技能组包。解压 zip 后把技能组文件夹放进技能目录，重启会话即可被识别。每个包 18KB 到 63KB，内含 SKILL.md、dsl.json、全部程序卡、工作簿模板与黄金用例。
+      </p>
+
+      <h3 style="font-size:15.5px;margin:22px 0 8px">审小牛支持哪些会计科目？</h3>
+      <p style="font-size:13.5px;color:var(--ink-2);line-height:1.8;margin:0 0 4px">
+        目前 27 个技能组、190 张程序卡：资产类 Z 组覆盖库存现金、银行存款、其他货币资金、应收票据、应收账款、预付账款、其他应收款、应收股利、应收利息；负债类 F 组覆盖短期借款、应付票据、应付账款、应付职工薪酬、预收账款、应交税费、应付利息、应付股利、其他应付款、递延收益；损益类 S 组覆盖营业收入、税金及附加、销售费用、管理费用、财务费用、工资费用、信用减值损失；另有通用 A-00 底稿制式标准。权益类 Q 组仍在建设中。
+      </p>
+
+      <h3 style="font-size:15.5px;margin:22px 0 8px">审小牛的底稿制式是什么？</h3>
+      <p style="font-size:13.5px;color:var(--ink-2);line-height:1.8;margin:0 0 4px">
+        四段式：一、项目基本信息（被审计单位、审计期间、编制人、编制日期、审核人、审核日期、索引号七要素）；二、审计目标和程序说明；三、审计程序执行结果（数据表含公式自动计算）；四、审计说明（编号说明行、编制与审核签字行、修订记录伴随声明）。制式由全局技能 A-00 强制，所有技能包必须遵循。
+      </p>
+
+      <h3 style="font-size:15.5px;margin:22px 0 8px">审小牛适用于哪些客户和行业？</h3>
+      <p style="font-size:13.5px;color:var(--ink-2);line-height:1.8;margin:0 0 4px">
+        这些程序基于个人审计经历沉淀，以省属国有企业底稿模板为基础设计，并不通用。换客户类型、换行业、换事务所，很多地方需要自行调整。它是起点，不是标准答案。
+      </p>
+
+      <h3 style="font-size:15.5px;margin:22px 0 8px">AI 生成的审计结论能直接用于正式底稿吗？</h3>
+      <p style="font-size:13.5px;color:var(--ink-2);line-height:1.8;margin:0">
+        不能。产品设计上坚持确定性优先：凡能本地算完的一律调用确定性工具，禁止用模型估算；模型只做分析、解释、判断。差异原因说明可由模型起草，但必须标注「待人工确认」，未经复核不得用于正式底稿。AI 输出不替代注册会计师的职业判断，执业风险仍由事务所与签字注册会计师承担。
+      </p>
+
+    </div></div>
   </section>
 
   <!-- ============ 免责声明 ============ -->

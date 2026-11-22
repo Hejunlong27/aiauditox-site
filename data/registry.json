@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-11-12 12:35:49",
+    "generatedAt": "2026-11-22 09:20:37",
     "source": "D:\\编程\\AIAuditOx\\skill-library",
     "counts": {
       "skills": 27,
       "procedures": 190,
       "tools": 15,
       "officeTools": 14,
-      "modules": 5,
+      "modules": 6,
       "templates": 50,
       "cases": 104,
       "assertions": 5
@@ -21129,6 +21129,13 @@
           "05-建议程序库.md"
         ],
         "scripts": [
+          "auditox_common/__init__.py",
+          "auditox_common/docx_style.py",
+          "auditox_common/files.py",
+          "auditox_common/normalization.py",
+          "auditox_common/numeric.py",
+          "auditox_common/office_fingerprint.py",
+          "auditox_common/xlsx_style.py",
           "fs_analysis/__init__.py",
           "fs_analysis/analysis.py",
           "fs_analysis/config.py",
@@ -21217,6 +21224,13 @@
           "04-准确性校验与人工复核.md"
         ],
         "scripts": [
+          "auditox_common/__init__.py",
+          "auditox_common/docx_style.py",
+          "auditox_common/files.py",
+          "auditox_common/normalization.py",
+          "auditox_common/numeric.py",
+          "auditox_common/office_fingerprint.py",
+          "auditox_common/xlsx_style.py",
           "env_check.py",
           "make_sample.py",
           "make_sample_pdf.py",
@@ -21283,11 +21297,35 @@
       "errorHandling": [],
       "antiPatterns": [],
       "extraSections": [],
-      "resources": [],
+      "resources": [
+        {
+          "file": "references/address-rules.md",
+          "desc": "地址标准化与匹配规则库"
+        },
+        {
+          "file": "references/risk-rules.md",
+          "desc": "风险识别规则库与审计判断"
+        },
+        {
+          "file": "references/schema.md",
+          "desc": "输入 / 输出 Schema"
+        },
+        {
+          "file": "references/workpaper-spec.md",
+          "desc": "审计底稿规范《函证地址核对执行记录》"
+        }
+      ],
       "assets": {
         "references": [],
         "scripts": [
           "attachment.py",
+          "auditox_common/__init__.py",
+          "auditox_common/docx_style.py",
+          "auditox_common/files.py",
+          "auditox_common/normalization.py",
+          "auditox_common/numeric.py",
+          "auditox_common/office_fingerprint.py",
+          "auditox_common/xlsx_style.py",
           "make_sample.py",
           "matcher.py",
           "normalizer.py",
@@ -21698,6 +21736,13 @@
           "understanding_baseline.md"
         ],
         "scripts": [
+          "auditox_common/__init__.py",
+          "auditox_common/docx_style.py",
+          "auditox_common/files.py",
+          "auditox_common/normalization.py",
+          "auditox_common/numeric.py",
+          "auditox_common/office_fingerprint.py",
+          "auditox_common/xlsx_style.py",
           "build_overview.py",
           "build_templates.py",
           "calculate_financial_ratios.py",
@@ -21744,6 +21789,275 @@
         "note": "目的是让项目组在进场前读懂这家公司：业务怎么赚钱、在什么行业竞争、被哪些政策监管约束。可用一条命令生成一页图形化的公司概览（00_公司概览.html）：工商信息、股权穿透、集团与分子公司架构、分子公司地域分布（按大区分组的泡泡图，气泡直径即人数）、业务组成、境内外分布、近两年一期财务对比（万元）、未决诉讼与立案调查；每个板块标注来源并附可点网址。三域是主体，风险台账与 PBC 是派生成果。Excel/Word 空白模板由 scripts/build_templates.py 生成。",
         "skillhub": {
           "slug": "aiauditox-universal-annual-audit"
+        }
+      }
+    },
+    {
+      "id": "audit-workpaper-reverse-engineering",
+      "kind": "module",
+      "variant": "tool",
+      "name": "审计工作底稿逆向工程与自动化开发",
+      "fullName": "审计工作底稿逆向工程与自动化开发",
+      "category": "基础支撑",
+      "tagline": "新底稿模板进，配置驱动的填表程序、数据血缘与本地 EXE 出",
+      "order": 6,
+      "version": "1.0.0",
+      "description": "读取新的审计底稿 Excel 模板与总账/明细账/科目余额表/辅助核算等原始数据表头，完成底稿结构与源数据结构分析、字段映射候选与人工确认，生成配置驱动的填表流水线，产出填充底稿副本、SQLite 双向数据血缘、Decimal 独立复算的勾稽报告与异常报告，并可打包成项目专属的 Windows 本地 EXE。首次调用强制确认数据脱敏与处理边界，未确认不读数据；原始文件只读、映射须确认、差异不调平、血缘双向可溯。",
+      "positioning": "把一个**新的底稿模板 + 新的原始数据表头/样例**适配成一套可重复运行的项目程序。每次项目都必须重新分析、重新确认映射，再生成独立的项目配置和 EXE。技能不预置任何客户字段、科目编码或单元格坐标，避免把上一家客户的结构带进下一家。",
+      "coreQuestions": "把「一套新底稿模板 + 一批新原始数据」变成可重复运行、可追溯、可交付的项目程序，而不是为某一张固定底稿写死代码。",
+      "notApplicable": "直接出具审计意见、审计结论或专业判断；未经用户明确确认就读取、解析客户底稿或原始数据；把未脱敏数据提交到外部 AI 服务；无本地文件系统与命令执行能力的纯聊天环境。",
+      "triggers": [
+        {
+          "scene": "收到新的审计底稿 Excel 模…",
+          "say": "收到新的审计底稿 Excel 模板，需要改造成自动填表程序"
+        },
+        {
+          "scene": "总账 / 明细账 / 科目余额表…",
+          "say": "总账 / 明细账 / 科目余额表 / 辅助核算 / 资产卡片 / 收入台账 / 成本台账等原始数据的表头与样例需要确认字段映射"
+        },
+        {
+          "scene": "需要任一目标单元格可反查源文件…",
+          "say": "需要任一目标单元格可反查源文件、原始行与计算过程的数据血缘"
+        },
+        {
+          "scene": "需要独立复算的勾稽报告，且差异不…",
+          "say": "需要独立复算的勾稽报告，且差异不允许自动调平"
+        },
+        {
+          "scene": "需要把上述流水线打包成项目专属的…",
+          "say": "需要把上述流水线打包成项目专属的 Windows 本地 EXE"
+        }
+      ],
+      "ironRules": [
+        {
+          "level": 0,
+          "text": "隐私闸门优先 —— 未确认不读数据。"
+        },
+        {
+          "level": 0,
+          "text": "原文件只读 —— 禁止覆盖模板或原始数据；写回必须另存副本，并给出原始文件哈希未变的证据。"
+        },
+        {
+          "level": 0,
+          "text": "配置驱动 —— 项目字段、筛选、坐标和公式不能硬编码进通用程序，只能写进项目配置。"
+        },
+        {
+          "level": 0,
+          "text": "映射须确认 —— 歧义字段、金额单位、期间、借贷方向和审计判断必须由用户确认，未确认映射默认被拒绝。"
+        },
+        {
+          "level": 0,
+          "text": "公式不臆测 —— openpyxl 不计算公式，不得把空缓存值当成零；勾稽一律用 Python Decimal 独立复算。"
+        },
+        {
+          "level": 0,
+          "text": "差异不调平 —— 勾稽失败只生成报告，不得修改数据凑平，任何差异都保留原值与来源。"
+        },
+        {
+          "level": 0,
+          "text": "血缘必须双向 —— 目标单元格可追溯全部来源记录，源记录可反查全部引用目标，缺一侧即视为血缘不完整。"
+        },
+        {
+          "level": 0,
+          "text": "格式保留可验证 —— 工作表顺序、合并、冻结、打印区域、隐藏状态、行列尺寸等必须比对；无法保留的高级对象要明确列出。"
+        },
+        {
+          "level": 0,
+          "text": "不编造专业结论 —— 业务用途、审计逻辑和异常解释证据不足时列为待确认事项，不得补全为确定结论。"
+        },
+        {
+          "level": 0,
+          "text": "不对外发布 —— 上传网盘、SkillHub、公开仓库或其他外部动作必须先取得用户明确授权。"
+        }
+      ],
+      "architecture": {
+        "diagram": "",
+        "roles": []
+      },
+      "routing": "",
+      "workModes": [],
+      "workflow": [
+        {
+          "level": 0,
+          "text": "阶段 0 · 确认与隔离：完成强制脱敏确认，为项目建立独立目录并生成 privacy_gate.json，原始模板与原始数据全程只读。"
+        },
+        {
+          "level": 0,
+          "text": "阶段 1 · 结构分析：运行 inspect_workbook.py 与 inspect_source_data.py，脚本给事实，AI 负责解释；业务用途只给候选与证据。"
+        },
+        {
+          "level": 0,
+          "text": "阶段 2 · 审计逻辑与映射：运行 analyze_mapping.py 与 build_mapping.py 产出映射候选，解释依据，歧义项暂停并请用户确认。"
+        },
+        {
+          "level": 0,
+          "text": "阶段 3 · 项目配置：按配置规范建立 sources / mappings / writes / calculations / reconciliations，项目专属字段只进配置，不进通用引擎。"
+        },
+        {
+          "level": 0,
+          "text": "阶段 4 · 执行与复核：运行 run_pipeline.py，产出填充底稿、lineage.sqlite3、勾稽报告、异常报告与执行报告；差异只报告不调平。"
+        },
+        {
+          "level": 0,
+          "text": "阶段 5 · 桌面程序与 EXE：运行 build_desktop_app.py 与 package_exe.py，必须通过内置 --self-test，EXE 不联网、不上传数据。"
+        },
+        {
+          "level": 0,
+          "text": "阶段 6 · 交付：交付技能与项目目录、配置文件与全部产物、测试结果、已知限制，以及原始文件未被修改的哈希证据。"
+        }
+      ],
+      "contracts": "",
+      "outputRules": [
+        {
+          "level": 0,
+          "text": "Skill 能被目标 Agent/Harness 识别，且首次调用先执行脱敏确认。"
+        },
+        {
+          "level": 0,
+          "text": "模板和源数据可由脚本解析并输出结构化分析。"
+        },
+        {
+          "level": 0,
+          "text": "映射候选可解释，歧义项经用户确认后固化。"
+        },
+        {
+          "level": 0,
+          "text": "配置驱动流水线可生成填充底稿副本。"
+        },
+        {
+          "level": 0,
+          "text": "至少一项正向血缘查询和一项反向血缘查询通过。"
+        },
+        {
+          "level": 0,
+          "text": "勾稽 pass/fail/unknown 均能报告，差异不自动调平。"
+        },
+        {
+          "level": 0,
+          "text": "Windows EXE 可打包、可启动、内置自测退出码为 0。"
+        },
+        {
+          "level": 0,
+          "text": "测试套件全绿，已知限制和未完成项写清楚。"
+        }
+      ],
+      "errorHandling": [],
+      "antiPatterns": [],
+      "extraSections": [
+        {
+          "title": "输入格式",
+          "body": "- **底稿模板**：`.xlsx` / `.xlsm`（`.xls` 可读，写回需先转格式）。\n- **原始数据**：总账、明细账、科目余额表、辅助核算、资产卡片、收入台账、成本台账等，表头行可为多级，允许合并单元格与隐藏行列。\n- **样例数据**：每个数据角色至少一份可运行样例，用于验证映射与勾稽。\n- 所有输入文件必须先登记到 `privacy_gate.json`，脚本以闸门校验哈希后才读取。"
+        },
+        {
+          "title": "输出结构",
+          "body": "| 产物 | 内容 |\n| --- | --- |\n| 填充底稿副本 | 结构与格式指纹保留，原文件不被覆盖 |\n| `lineage.sqlite3` | 目标单元格 ↔ 源文件/工作表/原始行/字段/规则的双向血缘 |\n| `reconciliation_report.json` | 勾稽项、预期、实际、差异、状态、容差、原因 |\n| `exception_report.xlsx` | 数据异常、待确认项、勾稽失败、格式差异 |\n| `execution_report.json` | 输入哈希、输出清单、限制说明、总体状态 |\n| 项目 EXE | 项目专属桌面程序，内置自测，离线运行 |"
+        },
+        {
+          "title": "使用步骤",
+          "body": "### 阶段 0：确认与隔离\n\n- 完成上面的强制脱敏确认。\n- 为项目建立独立目录，生成新的 `privacy_gate.json`。\n- 原始模板和原始数据只读；所有输出写入独立 run 目录。\n- 不把不同客户、不同期间的文件混入同一项目配置。\n\n### 阶段 1：结构分析\n\n```bash\npython scripts/inspect_workbook.py --privacy-gate <gate> --input <模板.xlsx> --output <项目>/template_analysis.json\npython scripts/inspect_source_data.py --privacy-gate <gate> --input <数据1.xlsx> --input <数据2.xlsx> --output <项目>/source_analysis.json\n```\n\n必须阅读 `references/excel_analysis.md`。脚本给事实，AI 负责解释：\n\n- 工作表、合并单元格、隐藏行列、公式、命名区域、数据验证、批注、打印区域和样式。\n- 多级表头、待填区域、固定内容、公式列和动态明细区域。\n- 原始数据字段类型、唯一标识、日期、金额、科目编码、空值、重复值和异常。\n- 业务用途只能给出“候选 + 证据”，不能仅凭表名下确定结论。\n\n### 阶段 2：审计逻辑与映射\n\n阅读 `references/audit_logic.md` 和 `references/field_mapping.md`，然后：\n\n```bash\npython scripts/analyze_mapping.py --privacy-gate <gate> --workbook-analysis <项目>/template_analysis.json --source-analysis <项目>/source_analysis.json --output <项目>/mapping_proposal.json\npython scripts/build_mapping.py --privacy-gate <gate> --proposal <项目>/mapping_proposal.json --project-id <项目ID> --output <项目>/mapping_draft.json\n```\n\n要求：\n\n- 映射必须解释直接映射、转换、分类、筛选、汇总、关联、公式或多源组合的依据。\n- 检查字段语义、类型、单位、会计科目、业务含义、数据粒度、目标单元格上下文和表间关系。\n- `ambiguous=true`、低分候选、同名字段、金额单位不明、期间/方向不明时，必须暂停并请用户确认。\n- 用户确认后，把确认结果写入项目 `mappings[].confirmed=true` 和 `confirmation_note`。未确认映射默认被流水线拒绝。\n\n### 阶段 3：项目配置\n\n以 `templates/project_config_template.json` 和 `references/config_schema.md` 为基础，为当前项目建立：\n\n- `sources[]`：数据角色、文件、工作表、表头行、唯一记录键。\n- `mappings[]`：筛选、关联、分组、聚合、字段转换和公式。\n- `writes[]`：目标工作表、表头行、起始行、模板行和公式列。\n- `calculations[]`：期初、借贷发生、期末、调整、审定、差异等规则。\n- `reconciliations[]`：明细账/总账/科目余额表/底稿之间的独立复算。\n\n不得把项目专属字段名、客户名、科目编码或单元格坐标写进通用引擎代码；它们只能进入项目配置。\n\n### 阶段 4：执行与复核\n\n```bash\npython scripts/run_pipeline.py --config <项目>/project_config.json --output-dir <输出根目录>\n```\n\n流水线必须产出：\n\n- 填充后的底稿副本。\n- `lineage.sqlite3`：任意目标单元格可反查源文件、工作表、原始行、字段、规则和计算过程。\n- `reconciliation_report.json`：预期、实际、差异、状态、容差和原因。\n- `exception_report.xlsx`：数据异常、待确认项、勾稽失败和格式差异。\n- `execution_report.json`：输入哈希、输出、限制和总体状态。\n\n阅读 `references/data_lineage.md` 与 `references/reconciliation.md`。任何差异不得自动调平；`fail` 和 `unknown` 都必须保留。\n\n### 阶段 5：桌面程序与 EXE\n\n阅读 `references/exe_development.md`，先构建项目专属桌面目录，再打包：\n\n```bash\npython scripts/build_desktop_app.py --config <项目>/project_config.json --output build/<项目名>_app\npython scripts/package_exe.py --app build/<项目名>_app --name <项目名>_Exe --clean\n```\n\n桌面端至少包含：模板选择、原始数据文件选择、结构预览、映射确认、本地处理确认、执行、勾稽结果、异常报告、数据来源查询和输出目录。\n\n打包规则：\n\n- 只在 Windows 上宣称完成 Windows EXE 实机验证。\n- 必须执行 `package_exe.py` 的内置 `--self-test`；失败则不得交付。\n- 首次运行或更换输入文件时，桌面端要求用户重新确认脱敏与本地处理。\n- EXE 不联网、不上传数据；不得加入遥测或云端调用。\n\n### 阶段 6：交付\n\n交付时必须说明：\n\n- 技能/项目目录、安装方法、调用方法。\n- 项目配置、EXE、填充底稿、血缘库、勾稽报告、异常报告。\n- 测试结果、已知限制、尚未确认事项。\n- 原始模板和数据未被修改的哈希证据。"
+        },
+        {
+          "title": "不确定时的处理",
+          "body": "- **用户未回复脱敏确认**：停止，不读取任何文件，不猜测分类。\n- **同一字段有多个候选来源**：列为 `ambiguous`，给出候选与证据，等用户选定。\n- **金额单位或期间不明**：不得自行换算或对齐，标注待确认后再进入映射确认。\n- **公式结果无法验证**：以 Python 独立复算为准，报告中注明 Excel 缓存值不可信。\n- **勾稽出现差异**：保留 fail / unknown，输出原因候选，交人工判断。\n- **EXE 自测失败**：不得交付，回退到脚本形态并报告失败环节。"
+        },
+        {
+          "title": "已知限制",
+          "body": "- openpyxl 不计算公式，也不生成公式缓存值；因此所有勾稽都在 Python 侧独立复算。\n- 宏、控件、外部链接和部分高级图表无法保证无损，程序会输出结构指纹差异。\n- `.xls` 可读取，但写回要求先转换为 `.xlsx` / `.xlsm`。\n- 执行阶段按 `max_source_rows` 限制内存，超大账套需要拆分或改流式处理。\n- 复杂多表区、非标准多级表头与专业判断仍需 Agent 与用户复核。\n- 不支持本地文件访问或命令执行的纯聊天产品无法完成实际流水线。\n- EXE 代码签名、企业白名单与 SmartScreen 不在自动交付范围内。"
+        }
+      ],
+      "resources": [
+        {
+          "file": "references/agent_compatibility.md",
+          "desc": "跨 Agent 兼容性"
+        },
+        {
+          "file": "references/audit_logic.md",
+          "desc": "审计计算逻辑与专业边界"
+        },
+        {
+          "file": "references/config_schema.md",
+          "desc": "项目配置字段"
+        },
+        {
+          "file": "references/data_lineage.md",
+          "desc": "数据血缘模型"
+        },
+        {
+          "file": "references/excel_analysis.md",
+          "desc": "Excel 底稿与原始数据分析"
+        },
+        {
+          "file": "references/exe_development.md",
+          "desc": "桌面程序与 EXE 开发规范"
+        },
+        {
+          "file": "references/field_mapping.md",
+          "desc": "字段映射规则"
+        },
+        {
+          "file": "references/privacy_and_quality.md",
+          "desc": "隐私、数据边界与质量门"
+        },
+        {
+          "file": "references/reconciliation.md",
+          "desc": "勾稽检查规范"
+        }
+      ],
+      "assets": {
+        "references": [],
+        "scripts": [
+          "analyze_mapping.py",
+          "app/__init__.py",
+          "app/desktop_app.py",
+          "awre/__init__.py",
+          "awre/excel_analysis.py",
+          "awre/lineage.py",
+          "awre/mapping.py",
+          "awre/pipeline.py",
+          "awre/privacy.py",
+          "awre/reconciliation.py",
+          "awre/source_analysis.py",
+          "awre/table.py",
+          "awre/util.py",
+          "awre/writer.py",
+          "build_desktop_app.py",
+          "build_mapping.py",
+          "build_skill_package.py",
+          "cli_common.py",
+          "create_demo_project.py",
+          "excel_writer.py",
+          "inspect_source_data.py",
+          "inspect_workbook.py",
+          "install_skill.py",
+          "lineage_engine.py",
+          "package_exe.py",
+          "privacy_gate.py",
+          "reconciliation_engine.py",
+          "run_pipeline.py",
+          "validate_skill.py"
+        ],
+        "examples": []
+      },
+      "changelog": [
+        {
+          "date": "2026-11-22",
+          "content": "增加跨 Agent/Harness 能力契约与多技能根目录安装；不再依赖单一 Agent 产品。"
+        },
+        {
+          "date": "2026-11-22",
+          "content": "首次发布：通用底稿/数据解析、字段映射建议、配置驱动填充、SQLite 血缘、勾稽检查、桌面程序与 EXE 打包流程。"
+        }
+      ],
+      "lastUpdated": "2026-11-22",
+      "download": {
+        "provider": "quark",
+        "url": "",
+        "code": "",
+        "size": "约 342 KB（67 文件，无二进制）",
+        "format": ".zip（SKILL.md + scripts/ 通用引擎与 CLI + references/ 9 份文档 + assets/ 模板 + tests/ 8 组用例 + examples/ 结构化样例）",
+        "note": "配置驱动：新底稿模板与新原始数据每次重新分析、重新确认映射。示例 Excel 与运行产物不入包，用 scripts/create_demo_project.py 一键重建。",
+        "skillhub": {
+          "slug": "aiauditox-audit-workpaper-reverse-engineering"
         }
       }
     }

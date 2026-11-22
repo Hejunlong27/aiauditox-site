@@ -1,0 +1,48 @@
+# 审小牛 AIAuditOx · robots.txt
+# 设计意图：全站对搜索引擎与 AI 爬虫开放，显式列出主流 AI 引擎，降低抓取门槛。
+
+User-agent: *
+Allow: /
+Disallow: /data/registry.json
+
+# ---- 生成式引擎 / AI 爬虫：显式允许 ----
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+User-agent: YisouSpider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://aiauditox.l.cd/sitemap.xml

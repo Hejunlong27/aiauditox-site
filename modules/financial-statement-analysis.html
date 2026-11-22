@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>财务报表分析程序 · 辅助分析类技能 | 审小牛 AIAuditOx</title>
+<meta name="description" content="财务报表分析程序｜审小牛辅助分析类技能。读取资产负债表、利润表、现金流量表、所有者权益变动表的本期与上期数据，完成勾稽校验、结构分析、两年对比、比率与杜邦分解、期望值测算与跨科目一致性检查，输出 Excel 分析工作簿、…">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aiauditox.l.cd/modules/financial-statement-analysis.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "TechArticle",
+   "@id": "https://aiauditox.l.cd/modules/financial-statement-analysis.html#article",
+   "headline": "财务报表分析程序｜审小牛辅助分析类技能",
+   "description": "财务报表分析程序｜审小牛辅助分析类技能。读取资产负债表、利润表、现金流量表、所有者权益变动表的本期与上期数据，完成勾稽校验、结构分析、两年对比、比率与杜邦分解、期望值测算与跨科目一致性检查，输出 Excel 分析工作簿、…",
+   "inLanguage": "zh-CN",
+   "url": "https://aiauditox.l.cd/modules/financial-statement-analysis.html",
+   "isPartOf": {
+    "@id": "https://aiauditox.l.cd/#website"
+   },
+   "publisher": {
+    "@id": "https://aiauditox.l.cd/#organization"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "首页",
+     "item": "https://aiauditox.l.cd/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "辅助分析类技能",
+     "item": "https://aiauditox.l.cd/modules.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "财务报表分析",
+     "item": "https://aiauditox.l.cd/modules/financial-statement-analysis.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<style>
+  .pr-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .pr-crumb{font-size:13px;color:var(--ink-3);padding:26px 0 0;line-height:1.9}
+  .pr-crumb a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line-2)}
+  .pr-crumb a:hover{color:var(--brand);border-color:var(--brand)}
+  .pr-crumb span{color:var(--ink-3);margin:0 6px}
+  .pr-h1{font-size:27px;line-height:1.35;margin:14px 0 0;letter-spacing:-.01em}
+  .pr-lead{font-size:14.5px;color:var(--ink-2);line-height:1.85;margin:14px 0 0;max-width:760px}
+  .pr-meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  .pr-tag{font-size:12px;padding:4px 10px;border-radius:99px;background:var(--surface-2);
+          color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .pr-tag--code{background:var(--brand-50);color:var(--brand);font-weight:600;font-family:var(--font-mono)}
+  .pr-card{margin-top:34px}
+  .pr-h2{font-size:17px;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  .pr-note{font-size:12.5px;color:var(--ink-3);margin:-6px 0 12px;line-height:1.7}
+  .pr-card ul{margin:0;padding-left:20px}
+  .pr-card li{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:5px 0}
+  .pr-card p{font-size:13.8px;line-height:1.85;color:var(--ink-2);margin:0 0 10px}
+  .pr-tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+  .pr-tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:680px}
+  .pr-tbl th{text-align:left;padding:10px 12px;background:var(--surface-2);font-size:11.5px;
+             color:var(--ink-3);letter-spacing:.04em;border-bottom:1px solid var(--line);white-space:nowrap}
+  .pr-tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+  .pr-tbl tr:last-child td{border-bottom:0}
+  .pr-tbl a{color:var(--brand);text-decoration:none;font-family:var(--font-mono);font-size:12.5px}
+  .pr-tbl a:hover{text-decoration:underline}
+  .pr-as{display:inline-block;min-width:16px;text-align:center;font-size:11px;font-weight:700;
+         border-radius:3px;padding:1px 3px;margin-right:2px}
+  .pr-as-E{background:var(--as-E-bg);color:var(--as-E)}
+  .pr-as-C{background:var(--as-C-bg);color:var(--as-C)}
+  .pr-as-A{background:var(--as-A-bg);color:var(--as-A)}
+  .pr-as-V{background:var(--as-V-bg);color:var(--as-V)}
+  .pr-as-P{background:var(--as-P-bg);color:var(--as-P)}
+  .pr-mode{font-size:12.5px;color:var(--ink-2)}
+  .pr-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+  .pr-steps li{counter-increment:s;position:relative;padding-left:30px;margin:9px 0}
+  .pr-steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:20px;height:20px;
+    border-radius:50%;background:var(--brand-50);color:var(--brand);font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center}
+  .pr-nav{display:flex;flex-wrap:wrap;gap:10px;margin:40px 0 0}
+  .pr-nav a{font-size:13px;color:var(--ink-2);text-decoration:none;padding:9px 15px;
+            border:1px solid var(--line-2);border-radius:8px;background:var(--surface)}
+  .pr-nav a:hover{border-color:var(--brand);color:var(--brand)}
+  .pr-end{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+          font-size:12.5px;color:var(--ink-3);line-height:1.85}
+  .pr-end a{color:var(--ink-2)}
+  .pr-head{border-bottom:1px solid var(--line);background:var(--surface)}
+  .pr-head__in{max-width:960px;margin:0 auto;padding:13px 24px;display:flex;
+               align-items:center;justify-content:space-between;gap:16px}
+  .pr-head a{font-size:14px;font-weight:650;color:var(--ink);text-decoration:none}
+  .pr-head nav{display:flex;gap:18px;flex-wrap:wrap}
+  .pr-head nav a{font-size:13px;font-weight:400;color:var(--ink-2)}
+  .pr-head nav a:hover{color:var(--brand)}
+  .pr-foot{background:var(--surface);border-top:1px solid var(--line);margin-top:60px}
+  .pr-foot__in{max-width:960px;margin:0 auto;padding:24px;font-size:12.5px;color:var(--ink-3);line-height:1.9}
+  @media (max-width:640px){.pr-h1{font-size:22px}.pr-head nav{display:none}}
+</style>
+
+</head>
+<body>
+
+<header class="pr-head"><div class="pr-head__in">
+  <a href="../index.html">审小牛 AIAuditOx</a>
+  <nav>
+    <a href="../skills.html">技能库</a>
+    <a href="../atlas.html">程序图谱</a>
+    <a href="../tools.html">工具库</a>
+    <a href="../guide.html">使用方法</a>
+  </nav>
+</div></header>
+
+<main class="pr-wrap">
+<div class="pr-crumb"><a href="../index.html">首页</a><span>/</span><a href="../modules.html">辅助分析类技能</a><span>/</span><strong>财务报表分析</strong></div>
+<h1 class="pr-h1">财务报表分析程序</h1>
+<p class="pr-lead">四张报表进，可复算、可追溯的分析底稿出</p>
+<div class="pr-meta"><span class="pr-tag pr-tag--code">financial-statement-analysis</span><span class="pr-tag ">财务分析</span><span class="pr-tag ">单体工具型</span><span class="pr-tag ">版本 v1.0.0</span></div>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">技能说明</h2>
+      
+      <p>读取资产负债表、利润表、现金流量表、所有者权益变动表的本期与上期数据，完成勾稽校验、结构分析、两年对比、比率与杜邦分解、期望值测算与跨科目一致性检查，输出 Excel 分析工作簿、Word 分析底稿与异常清单。</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">定位</h2>
+      
+      <p>把审计准则要求执行的分析程序，从&quot;算一堆比率、写一句无重大异常&quot;变成一份可复算、可追溯、带异常线索和建议程序的分析底稿。</p><p>使用者是执行财务报表审计的审计人员。本 Skill 负责计算、比对、找差异、给线索；结论、定性和审计意见始终由签字人作出。</p>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">触发场景</h2>
+      
+      <div class="pr-tbl-wrap"><table class="pr-tbl" style="min-width:560px"><thead><tr><th style="width:200px">场景</th><th>用户这样说</th></tr></thead><tbody><tr><td>已取得被审计单位已定稿的四张报表…</td><td>已取得被审计单位已定稿的四张报表（资产负债表、利润表、现金流量表、所有者权益变动表），且至少包含本期与上期两期数据。</td></tr><tr><td>需要形成风险评估阶段的分析程序底…</td><td>需要形成风险评估阶段的分析程序底稿，或期末总体分析性复核底稿。</td></tr><tr><td>需要快速定位异常科目、编制待询问…</td><td>需要快速定位异常科目、编制待询问客户问题清单。</td></tr></tbody></table></div>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">铁律</h2>
+      
+      <ul><li>异常分级口径 —— 分级表示关注强度，不是审计结论。</li><li>可容忍差异 —— 可容忍差异 = max(重要性水平 × 比例, |期望值| × 容差率)</li><li>变动率的适用条件 —— 上期金额为零或为负时，变动率在数学上不成立或无意义，一律标记&quot;变动率不适用&quot;，改用绝对额变动与重要性水平比较。</li><li>两年期的能力边界 —— 只有两期数据时，不具备做时间序列统计离群（波动率、回归残差）的条件。</li><li>事实与推测分离 —— 底稿中，&quot;本期金额&quot;&quot;差异额&quot;&quot;差异率&quot;是事实；&quot;可能成因&quot;&quot;建议程序&quot;是线索与建议，必须分列在不同栏位。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">工作流程</h2>
+      
+      <ul><li>加载与映射：识别四张表、定位表头、解析项目与两期金额、按别名表映射到标准项目，未识别的项目全部记录，不做静默丢弃。</li><li>数据校验：勾稽关系、期间完整性、零分母与负值、映射缺失率。差异超出容忍额时标注&quot;注意&quot;或&quot;不符&quot;。</li><li>结构分析：各项目占总额（资产负债表按资产总计、利润表按营业收入）的比重及两期变动（百分点）。</li><li>两年对比：同比变动额、变动率；上期为零或为负时变动率不适用并明确标注。</li><li>比率分析：偿债、营运、盈利、现金流质量、成长性五组比率，加杜邦分解。周转率使用两期平均余额。每项比率给出本期、上期、变动与方向判断。</li><li>期望值模型：按驱动关系测算&quot;应该有多少&quot;，而非只看变动率。收入与成本配比、费用率配比、资产负债表科目按业务量驱动测算；差异与可容忍差异比较。</li><li>跨科目一致性检查：识别互相矛盾的现象，如收入增长而应收账款增长更快、净利润增长而经营现金流下降、毛利率异常变动等。</li><li>异常分级与汇总：合并所有异常，按 L1/L2/L3 分级，附可能成因与建议程序。</li><li>出报告：Excel 分析工作簿、Word 分析底稿草稿、异常清单 CSV、运行日志。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">输出规范</h2>
+      
+      <ul><li>四张表全部被识别，未映射项目已逐条看过，不是静默丢弃。</li><li>金额单位识别正确，&quot;万元&quot;没有被当成&quot;元&quot;。</li><li>数据校验页的重大勾稽差异已查明原因。</li><li>随机抽取 10 个异常，手工复算差异额与差异率，结果一致。</li><li>每个异常都能追溯到具体报表、项目与期间。</li><li>上期为零或为负的项目，变动率列显示&quot;不适用&quot;而不是空白或错误百分比。</li><li>结论栏为空，没有代写结论；事实与推测分列。</li><li>行业对比页留空并标注数据来源由使用人填列。</li><li>底稿能直接并入现有工作底稿，不需要重新排版。</li></ul>
+    </section>
+
+    <section class="pr-card">
+      <h2 class="pr-h2">附带资源（5 项）</h2>
+      
+      <div class="pr-tbl-wrap"><table class="pr-tbl" style="min-width:560px"><thead><tr><th style="width:300px">文件</th><th>说明</th></tr></thead><tbody><tr><td><code style="font-size:12px">rules/01-科目映射.md</code></td><td>科目映射规则</td></tr><tr><td><code style="font-size:12px">rules/02-比率定义.md</code></td><td>比率定义与判定方向</td></tr><tr><td><code style="font-size:12px">rules/03-阈值与重要性.md</code></td><td>阈值与重要性</td></tr><tr><td><code style="font-size:12px">rules/04-常见成因库.md</code></td><td>常见成因库</td></tr><tr><td><code style="font-size:12px">rules/05-建议程序库.md</code></td><td>建议程序库</td></tr></tbody></table></div>
+    </section>
+<div class="pr-nav"><a href="../modules.html">← 返回辅助分析类技能</a><a href="../module.html?id=financial-statement-analysis">交互式详情页</a><a href="../skills.html">审计技能库</a></div>
+</main>
+
+<footer class="pr-foot"><div class="pr-foot__in">
+  本页由技能库数据静态生成，内容与站点技能库一致。技能包与文档仅供学习与工作参考，
+  不构成审计意见或专业建议；AI 输出不替代注册会计师的职业判断，标注「待人工确认」的结论未经复核不得用于正式底稿。
+  <br>项目主页 <a href="../index.html">aiauditox.l.cd</a> · 免费分享，禁止商用转售。
+</div></footer>
+
+</body>
+</html>
